@@ -1,11 +1,4 @@
-﻿title: Start
----
-Suspect1: I can explain!
-Suspect2: No you cannot. 
-===
-
-
-title: BradleyClue0
+﻿title: BradleyClue0
 ---
 Bradley: I love watermelon.
 ===
@@ -38,4 +31,10 @@ title: MaggieClue2
 ---
 Maggie: My dad brushes my hair.
 Maggie: My sisters all have black hair too. 
+===
+
+
+title: DemoCaseSuccess
+---
+Maggie: You were right, he was totally guilty. Thanks! 
 ===
