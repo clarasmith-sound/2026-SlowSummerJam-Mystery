@@ -12,29 +12,60 @@ public class AudioDialogueYarnPresenter : DialoguePresenterBase
 
     private EventInstance _currentVoiceInstance;
 
+    public override YarnTask OnDialogueStartedAsync() => YarnTask.CompletedTask;
+
+    public override YarnTask OnDialogueCompleteAsync() => YarnTask.CompletedTask;
+
     public override async YarnTask RunLineAsync(LocalizedLine line, LineCancellationToken token)
     {
         string lineID = line.TextID;
+        string character = line.CharacterName ?? "Unknown";
 
         try
         {
-            _currentVoiceInstance = RuntimeManager.CreateInstance(fmodEventPath);
+            FMOD.GUID eventGUID = RuntimeManager.PathToGUID(fmodEventPath);
+            _currentVoiceInstance = RuntimeManager.CreateInstance(eventGUID);
 
-             GCHandle stringHandle = GCHandle.Alloc(lineID, GCHandleType.Pinned);
+            _currentVoiceInstance.setParameterByNameWithLabel("Character", character);
+            
+            GCHandle stringHandle = GCHandle.Alloc(lineID, GCHandleType.Pinned);
             _currentVoiceInstance.setUserData(GCHandle.ToIntPtr(stringHandle));
+
+            _currentVoiceInstance.start();
+
+            while(IsAudioPlaying(_currentVoiceInstance))
+            {
+                if(token.IsNextContentRequested)
+                {
+                    _currentVoiceInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    break;
+                }
+
+                await YarnTask.Yield();
+            }
+            if(stringHandle.IsAllocated)
+            {
+                stringHandle.Free();
+            }
+        }
+        catch(Exception ex)
+        {
+            Debug.LogError($"Error playing dialogue line '{lineID}' for character '{character}': {ex.Message}");
+        }
+        finally
+        {
+            _currentVoiceInstance.release();
         }
     }
 
-    public override async YarnTask OnDialogueStartedAsync()
+    private bool IsAudioPlaying(EventInstance instance)
     {
-        // Implementation for when dialogue starts
+        if (instance.isValid())
+        {
+            instance.getPlaybackState(out PLAYBACK_STATE state);
+            return state == PLAYBACK_STATE.PLAYING;
+        }
+        return false;
     }
-
-    public override async YarnTask OnDialogueCompleteAsync()
-    {
-        // Implementation for when dialogue completes
-    }
-
-
 
 }

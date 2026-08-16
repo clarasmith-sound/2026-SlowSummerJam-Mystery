@@ -5,7 +5,7 @@
 			<value>DialogueLines</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{86df9fbd-8d23-41f2-a25c-d9c1855b13a1}</destination>
@@ -30,6 +30,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{53ffd7e7-044f-473d-b71d-75b0bb4bfba6}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{3febf8c4-ba0e-4f0c-b37c-b113cbc4c8de}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{f8dc809f-4e03-48f5-83a7-3e99746e650e}">
@@ -97,9 +100,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{f4b43bf1-9f33-41ba-87a5-a3542e7e15d9}" />
 	<object class="ProgrammerSound" id="{31b329b1-09ef-4028-87b3-78ab97d1cc73}">
-		<property name="outputFormat">
-			<value>1</value>
-		</property>
 		<relationship name="placeholder">
 			<destination>{1eef8c79-bd1d-453e-a0d7-da4911c829e5}</destination>
 		</relationship>

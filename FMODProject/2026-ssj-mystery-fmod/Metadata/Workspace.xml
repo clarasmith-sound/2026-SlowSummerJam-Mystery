@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Workspace" id="{7534f49f-db5e-4d28-a419-44beee6fa451}">
-		<property name="builtBanksOutputDirectory" />
 		<relationship name="masterEventFolder">
 			<destination>{e68afa65-80c7-46a1-8930-87fd1eeab92e}</destination>
 		</relationship>
@@ -31,6 +30,9 @@
 		</relationship>
 		<relationship name="platforms">
 			<destination>{7dff5b81-930f-436e-a611-c5f33d588cd8}</destination>
+		</relationship>
+		<relationship name="locales">
+			<destination>{39cbabe8-7335-4d45-82f1-9be7804cb489}</destination>
 		</relationship>
 	</object>
 </objects>

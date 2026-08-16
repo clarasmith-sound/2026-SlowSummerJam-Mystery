@@ -15,5 +15,5 @@ ScriptedImporter:
   useAddressableAssets: 0
   unityLocalisationStringTableCollectionGUID: 
   UseUnityLocalisationSystem: 0
-  useCustomLineTagger: 0
-  lineTaggerClass: 
+  useCustomLineTagger: 1
+  lineTaggerClass: Yarn.Compiler.DescriptiveLineTagGenerator
