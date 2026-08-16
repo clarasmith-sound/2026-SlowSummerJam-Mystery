@@ -1,15 +1,12 @@
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 using FMODUnity;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public CameraManager cameraManager;
-    public UIDocument inspectionUIDoc;
-    private VisualElement inspectionUI;
     private GameObject[] allSuspects;
+    [SerializeField] private InspectionVisualManager inspectionVisualManager;
 
     // TODO: Don't hard code the suspects (attach prefab GameObject to the scriptable object and instantiate from there)
     public SuspectController kid1; // dont do this
@@ -47,36 +44,12 @@ public class GameManager : MonoBehaviour
         allSuspects = GameObject.FindGameObjectsWithTag("Suspect");
     }
 
-    // TODO: split this out into a visual manager
-    public void OnEnable()
-    {
-        inspectionUI = inspectionUIDoc.rootVisualElement;
-        inspectionUI.Q<Button>("ExitInspection").clicked += EndInspection;
-    }
-
-    public void OnDisable()
-    {
-        inspectionUI.Q<Button>("ExitInspection").clicked -= EndInspection;
-    }
-
     public void StartInspection(GameObject targetSuspect)
     {
-        inspectionUI.Q<VisualElement>("Clues").Clear();
+        inspectionVisualManager.StartInspection(targetSuspect);
         cameraManager.MoveToInspection(targetSuspect);
         foreach (GameObject suspect in allSuspects)
             if (suspect != targetSuspect) suspect.GetComponent<SuspectController>().state = SuspectState.Blurred;
-
-        SuspectSO suspectData = targetSuspect.GetComponent<SuspectController>().suspectData;
-        foreach (Clue clue in suspectData.clues)
-        {
-            VisualTreeAsset clueAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/PermanentRecordClue.uxml");
-            VisualElement clueUI = clueAsset.Instantiate();
-            clueUI.dataSource = clue;
-            inspectionUI.Q<VisualElement>("Clues").Add(clueUI);
-        }
-        inspectionUI.Q<VisualElement>("PermanentRecord").dataSource = suspectData;
-        inspectionUI.Q<VisualElement>("PermanentRecord").RemoveFromClassList("hidden");
-        inspectionUI.Q<Button>("ExitInspection").style.display = DisplayStyle.Flex;
     }
 
     public void EndInspection()
@@ -84,8 +57,6 @@ public class GameManager : MonoBehaviour
         cameraManager.MoveToDefault();
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().RestoreToReady();
-        inspectionUI.Q<VisualElement>("PermanentRecord").AddToClassList("hidden");
-        inspectionUI.Q<Button>("ExitInspection").style.display = DisplayStyle.None;
     }
 
     public void PlaySuspectHoverSound()
