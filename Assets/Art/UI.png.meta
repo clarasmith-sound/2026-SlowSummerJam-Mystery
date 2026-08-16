@@ -348,7 +348,7 @@ TextureImporter:
         height: 202
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 118, y: 98, z: 93, w: 100}
       customData: 
       outline: []
       physicsShape: []
@@ -382,6 +382,116 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_arrow
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 1950
+        width: 76
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a293a12a71d7cb489cd7acd853d5c8d
+      internalID: 1846317298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_dialogueLabel
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1941
+        width: 282
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec93245650368fb42b4ff7c625bb6c58
+      internalID: -1701186701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1921
+        width: 347
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c067111d32d324ea1886b52557d9fe
+      internalID: -571982699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_14
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 1790
+        width: 353
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9bfd29dcd15f5f44a1fb4ac3f0c0d6c
+      internalID: -1708307500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_15
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1410
+        width: 229
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 118, y: 106, z: 106, w: 100}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d9f09af16938b6418944f73911e1c01
+      internalID: 370160111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -404,14 +514,20 @@ TextureImporter:
       UI_11: 530779322
       UI_12: 1255262352
       UI_13: 1946861
+      UI_14: -1708307500
+      UI_15: 370160111
       UI_2: 1417401242
       UI_3: 450507457
       UI_4: 667777397
       UI_5: -1342562650
-      UI_6: -941835146
+      UI_6: -571982699
       UI_7: -1724084289
       UI_8: 1499576082
       UI_9: 1854649663
+      UI_arrow: -941835146
+      UI_dialogueBox1: 951378813
+      UI_dialogueBox2: -985966099
+      UI_dialogueLabel: -1701186701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
