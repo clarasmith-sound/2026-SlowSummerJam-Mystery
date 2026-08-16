@@ -57,6 +57,12 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShot(eventReference);
     }
 
+    public void PlayLoopingSound(EventReference eventReference, out EventInstance eventInstance)
+    {
+        eventInstance = RuntimeManager.CreateInstance(eventReference);
+        eventInstance.start();
+    }
+
     public void PlayMusic(EventReference eventReference)
     {
         if (eventReference.IsNull) return;

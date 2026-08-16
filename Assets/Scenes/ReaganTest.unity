@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 113694256}
   - component: {fileID: 113694255}
   - component: {fileID: 113694257}
+  - component: {fileID: 113694258}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -155,6 +156,13 @@ MonoBehaviour:
   bradley: {fileID: 11400000, guid: 1b08b0c6d7fd3ff49a3f275ffc1eff3f, type: 2}
   kid2: {fileID: 1336137931}
   maggie: {fileID: 11400000, guid: 644004e4a44565b4792f73395c5f2fe4, type: 2}
+  suspectHoverSound:
+    Guid:
+      Data1: -36675197
+      Data2: 1091595534
+      Data3: 1542981033
+      Data4: -871487486
+    Path: event:/SFX/SuspectHover
 --- !u!4 &113694256
 Transform:
   m_ObjectHideFlags: 0
@@ -187,6 +195,25 @@ MonoBehaviour:
   Desk: {fileID: 730087442}
   deskMoveAmt: {x: 0, y: -0.35, z: 0}
   backgroundBlur: {fileID: 150058392}
+--- !u!114 &113694258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113694254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9314c72305ff9044b67efff9a96fdd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSceneManager
+  ambienceSound:
+    Guid:
+      Data1: -1267808106
+      Data2: 1240879961
+      Data3: 1655741062
+      Data4: -1280410417
+    Path: event:/Ambience/Ambience
 --- !u!1 &150058391
 GameObject:
   m_ObjectHideFlags: 0

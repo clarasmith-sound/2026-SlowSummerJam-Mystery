@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using FMODUnity;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
     public SuspectSO bradley;// dont do this
     public SuspectController kid2;// dont do this
     public SuspectSO maggie;// dont do this
+
+    [Header("Audio")]
+    [SerializeField] private EventReference suspectHoverSound;
 
     private void Awake()
     {
@@ -82,5 +86,10 @@ public class GameManager : MonoBehaviour
             suspect.GetComponent<SuspectController>().RestoreToReady();
         inspectionUI.Q<VisualElement>("PermanentRecord").AddToClassList("hidden");
         inspectionUI.Q<Button>("ExitInspection").style.display = DisplayStyle.None;
+    }
+
+    public void PlaySuspectHoverSound()
+    {
+        AudioManager.Instance.PlaySound2D(suspectHoverSound);
     }
 }
