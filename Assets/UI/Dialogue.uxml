@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="DialogueRoot" style="position: absolute; bottom: 100px; width: 60%; height: 300px; margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto; left: 20%; right: 20%; background-color: rgb(214, 214, 214); align-items: flex-start; display: none;">
+        <ui:VisualElement name="speaker-name" style="background-color: rgb(195, 195, 195); padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; margin-top: -8px; margin-left: -8px;">
+            <ui:Label text="Maggie" name="speech-speaker" style="font-size: 24px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="dialogue-content" style="flex-grow: 1; width: 100%; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px;">
+            <ui:Label text="Label" name="speech-text"/>
+        </ui:VisualElement>
+        <ui:Button text="Next" name="Continue" style="align-self: flex-end;"/>
+    </ui:VisualElement>
+</ui:UXML>
