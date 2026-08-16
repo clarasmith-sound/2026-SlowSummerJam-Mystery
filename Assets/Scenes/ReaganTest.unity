@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   cameraManager: {fileID: 113694257}
-  inspectionUIDoc: {fileID: 1831108607}
+  inspectionVisualManager: {fileID: 1831108608}
   kid1: {fileID: 1700199517}
   bradley: {fileID: 11400000, guid: 1b08b0c6d7fd3ff49a3f275ffc1eff3f, type: 2}
   kid2: {fileID: 1336137931}
@@ -2780,6 +2780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831108606}
   - component: {fileID: 1831108607}
+  - component: {fileID: 1831108608}
   m_Layer: 0
   m_Name: InspectionUI
   m_TagString: Untagged
@@ -2825,6 +2826,19 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &1831108608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831108605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386a8d4401bd096498241bd32c432cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InspectionVisualManager
+  inspectionUIDoc: {fileID: 1831108607}
 --- !u!1 &1893716661
 GameObject:
   m_ObjectHideFlags: 0
