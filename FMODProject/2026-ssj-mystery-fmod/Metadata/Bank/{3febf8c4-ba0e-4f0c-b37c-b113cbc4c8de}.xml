@@ -15,6 +15,12 @@
 		<property name="name">
 			<value>AT_Localized_EN</value>
 		</property>
+		<property name="sourceDirectory">
+			<value>../../../2026-SummerSlowJam-Mystery-Dialogue</value>
+		</property>
+		<property name="includeSubDirectories">
+			<value>true</value>
+		</property>
 		<property name="isLocalized">
 			<value>true</value>
 		</property>
