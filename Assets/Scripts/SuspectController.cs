@@ -25,6 +25,8 @@ public class SuspectController : MonoBehaviour
     private void OnMouseEnter()
     {
         HighlightKid(true);
+        if(GameManager.Instance != null)
+            GameManager.Instance.PlaySuspectHoverSound();
     }
 
     private void OnMouseExit()
