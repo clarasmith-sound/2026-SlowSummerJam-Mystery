@@ -15,11 +15,11 @@ MonoBehaviour:
   suspectName: Maggie
   clues:
   - textDescription: Her shirt has stripes.
-    yarnDialogueNode: 
+    yarnDialogueNode: MaggieClue0
     discovered: 0
   - textDescription: She is crying.
-    yarnDialogueNode: 
+    yarnDialogueNode: MaggieClue1
     discovered: 0
   - textDescription: 'Her hair does a cute little cowlick thing at the top. '
-    yarnDialogueNode: 
+    yarnDialogueNode: MaggieClue2
     discovered: 0
