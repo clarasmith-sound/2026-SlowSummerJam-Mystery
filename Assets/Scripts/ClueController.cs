@@ -9,5 +9,6 @@ public class ClueController : MonoBehaviour
     {
         if (suspect.state != SuspectState.Focus) return;
         suspect.suspectData.clues[clueIndex].discovered = true;
+        GameManager.Instance.RunDialogue(suspect.suspectData.clues[clueIndex].yarnDialogueNode);
     }
 }

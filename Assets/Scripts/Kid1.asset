@@ -15,11 +15,11 @@ MonoBehaviour:
   suspectName: Bradley
   clues:
   - textDescription: His shirt has a watermelon on it.
-    yarnDialogueNode: 
+    yarnDialogueNode: BradleyClue0
     discovered: 0
   - textDescription: His expression looks remarkably innocent.
-    yarnDialogueNode: 
+    yarnDialogueNode: BradleyClue1
     discovered: 0
   - textDescription: He's absolutely rocking frosted tips.
-    yarnDialogueNode: 
+    yarnDialogueNode: BradleyClue2
     discovered: 0
