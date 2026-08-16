@@ -1,0 +1,3 @@
+#PermanentRecord.hidden {
+    translate: 100% 0;
+}
