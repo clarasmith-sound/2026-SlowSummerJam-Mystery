@@ -1,6 +1,5 @@
-using System.Reflection.Metadata.Ecma335;
 using UnityEngine;
-public enum SuspectState { Ready, Hover, Focus, Blurred };
+public enum SuspectState { Ready, Hover, Inspection, Blurred, Judged };
 
 public class SuspectController : MonoBehaviour
 {
@@ -8,46 +7,69 @@ public class SuspectController : MonoBehaviour
     public SuspectState state = SuspectState.Ready;
     public SuspectSO suspectData;
     public GameObject[] clueObjects; // TODO: get these automatically? Or generate?
+    public GameObject expelledStamp;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        expelledStamp.SetActive(false);
     }
 
-    public void HighlightKid(bool hover)
+    public void HighlightKid()
     {
-        // Only valid if we're entering or leaving hover state
-        if (hover && state != SuspectState.Ready || !hover && state != SuspectState.Hover) return;
-        spriteRenderer.material.SetFloat("_Toggle", hover ? 1.0f : 0f);
-        state = hover ? SuspectState.Hover : SuspectState.Ready;
+        // Only valid if we're Ready or ReadyToStamp
+        if (state != SuspectState.Ready) return;
+        spriteRenderer.material.SetFloat("_Toggle", 1.0f);
+        state = SuspectState.Hover;
+    }
+
+    public void UnhighlightKid()
+    {
+        // Only valid if the kid is already being hovered 
+        if (state != SuspectState.Hover) return;
+        spriteRenderer.material.SetFloat("_Toggle", 0f);
+        state = SuspectState.Ready;
     }
 
     private void OnMouseEnter()
     {
-        HighlightKid(true);
-        if(GameManager.Instance != null)
+        HighlightKid();
+        if (state == SuspectState.Ready && GameManager.Instance != null && !GameManager.Instance.stampBeingHeld)
             GameManager.Instance.PlaySuspectHoverSound();
     }
 
     private void OnMouseExit()
     {
-        HighlightKid(false);
+        UnhighlightKid();
     }
 
     private void OnMouseDown()
     {
         if (state != SuspectState.Hover) return;
         spriteRenderer.material.SetFloat("_Toggle", 0f);
-        state = SuspectState.Focus;
-        GameManager.Instance.StartInspection(gameObject);
+        if (!GameManager.Instance.stampBeingHeld)
+        {
+            state = SuspectState.Inspection;
+            GameManager.Instance.StartInspection(gameObject);
+            foreach (GameObject clueObject in clueObjects)
+                clueObject.SetActive(true);
+        }
+        else
+        {
+            expelledStamp.SetActive(true);
+            GameManager.Instance.StampedGuilty(gameObject);
+        }
+    }
+
+    private void HideAllClues()
+    {
         foreach (GameObject clueObject in clueObjects)
-            clueObject.SetActive(true);
+            clueObject.SetActive(false);
     }
 
     public void RestoreToReady()
     {
-        foreach (GameObject clueObject in clueObjects)
-            clueObject.SetActive(false);
+        HideAllClues();
         state = SuspectState.Ready;
     }
 }
