@@ -118,9 +118,29 @@ InitTestScene*.unity*
 /[Aa]ssets/Plugins/FMOD/Cache/*
 
 # Ignore bank files in the StreamingAssets folder.
-/[Aa]ssets/StreamingAssets/**/*.bank
-/[Aa]ssets/StreamingAssets/**/*.bank.meta
+#/[Aa]ssets/StreamingAssets/**/*.bank
+#/[Aa]ssets/StreamingAssets/**/*.bank.meta
 
 # If the source bank files are kept outside of the StreamingAssets folder then these can be ignored.
 # Log files can be ignored.
+fmod_editor.log
+
+# =========================================================================
+# FMOD STUDIO PROJECT IGNORES (Located at the top level)
+# =========================================================================
+# Ignore local user preferences (window layouts, open tabs)
+/FMODProject/.user/
+/FMODProject/Metadata/.user/
+
+# Ignore FMOD's heavy local asset cache and lock files
+/FMODProject/.cache/
+/FMODProject/.restore/
+/FMODProject/*.fspro.lock
+
+# Ignore FMOD's internal build folder 
+# (FMOD should build directly into Unity's StreamingAssets folder instead)
+/FMODProject/Build/
+
+# Ignore local FMOD logs
+fmod.log
 fmod_editor.log

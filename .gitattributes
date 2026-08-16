@@ -172,3 +172,19 @@ LightingData.asset     binary
 
 Assets/Plugins/FMOD/**/*.bundle text eol=lf
 Assets/Plugins/FMOD/**/Info.plist text eol=lf
+
+# =========================================================================
+# FMOD STUDIO ROOT PROJECT CONFIGURATION
+# =========================================================================
+# Force FMOD xml metadata and project files to use consistent line endings
+# This prevents annoying "ghost" conflicts when team members view files
+/FMODProject/**/*.xml text eol=lf
+/FMODProject/**/*.fspro text eol=lf
+
+# Track all standard raw audio assets stored inside the FMOD Project using LFS
+/FMODProject/Assets/**/*.wav lfs
+/FMODProject/Assets/**/*.mp3 lfs
+/FMODProject/Assets/**/*.ogg lfs
+
+# Track the final built audio banks that Unity actually plays
+*.bank lfs

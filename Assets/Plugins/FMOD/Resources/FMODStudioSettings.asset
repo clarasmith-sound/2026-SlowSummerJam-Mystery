@@ -23,7 +23,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 1
+      Value: 0
       HasValue: 1
     OverlayPosition:
       Value: 0
@@ -44,10 +44,10 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     VirtualChannelCount:
-      Value: 1024
+      Value: 64
       HasValue: 1
     RealChannelCount:
-      Value: 256
+      Value: 32
       HasValue: 1
     DSPBufferLength:
       Value: 0
