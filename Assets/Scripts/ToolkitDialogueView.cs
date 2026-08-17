@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Yarn.Unity;
+using PrimeTween;
 
 public class ToolkitDialogueView : DialoguePresenterBase
 {
@@ -12,13 +13,15 @@ public class ToolkitDialogueView : DialoguePresenterBase
     [SerializeField] private DialogueRunner runner;
     [SerializeField] private UIDocument UIDocument;
     private VisualElement dialogueRootEl;
+    private Button continueButton;
     private bool _waitingForNextLine;
 
     public void OnEnable()
     {
         dialogueRootEl = UIDocument.rootVisualElement.Q<VisualElement>("DialogueRoot");
         dialogueRootEl.style.display = DisplayStyle.None;
-        dialogueRootEl.Q<Button>("Continue").clicked += OnContinueClicked;
+        continueButton = dialogueRootEl.Q<Button>("Continue");
+        continueButton.clicked += OnContinueClicked;
     }
 
     public void OnDisabled()
@@ -41,7 +44,11 @@ public class ToolkitDialogueView : DialoguePresenterBase
     public override YarnTask OnDialogueStartedAsync()
     {
         dialogueRootEl.style.display = DisplayStyle.Flex;
-        // TODO: use classes to show/hide more smoothly?
+        Sequence.Create(cycles: 1)
+           .Group(dialogueRootEl.VisualElementShakeScale(new ShakeSettings(strength: new Vector3(.1f, .1f, .1f), duration: 0.3f, frequency: 3)))
+           .Group(dialogueRootEl.VisualElementPunchRotation(new ShakeSettings(strength: new Vector3(0f, 0f, -5f), duration: 0.25f, frequency: 5)));
+        Sequence.Create(cycles: -1, Sequence.SequenceCycleMode.Yoyo)
+            .Group(continueButton.VisualElementTranslate(endValue: new Vector2(10f, 0f), new TweenSettings(duration: .35f))); //gameObject.transform, endValue: endTarget, duration: .35f));
         return YarnTask.CompletedTask;
     }
 
