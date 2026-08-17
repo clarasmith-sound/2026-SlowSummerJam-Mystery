@@ -1,0 +1,41 @@
+title: WarholClue0
+---
+Teacher Warhol: I always bring my own. The coffee machine in the lounge makes absolute swill. In fact, maybe we should take the news that it’s broken as a blessing in disguise, and buy an espresso machine for the lounge instead! #line:warhol_teachers_lounge_C00
+===
+
+title: WarholClue1
+---
+Teacher Warhol: It’s just so unfair. Teacher Williams was already here, messing with the machine when I walked in. They’re probably the one that broke it. I got here late today. #line:warhol_teachers_lounge_C01
+===
+
+title: WarholClue2
+---
+Teacher Warhol: Oh, thank you! I got here early so I could park in the closer lot today. #line:warhol_teachers_lounge_C02
+===
+
+
+title: WilliamsClue0
+---
+Teacher Williams: That’s kinda rude, but since you asked, yeah, I’m pretty tired. I would love some coffee, but the machine is broken. #line:williams_teachers_lounge_C00
+===
+
+title: WilliamsClue1
+---
+Teacher Williams: I can explain that, I was trying to fix the darn thing. I’m telling you, someone broke it on purpose before I got in today. Teacher Warhol was here early, you should be questioning her. #line:williams_teachers_lounge_C01
+===
+
+title: WilliamsClue2
+---
+Teacher Williams: Look, I had a tough morning. By the time I got here, the regular lot was full and I had to park in the satellite lot and sprint over. #line:williams_teachers_lounge_C02
+===
+
+
+title: TeachersLoungeSuccess
+---
+Teacher Williams: Bet she was hoping you’d just pony up and buy a new machine for the lounge. Glad you saw through it. Hey, while I’m here, I wanted to tell you about something weird I found about Pork Pie. Thought it might help with your investigation… (TODO: insert missing mascot clue here)
+===
+
+title: TeachersLoungeFailure
+---
+Superintendent: What’s this I hear about you offering to buy Teacher Warhol a new espresso machine for the teachers' lounge?? You numbskull, she probably broke it herself, and you walked right into a trap! That’ll be coming out of your salary. And on top of that, now we have nobody to coach the softball game today! Oh, wait, yes we do, consider yourself up at bat. Good luck! #line:teachers_lounge_failure
+===
