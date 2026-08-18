@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
     public CameraManager cameraManager;
     private GameObject[] allSuspects;
     [SerializeField] private InspectionVisualManager inspectionVisualManager;
+    [SerializeField] private CaseStartVisualManager caseStartVisualManager;
     public DialogueRunner dialogueRunner;
     public bool undiscoveredClues = true;
     public bool stampBeingHeld = false;
-    public StampController stampController;
-    public PhoneController phoneController;
-    public CaseSO currentCase;
+    [HideInInspector] public StampController stampController;
+    [HideInInspector] public PhoneController phoneController;
+    public CaseSO[] allCases;
+    public int currentCaseIndex = 0;
 
     [Header("Audio")]
     [SerializeField] private EventReference suspectHoverSound;
@@ -34,12 +36,13 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        StartCase(currentCase);
+        StartCase(allCases[0]);
         FindControllersInScene();
     }
 
     public void StartCase(CaseSO caseToStart)
     {
+        caseStartVisualManager.DisplayStartCase(caseToStart);
         foreach (SuspectSO suspect in caseToStart.suspects)
             Instantiate(suspect.prefabSuspect);
         FindAllSuspectsInScene();
@@ -124,14 +127,14 @@ public class GameManager : MonoBehaviour
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().state = SuspectState.Judged;
         PutDownStamp();
-        if (currentCase.guiltySuspect == accusedSuspect.suspectOrigin) // Guilty party was accused
-            _ = dialogueRunner.StartDialogue(currentCase.yarnSuccessNode);
+        if (allCases[currentCaseIndex].guiltySuspect == accusedSuspect.suspectOrigin) // Guilty party was accused
+            _ = dialogueRunner.StartDialogue(allCases[currentCaseIndex].yarnSuccessNode);
         else
             phoneController.StartPhoneRinging();
     }
 
     public void PhonePickedUp()
     {
-        _ = dialogueRunner.StartDialogue(currentCase.yarnFailureNode);
+        _ = dialogueRunner.StartDialogue(allCases[currentCaseIndex].yarnFailureNode);
     }
 }
