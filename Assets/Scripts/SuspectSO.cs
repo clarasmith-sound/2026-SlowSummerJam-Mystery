@@ -4,5 +4,6 @@ using UnityEngine;
 public class SuspectSO : ScriptableObject
 {
     public string suspectName;
+    public GameObject prefabSuspect;
     [SerializeField] public Clue[] clues;
 }
