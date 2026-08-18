@@ -5,12 +5,14 @@ public class SuspectController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     public SuspectState state = SuspectState.Ready;
+    public SuspectSO suspectOrigin; // Unmodified scriptable object, for comparisons
     public SuspectSO suspectData;
     public GameObject[] clueObjects; // TODO: get these automatically? Or generate?
     public GameObject expelledStamp;
 
     void Start()
     {
+        suspectData = Instantiate(suspectOrigin);
         spriteRenderer = GetComponent<SpriteRenderer>();
         expelledStamp.SetActive(false);
     }
@@ -57,7 +59,7 @@ public class SuspectController : MonoBehaviour
         else
         {
             expelledStamp.SetActive(true);
-            GameManager.Instance.StampedGuilty(gameObject);
+            GameManager.Instance.StampedGuilty(this);
         }
     }
 
