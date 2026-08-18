@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Suspect
-  - JudgementStamp
+  - Clue
   layers:
   - Default
   - TransparentFX

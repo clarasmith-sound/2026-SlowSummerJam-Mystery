@@ -8,16 +8,14 @@ public class GameManager : MonoBehaviour
     public CameraManager cameraManager;
     private GameObject[] allSuspects;
     [SerializeField] private InspectionVisualManager inspectionVisualManager;
+    [SerializeField] private CaseStartVisualManager caseStartVisualManager;
     public DialogueRunner dialogueRunner;
     public bool undiscoveredClues = true;
     public bool stampBeingHeld = false;
-    public StampController stampController;
-
-    // TODO: Don't hard code the suspects (attach prefab GameObject to the scriptable object and instantiate from there)
-    public SuspectController kid1; // dont do this
-    public SuspectSO bradley;// dont do this
-    public SuspectController kid2;// dont do this
-    public SuspectSO maggie;// dont do this
+    [HideInInspector] public StampController stampController;
+    [HideInInspector] public PhoneController phoneController;
+    public CaseSO[] allCases;
+    public int currentCaseIndex = 0;
 
     [Header("Audio")]
     [SerializeField] private EventReference suspectHoverSound;
@@ -38,11 +36,16 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        // TODO: initialize dynamically from case
-        kid1.suspectData = Instantiate(bradley);
-        kid2.suspectData = Instantiate(maggie);
+        StartCase(allCases[0]);
+        FindControllersInScene();
+    }
+
+    public void StartCase(CaseSO caseToStart)
+    {
+        caseStartVisualManager.DisplayStartCase(caseToStart);
+        foreach (SuspectSO suspect in caseToStart.suspects)
+            Instantiate(suspect.prefabSuspect);
         FindAllSuspectsInScene();
-        FindJudgementStamp();
     }
 
     private void FindAllSuspectsInScene()
@@ -50,9 +53,11 @@ public class GameManager : MonoBehaviour
         allSuspects = GameObject.FindGameObjectsWithTag("Suspect");
     }
 
-    private void FindJudgementStamp()
+    private void FindControllersInScene()
     {
-        stampController = GameObject.FindGameObjectWithTag("JudgementStamp").GetComponent<StampController>();
+        // This is only necessary if GameManager persists from the title screen. If it only exists in this scene, we can just assign the GameObject
+        stampController = FindAnyObjectByType<StampController>();
+        phoneController = FindAnyObjectByType<PhoneController>();
     }
 
     public void StartInspection(GameObject targetSuspect)
@@ -117,13 +122,19 @@ public class GameManager : MonoBehaviour
         stampController.PutDownStamp();
     }
 
-    public void StampedGuilty(GameObject suspectGO)
+    public void StampedGuilty(SuspectController accusedSuspect)
     {
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().state = SuspectState.Judged;
         PutDownStamp();
-        // TODO: actually pick a guilty party and include a guilty result as well
-        // TODO: pick dialogue dynamically from the relevant case
-        _ = dialogueRunner.StartDialogue("DemoCaseSuccess");
+        if (allCases[currentCaseIndex].guiltySuspect == accusedSuspect.suspectOrigin) // Guilty party was accused
+            _ = dialogueRunner.StartDialogue(allCases[currentCaseIndex].yarnSuccessNode);
+        else
+            phoneController.StartPhoneRinging();
+    }
+
+    public void PhonePickedUp()
+    {
+        _ = dialogueRunner.StartDialogue(allCases[currentCaseIndex].yarnFailureNode);
     }
 }

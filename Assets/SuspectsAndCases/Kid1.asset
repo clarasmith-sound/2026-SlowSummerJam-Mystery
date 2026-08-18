@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 740f2bb7bc95e664488e96e9c00a4d3f, type: 3}
-  m_Name: Kid2
+  m_Name: Kid1
   m_EditorClassIdentifier: Assembly-CSharp::SuspectSO
-  suspectName: Maggie
+  suspectName: Bradley
+  prefabSuspect: {fileID: 5592180963837813234, guid: f5b92970503a4214aa45fa0ed78b0ef1, type: 3}
   clues:
-  - textDescription: Her shirt has stripes.
-    yarnDialogueNode: MaggieClue0
+  - textDescription: His shirt has a watermelon on it.
+    yarnDialogueNode: BradleyClue0
     discovered: 0
-  - textDescription: She is crying.
-    yarnDialogueNode: MaggieClue1
+  - textDescription: His expression looks remarkably innocent.
+    yarnDialogueNode: BradleyClue1
     discovered: 0
-  - textDescription: 'Her hair does a cute little cowlick thing at the top. '
-    yarnDialogueNode: MaggieClue2
+  - textDescription: He's absolutely rocking frosted tips.
+    yarnDialogueNode: BradleyClue2
     discovered: 0

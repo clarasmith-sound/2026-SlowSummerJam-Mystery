@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f5e12f01326c5489e930b23514c39b, type: 3}
+  m_Name: DemoCase
+  m_EditorClassIdentifier: Assembly-CSharp::CaseSO
+  caseName: Demo Case
+  caseDescription: 'This case is a demo, it is only being used to test the game logic. '
+  suspects:
+  - {fileID: 11400000, guid: 1b08b0c6d7fd3ff49a3f275ffc1eff3f, type: 2}
+  - {fileID: 11400000, guid: 644004e4a44565b4792f73395c5f2fe4, type: 2}
+  guiltySuspect: {fileID: 11400000, guid: 1b08b0c6d7fd3ff49a3f275ffc1eff3f, type: 2}
+  yarnSuccessNode: DemoCaseSuccess
+  yarnFailureNode: DemoCaseFailure

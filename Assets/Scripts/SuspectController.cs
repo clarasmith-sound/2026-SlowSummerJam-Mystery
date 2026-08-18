@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 public enum SuspectState { Ready, Hover, Inspection, Blurred, Judged };
 
@@ -5,14 +6,27 @@ public class SuspectController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     public SuspectState state = SuspectState.Ready;
-    public SuspectSO suspectData;
-    public GameObject[] clueObjects; // TODO: get these automatically? Or generate?
+    public SuspectSO suspectOrigin; // Unmodified scriptable object, for comparisons
+    [HideInInspector] public SuspectSO suspectData;
+    private readonly List<GameObject> clueObjects = new();
     public GameObject expelledStamp;
 
     void Start()
     {
+        suspectData = Instantiate(suspectOrigin);
         spriteRenderer = GetComponent<SpriteRenderer>();
         expelledStamp.SetActive(false);
+        int currClueIndex = 0; // This requires the order of the Clue game objects to be in the same order as they're defined
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("Clue"))
+            {
+                clueObjects.Add(child.gameObject);
+                child.gameObject.SetActive(false);
+                child.GetComponent<ClueController>().clueIndex = currClueIndex;
+                currClueIndex++;
+            }
+        }
     }
 
     public void HighlightKid()
@@ -57,7 +71,7 @@ public class SuspectController : MonoBehaviour
         else
         {
             expelledStamp.SetActive(true);
-            GameManager.Instance.StampedGuilty(gameObject);
+            GameManager.Instance.StampedGuilty(this);
         }
     }
 

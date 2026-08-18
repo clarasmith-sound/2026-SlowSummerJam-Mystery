@@ -38,3 +38,8 @@ title: DemoCaseSuccess
 ---
 Maggie: You were right, he was totally guilty. Thanks! 
 ===
+
+title: DemoCaseFailure
+---
+Superintendent: You were wrong!
+===
