@@ -36,13 +36,13 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        StartCase(allCases[0]);
+        StartCase(allCases[currentCaseIndex]);
         FindControllersInScene();
     }
 
-    public void StartCase(CaseSO caseToStart)
+    public async void StartCase(CaseSO caseToStart)
     {
-        caseStartVisualManager.DisplayStartCase(caseToStart);
+        await caseStartVisualManager.DisplayStartCase(caseToStart);
         foreach (SuspectSO suspect in caseToStart.suspects)
             Instantiate(suspect.prefabSuspect);
         FindAllSuspectsInScene();
@@ -136,5 +136,23 @@ public class GameManager : MonoBehaviour
     public void PhonePickedUp()
     {
         _ = dialogueRunner.StartDialogue(allCases[currentCaseIndex].yarnFailureNode);
+    }
+
+    [YarnCommand("next_case")]
+    public void StartNextCase()
+    {
+        // Remove current suspects
+        foreach (GameObject suspect in allSuspects)
+            Destroy(suspect);
+        if (currentCaseIndex < (allCases.Length - 1))
+        {
+            currentCaseIndex++;
+            StartCase(allCases[currentCaseIndex]);
+        }
+        else
+        {
+            // TODO: Game over
+            Debug.Log("There are no more cases");
+        }
     }
 }
