@@ -18,3 +18,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b08b0c6d7fd3ff49a3f275ffc1eff3f, type: 2}
   - {fileID: 11400000, guid: 644004e4a44565b4792f73395c5f2fe4, type: 2}
   guiltySuspect: {fileID: 11400000, guid: 1b08b0c6d7fd3ff49a3f275ffc1eff3f, type: 2}
+  yarnSuccessNode: DemoCaseSuccess
+  yarnFailureNode: DemoCaseFailure
