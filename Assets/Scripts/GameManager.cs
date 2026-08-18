@@ -15,12 +15,6 @@ public class GameManager : MonoBehaviour
     public PhoneController phoneController;
     public CaseSO currentCase;
 
-    // TODO: Don't hard code the suspects (attach prefab GameObject to the scriptable object and instantiate from there)
-    public SuspectController kid1; // dont do this
-    public SuspectSO bradley;// dont do this
-    public SuspectController kid2;// dont do this
-    public SuspectSO maggie;// dont do this
-
     [Header("Audio")]
     [SerializeField] private EventReference suspectHoverSound;
 
@@ -40,13 +34,15 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        // TODO: initialize dynamically from case
-        kid1.suspectOrigin = bradley;
-        kid1.suspectData = Instantiate(bradley);
-        kid2.suspectOrigin = maggie;
-        kid2.suspectData = Instantiate(maggie);
-        FindAllSuspectsInScene();
+        StartCase(currentCase);
         FindControllersInScene();
+    }
+
+    public void StartCase(CaseSO caseToStart)
+    {
+        foreach (SuspectSO suspect in caseToStart.suspects)
+            Instantiate(suspect.prefabSuspect);
+        FindAllSuspectsInScene();
     }
 
     private void FindAllSuspectsInScene()

@@ -3,7 +3,7 @@ using UnityEngine;
 public class ClueController : MonoBehaviour
 {
     public SuspectController suspect;
-    public int clueIndex; // TODO: replace with something less brittle?
+    [HideInInspector] public int clueIndex;
 
     private void OnMouseDown()
     {
