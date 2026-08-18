@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public bool undiscoveredClues = true;
     public bool stampBeingHeld = false;
     public StampController stampController;
+    public PhoneController phoneController;
+    public CaseSO currentCase;
 
     // TODO: Don't hard code the suspects (attach prefab GameObject to the scriptable object and instantiate from there)
     public SuspectController kid1; // dont do this
@@ -39,10 +41,12 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         // TODO: initialize dynamically from case
+        kid1.suspectOrigin = bradley;
         kid1.suspectData = Instantiate(bradley);
+        kid2.suspectOrigin = maggie;
         kid2.suspectData = Instantiate(maggie);
         FindAllSuspectsInScene();
-        FindJudgementStamp();
+        FindControllersInScene();
     }
 
     private void FindAllSuspectsInScene()
@@ -50,9 +54,11 @@ public class GameManager : MonoBehaviour
         allSuspects = GameObject.FindGameObjectsWithTag("Suspect");
     }
 
-    private void FindJudgementStamp()
+    private void FindControllersInScene()
     {
-        stampController = GameObject.FindGameObjectWithTag("JudgementStamp").GetComponent<StampController>();
+        // This is only necessary if GameManager persists from the title screen. If it only exists in this scene, we can just assign the GameObject
+        stampController = FindAnyObjectByType<StampController>();
+        phoneController = FindAnyObjectByType<PhoneController>();
     }
 
     public void StartInspection(GameObject targetSuspect)
@@ -117,13 +123,19 @@ public class GameManager : MonoBehaviour
         stampController.PutDownStamp();
     }
 
-    public void StampedGuilty(GameObject suspectGO)
+    public void StampedGuilty(SuspectController accusedSuspect)
     {
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().state = SuspectState.Judged;
         PutDownStamp();
-        // TODO: actually pick a guilty party and include a guilty result as well
-        // TODO: pick dialogue dynamically from the relevant case
-        _ = dialogueRunner.StartDialogue("DemoCaseSuccess");
+        if (currentCase.guiltySuspect == accusedSuspect.suspectOrigin) // Guilty party was accused
+            _ = dialogueRunner.StartDialogue(currentCase.yarnSuccessNode);
+        else
+            phoneController.StartPhoneRinging();
+    }
+
+    public void PhonePickedUp()
+    {
+        _ = dialogueRunner.StartDialogue(currentCase.yarnFailureNode);
     }
 }
