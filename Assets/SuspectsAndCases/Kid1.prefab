@@ -208,6 +208,34 @@ MonoBehaviour:
   suspectOrigin: {fileID: 11400000, guid: 1b08b0c6d7fd3ff49a3f275ffc1eff3f, type: 2}
   suspectData: {fileID: 0}
   expelledStamp: {fileID: 6088487856030434259}
+  suspectHoverSound:
+    Guid:
+      Data1: -36675197
+      Data2: 1091595534
+      Data3: 1542981033
+      Data4: -871487486
+    Path: event:/Objects/Suspect_Hover
+  suspectSelectSound:
+    Guid:
+      Data1: -1643255849
+      Data2: 1079873628
+      Data3: 2141574587
+      Data4: -1375127852
+    Path: event:/Objects/Suspect_Select
+  suspectStampHoverSound:
+    Guid:
+      Data1: -1856551885
+      Data2: 1079162826
+      Data3: -573955693
+      Data4: 1789161429
+    Path: event:/Objects/SuspectStamp_Hover
+  suspectStampedSound:
+    Guid:
+      Data1: 1235331215
+      Data2: 1118454052
+      Data3: -2036148585
+      Data4: 1450571460
+    Path: event:/Objects/SuspectStamp_Suspend
 --- !u!60 &7242319887407271404
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -144,3 +144,4 @@ fmod_editor.log
 # Ignore local FMOD logs
 fmod.log
 fmod_editor.log
+*.wav

@@ -163,13 +163,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 094386c0bd41bd747b52663d2332e1f9, type: 2}
   - {fileID: 11400000, guid: 094386c0bd41bd747b52663d2332e1f9, type: 2}
   currentCaseIndex: 0
-  suspectHoverSound:
-    Guid:
-      Data1: -36675197
-      Data2: 1091595534
-      Data3: 1542981033
-      Data4: -871487486
-    Path: event:/SuspectHover
 --- !u!4 &113694256
 Transform:
   m_ObjectHideFlags: 0
@@ -219,11 +212,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioSceneManager
   ambienceSound:
     Guid:
-      Data1: -1267808106
-      Data2: 1240879961
-      Data3: 1655741062
-      Data4: -1280410417
-    Path: event:/Ambience
+      Data1: -545085369
+      Data2: 1287583425
+      Data3: 1517333917
+      Data4: -969765848
+    Path: event:/Ambience/MainAmbience
 --- !u!1 &142887108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1029,7 @@ GameObject:
   - component: {fileID: 359209707}
   - component: {fileID: 359209708}
   - component: {fileID: 359209709}
+  - component: {fileID: 359209710}
   m_Layer: 0
   m_Name: Stamp
   m_TagString: Untagged
@@ -1122,6 +1116,32 @@ MonoBehaviour:
   StampNotHeld: {fileID: 658674079}
   StampHeld: {fileID: 414129018}
   StampBase: {fileID: 1592699655}
+--- !u!114 &359209710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359209706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67adc08a1c39264ab5a3f3cdf02cfa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioBasicInteractions
+  clickSound:
+    Guid:
+      Data1: 970651015
+      Data2: 1168883063
+      Data3: 862665617
+      Data4: -2145079210
+    Path: event:/Objects/StampSuspend_Click
+  hoverSound:
+    Guid:
+      Data1: -1819790936
+      Data2: 1173207665
+      Data3: -1015695960
+      Data4: 1351342203
+    Path: event:/Objects/StampSuspend_Hover
 --- !u!1 &414129018
 GameObject:
   m_ObjectHideFlags: 0
