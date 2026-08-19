@@ -1,11 +1,15 @@
 using PrimeTween;
 using UnityEngine;
+using System;
 
 public class PhoneController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    private bool isPhoneRinging = false;
     private Sequence ringingAnimation;
+
+    // Keep only this one property to manage the state everywhere
+    public bool IsRinging { get; private set; } = false;
+    public static event Action<bool> OnPhoneRingStateChanged;
 
     public void Start()
     {
@@ -14,11 +18,9 @@ public class PhoneController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!isPhoneRinging) return;
-        else
-        {
-            spriteRenderer.material.SetFloat("_Toggle", 1.0f);
-        }
+        if (!IsRinging) return;
+        
+        spriteRenderer.material.SetFloat("_Toggle", 1.0f);
     }
 
     private void OnMouseExit()
@@ -28,17 +30,25 @@ public class PhoneController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!isPhoneRinging) return;
+        if (!IsRinging) return;
+
         spriteRenderer.material.SetFloat("_Toggle", 0f);
         ringingAnimation.Stop();
-        isPhoneRinging = false;
+        
+        IsRinging = false;
+        OnPhoneRingStateChanged?.Invoke(false); 
+
         GameManager.Instance.PhonePickedUp();
     }
 
     public void StartPhoneRinging()
     {
-        isPhoneRinging = true;
-        // TODO: phone ringing sound effect
+
+        if (IsRinging) return; 
+
+        IsRinging = true;
+        OnPhoneRingStateChanged?.Invoke(true);
+
         ringingAnimation = Sequence.Create(cycles: -1, Sequence.SequenceCycleMode.Yoyo)
             .Group(Tween.ShakeScale(gameObject.transform, strength: new Vector3(.1f, .1f, .1f), duration: 0.3f));
     }
