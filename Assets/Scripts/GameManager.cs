@@ -1,5 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
-using FMODUnity;
 using Yarn.Unity;
 
 public class GameManager : MonoBehaviour
@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
     public CaseSO[] allCases;
     public int currentCaseIndex = 0;
 
-    [Header("Audio")]
-    [SerializeField] private EventReference suspectHoverSound;
 
     private void Awake()
     {
@@ -78,11 +76,6 @@ public class GameManager : MonoBehaviour
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().RestoreToReady();
         monocleController.gameObject.SetActive(false);
-    }
-
-    public void PlaySuspectHoverSound()
-    {
-        AudioManager.Instance.PlaySound2D(suspectHoverSound);
     }
 
     public void RunDialogue(string startNode)

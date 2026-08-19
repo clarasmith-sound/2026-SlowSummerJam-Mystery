@@ -20,7 +20,10 @@ public class AudioSceneManager : MonoBehaviour
             ambienceEventInstance.release();
         }
             
-        AudioManager.Instance.PlayLoopingSound(ambienceSound, out ambienceEventInstance);
+        ambienceEventInstance = RuntimeManager.CreateInstance(ambienceSound);
+        ambienceEventInstance.start();
+
+        RuntimeManager.AttachInstanceToGameObject(ambienceEventInstance, gameObject);
     }
 
     // Update is called once per frame

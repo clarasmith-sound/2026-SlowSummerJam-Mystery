@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+
+using FMODUnity;
 public enum SuspectState { Ready, Hover, Inspection, Blurred, Judged };
 
 public class SuspectController : MonoBehaviour
@@ -10,6 +12,13 @@ public class SuspectController : MonoBehaviour
     [HideInInspector] public SuspectSO suspectData;
     private readonly List<GameObject> clueObjects = new();
     public GameObject expelledStamp;
+
+    [Header("Audio")]
+    [SerializeField] private EventReference suspectHoverSound;
+    [SerializeField] private EventReference suspectSelectSound;
+    [SerializeField] private EventReference suspectStampHoverSound;
+    [SerializeField] private EventReference suspectStampedSound;
+    
 
     void Start()
     {
@@ -45,12 +54,27 @@ public class SuspectController : MonoBehaviour
         state = SuspectState.Ready;
     }
 
+
     private void OnMouseEnter()
     {
+        if(GameManager.Instance == null)
+        {
+            throw new System.NullReferenceException("GameManager instance is null. Ensure that the GameManager is properly initialized before accessing it.");
+        }
+        if(GameManager.Instance.monocleController != null && GameManager.Instance.monocleController.gameObject.activeInHierarchy)
+        {
+            // If the inspector mode is active, we don't want to highlight the kid or play any sounds.
+            return;
+        }
         HighlightKid();
-        if (state == SuspectState.Ready && GameManager.Instance != null && !GameManager.Instance.stampBeingHeld)
-            GameManager.Instance.PlaySuspectHoverSound();
+        if(!GameManager.Instance.stampBeingHeld)
+            AudioManager.Instance.PlaySound2D(suspectHoverSound);
+        else
+            AudioManager.Instance.PlaySound2D(suspectSelectSound);
+        
     }
+
+
 
     private void OnMouseExit()
     {
@@ -67,11 +91,14 @@ public class SuspectController : MonoBehaviour
             GameManager.Instance.StartInspection(gameObject);
             foreach (GameObject clueObject in clueObjects)
                 clueObject.SetActive(true);
+            
+            AudioManager.Instance.PlaySound2D(suspectStampedSound);
         }
         else
         {
             expelledStamp.SetActive(true);
             GameManager.Instance.StampedGuilty(this);
+            AudioManager.Instance.PlaySound2D(suspectSelectSound);
         }
     }
 
