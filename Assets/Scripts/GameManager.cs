@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool stampBeingHeld = false;
     [HideInInspector] public StampController stampController;
     [HideInInspector] public PhoneController phoneController;
+    [HideInInspector] public MonocleController monocleController;
     public CaseSO[] allCases;
     public int currentCaseIndex = 0;
 
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
         // This is only necessary if GameManager persists from the title screen. If it only exists in this scene, we can just assign the GameObject
         stampController = FindAnyObjectByType<StampController>();
         phoneController = FindAnyObjectByType<PhoneController>();
+        monocleController = FindAnyObjectByType<MonocleController>(FindObjectsInactive.Include);
     }
 
     public void StartInspection(GameObject targetSuspect)
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
         cameraManager.MoveToInspection(targetSuspect);
         foreach (GameObject suspect in allSuspects)
             if (suspect != targetSuspect) suspect.GetComponent<SuspectController>().state = SuspectState.Blurred;
+        monocleController.gameObject.SetActive(true);
     }
 
     public void EndInspection()
@@ -74,6 +77,7 @@ public class GameManager : MonoBehaviour
         cameraManager.MoveToDefault();
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().RestoreToReady();
+        monocleController.gameObject.SetActive(false);
     }
 
     public void PlaySuspectHoverSound()
