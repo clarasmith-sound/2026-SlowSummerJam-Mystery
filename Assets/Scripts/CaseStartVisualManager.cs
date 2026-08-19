@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,23 +11,20 @@ public class CaseStartVisualManager : MonoBehaviour
     public void OnEnable()
     {
         caseStartUI = caseStartUIDoc.rootVisualElement;
-        caseStartUI.Q<Button>("StartCase").clicked += ClickedStart;
     }
 
-    public void OnDisable()
+    public Task DisplayStartCase(CaseSO caseToStart)
     {
-        caseStartUI.Q<Button>("StartCase").clicked -= ClickedStart;
-    }
-
-    public void ClickedStart()
-    {
-        caseStartUI.Q<VisualElement>("Overlay").style.display = DisplayStyle.None;
-    }
-
-    public void DisplayStartCase(CaseSO caseToStart)
-    {
+        var tcs = new TaskCompletionSource<bool>();
         caseStartUI.dataSource = caseToStart;
         caseStartUI.Q<VisualElement>("Overlay").style.display = DisplayStyle.Flex;
+        caseStartUI.Q<Button>("StartCase").clicked += ClickedStart;
+        void ClickedStart()
+        {
+            caseStartUI.Q<Button>("StartCase").clicked -= ClickedStart;
+            caseStartUI.Q<VisualElement>("Overlay").style.display = DisplayStyle.None;
+            tcs.TrySetResult(true); // Wait until button is clicked
+        }
+        return tcs.Task;
     }
-
 }
