@@ -37,9 +37,13 @@ Maggie: My sisters all have black hair too.
 title: DemoCaseSuccess
 ---
 Maggie: You were right, he was totally guilty. Thanks! 
+Maggie: anyway here's a clue
+<<next_case GameManager>>
 ===
 
 title: DemoCaseFailure
 ---
 Superintendent: You were wrong!
+Superindendent: Dummy.
+<<next_case GameManager>>
 ===
