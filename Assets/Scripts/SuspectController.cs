@@ -18,7 +18,7 @@ public class SuspectController : MonoBehaviour
     [SerializeField] private EventReference suspectSelectSound;
     [SerializeField] private EventReference suspectStampHoverSound;
     [SerializeField] private EventReference suspectStampedSound;
-    
+
 
     void Start()
     {
@@ -54,26 +54,23 @@ public class SuspectController : MonoBehaviour
         state = SuspectState.Ready;
     }
 
-
     private void OnMouseEnter()
     {
-        if(GameManager.Instance == null)
+        if (GameManager.Instance == null)
         {
             throw new System.NullReferenceException("GameManager instance is null. Ensure that the GameManager is properly initialized before accessing it.");
         }
-        if(GameManager.Instance.monocleController != null && GameManager.Instance.monocleController.gameObject.activeInHierarchy)
+        if (GameManager.Instance.monocleController != null && GameManager.Instance.monocleController.gameObject.activeInHierarchy)
         {
             // If the inspector mode is active, we don't want to highlight the kid or play any sounds.
             return;
         }
         HighlightKid();
-        if(!GameManager.Instance.stampBeingHeld)
+        if (!GameManager.Instance.stampBeingHeld)
             AudioManager.Instance.PlaySound2D(suspectHoverSound);
         else
             AudioManager.Instance.PlaySound2D(suspectSelectSound);
-        
     }
-
 
 
     private void OnMouseExit()
@@ -91,7 +88,7 @@ public class SuspectController : MonoBehaviour
             GameManager.Instance.StartInspection(gameObject);
             foreach (GameObject clueObject in clueObjects)
                 clueObject.SetActive(true);
-            
+
             AudioManager.Instance.PlaySound2D(suspectStampedSound);
         }
         else
