@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f5e12f01326c5489e930b23514c39b, type: 3}
+  m_Name: DramaClub
+  m_EditorClassIdentifier: Assembly-CSharp::CaseSO
+  caseName: Drama in the Drama Club
+  caseDescription: 'These two had to be physically pulled apart in the auditorium
+    after the cast list was posted for the fall show. They both say the other started
+    it. Get to the bottom here, please. '
+  suspects:
+  - {fileID: 11400000, guid: 3f2aa5019c248044fad469af919bb516, type: 2}
+  - {fileID: 11400000, guid: 1178ff980dff76a4ba5ea1dab051d49b, type: 2}
+  guiltySuspect: {fileID: 11400000, guid: 3f2aa5019c248044fad469af919bb516, type: 2}
+  yarnSuccessNode: DramaClubSuccess
+  yarnFailureNode: DramaClubFailure

@@ -160,6 +160,7 @@ MonoBehaviour:
   phoneController: {fileID: 0}
   monocleController: {fileID: 0}
   allCases:
+  - {fileID: 11400000, guid: 75ba4045b12d5d64db5e721d5626c6f9, type: 2}
   - {fileID: 11400000, guid: 2c2c42e7cfa8036468cfe204a6b3f26a, type: 2}
   currentCaseIndex: 0
   suspectEnterRoomSound:

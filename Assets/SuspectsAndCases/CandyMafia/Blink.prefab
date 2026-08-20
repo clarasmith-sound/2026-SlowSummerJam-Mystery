@@ -587,13 +587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Clue
   suspect: {fileID: 9223242727019607537}
   clueIndex: 2
-  clueSelectSound:
-    Guid:
-      Data1: 1402957015
-      Data2: 1271468603
-      Data3: 1460932754
-      Data4: 265060402
-    Path: event:/Objects/Clue_Select
+  clueSelectSound: 
 --- !u!1 &4500261525653574849
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6383119102852045792}
-  - component: {fileID: 2579142356791917227}
+  - component: {fileID: 7922363663354368797}
   m_Layer: 0
   m_Name: DetailClueSprite
   m_TagString: Untagged
@@ -620,13 +614,13 @@ Transform:
   m_GameObject: {fileID: 4500261525653574849}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3532673382847773161}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2579142356791917227
+--- !u!212 &7922363663354368797
 SpriteRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -652,7 +646,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9d5a5557c89e6041b6c5c46b1f6df80, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -673,10 +667,10 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 5
   m_MaskInteraction: 1
-  m_Sprite: {fileID: 473326700, guid: 0dff509485947dc44b45379ee44cbb24, type: 3}
-  m_Color: {r: 0.9528302, g: 0.50787646, b: 0.50787646, a: 1}
+  m_Sprite: {fileID: 21300000, guid: aedc757dcd3fd2441954243ade9b1704, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -871,13 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Clue
   suspect: {fileID: 9223242727019607537}
   clueIndex: 0
-  clueSelectSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  clueSelectSound: 
 --- !u!1 &8326436488699988102
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,10 +959,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Clue
   suspect: {fileID: 9223242727019607537}
   clueIndex: 1
-  clueSelectSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  clueSelectSound: 

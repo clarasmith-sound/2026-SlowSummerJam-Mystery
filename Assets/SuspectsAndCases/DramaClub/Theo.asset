@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740f2bb7bc95e664488e96e9c00a4d3f, type: 3}
+  m_Name: Theo
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectSO
+  suspectName: Theo
+  prefabSuspect: {fileID: 4102544317489018108, guid: a293e94f53538394a85ac51795691f0f, type: 3}
+  clues:
+  - textDescription: 'A black eye. '
+    yarnDialogueNode: TheoClue0
+    discovered: 0
+  - textDescription: 'A thermos. Smells like tea with honey. '
+    yarnDialogueNode: TheoClue1
+    discovered: 0
+  - textDescription: The cast list for the show is in his backpack. Looks like he
+      got the lead!
+    yarnDialogueNode: TheoClue2
+    discovered: 0
