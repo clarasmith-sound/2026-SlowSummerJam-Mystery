@@ -162,6 +162,41 @@ MonoBehaviour:
   allCases:
   - {fileID: 11400000, guid: 2c2c42e7cfa8036468cfe204a6b3f26a, type: 2}
   currentCaseIndex: 0
+  suspectEnterRoomSound:
+    Guid:
+      Data1: 1888385317
+      Data2: 1080366059
+      Data3: 1792840581
+      Data4: -945315130
+    Path: event:/Objects/Suspect_EnterRoom
+  startInspectionSound:
+    Guid:
+      Data1: 1313259513
+      Data2: 1145080456
+      Data3: 1349447052
+      Data4: -931664491
+    Path: event:/Objects/Inspection_Start
+  endInspectionSound:
+    Guid:
+      Data1: -96122221
+      Data2: 1138270177
+      Data3: 522731437
+      Data4: -840729258
+    Path: event:/Objects/Inspection_End
+  moreToDiscoverSound:
+    Guid:
+      Data1: -2021375108
+      Data2: 1262451377
+      Data3: -519661651
+      Data4: -1481415328
+    Path: event:/Objects/Inspection_MoreToDiscover
+  guiltyStampSound:
+    Guid:
+      Data1: 1235331215
+      Data2: 1118454052
+      Data3: -2036148585
+      Data4: 1450571460
+    Path: event:/Objects/SuspectStamp_Suspend
 --- !u!4 &113694256
 Transform:
   m_ObjectHideFlags: 0
@@ -217,6 +252,13 @@ MonoBehaviour:
       Data3: 1517333917
       Data4: -969765848
     Path: event:/Ambience/MainAmbience
+  musicEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &142887108
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +765,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionsMenuVisualManager
   optionsMenuUIDoc: {fileID: 311103586}
+  buttonHoverSound:
+    Guid:
+      Data1: -128432000
+      Data2: 1210964638
+      Data3: -611468907
+      Data4: 1997348918
+    Path: event:/UI/GenericHover
+  buttonSelectSound:
+    Guid:
+      Data1: -387476541
+      Data2: 1327725152
+      Data3: -98903880
+      Data4: -1388507670
+    Path: event:/UI/GenericClick
+  buttonBackSound:
+    Guid:
+      Data1: -1712559111
+      Data2: 1280677468
+      Data3: -1345085792
+      Data4: -1155642036
+    Path: event:/UI/GenericBack
 --- !u!114 &311103586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,7 +980,6 @@ GameObject:
   - component: {fileID: 359209707}
   - component: {fileID: 359209708}
   - component: {fileID: 359209709}
-  - component: {fileID: 359209710}
   m_Layer: 0
   m_Name: Stamp
   m_TagString: Untagged
@@ -1004,32 +1066,27 @@ MonoBehaviour:
   StampNotHeld: {fileID: 658674079}
   StampHeld: {fileID: 414129018}
   StampBase: {fileID: 1592699655}
---- !u!114 &359209710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359209706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67adc08a1c39264ab5a3f3cdf02cfa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioBasicInteractions
-  clickSound:
-    Guid:
-      Data1: 970651015
-      Data2: 1168883063
-      Data3: 862665617
-      Data4: -2145079210
-    Path: event:/Objects/StampSuspend_Click
-  hoverSound:
+  stampHoverSound:
     Guid:
       Data1: -1819790936
       Data2: 1173207665
       Data3: -1015695960
       Data4: 1351342203
-    Path: event:/Objects/StampSuspend_Hover
+    Path: event:/Objects/Stamp_Hover
+  stampPickupSound:
+    Guid:
+      Data1: 970651015
+      Data2: 1168883063
+      Data3: 862665617
+      Data4: -2145079210
+    Path: event:/Objects/Stamp_PickUp
+  stampPutDownSound:
+    Guid:
+      Data1: 1874979469
+      Data2: 1298056576
+      Data3: -995844194
+      Data4: 202460626
+    Path: event:/Objects/Stamp_SetDown
 --- !u!1 &414129018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,6 +1261,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CaseStartVisualManager
   caseStartUIDoc: {fileID: 580726461}
+  caseOpenSound:
+    Guid:
+      Data1: -1052271750
+      Data2: 1302155984
+      Data3: -953377139
+      Data4: -2094137894
+    Path: event:/Objects/Case_Open
+  caseStartSound:
+    Guid:
+      Data1: -619491657
+      Data2: 1307231325
+      Data3: -49239621
+      Data4: -651039571
+    Path: event:/Objects/Case_Start
+  caseHoverSound:
+    Guid:
+      Data1: 1463834184
+      Data2: 1194006265
+      Data3: 1651965336
+      Data4: -256660982
+    Path: event:/Objects/Case_Hover
 --- !u!1 &658674079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,6 +2084,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolkitDialogueVIew
   runner: {fileID: 687576003}
   UIDocument: {fileID: 840538435}
+  buttonHoverSound:
+    Guid:
+      Data1: -128432000
+      Data2: 1210964638
+      Data3: -611468907
+      Data4: 1997348918
+    Path: event:/UI/GenericHover
+  continueButtonSound:
+    Guid:
+      Data1: -387476541
+      Data2: 1327725152
+      Data3: -98903880
+      Data4: -1388507670
+    Path: event:/UI/GenericClick
+  dialogueOpenSound:
+    Guid:
+      Data1: -315020731
+      Data2: 1078314370
+      Data3: 933797260
+      Data4: -957251132
+    Path: event:/Objects/Dialogue_Open
+  dialogueCloseSound:
+    Guid:
+      Data1: -328727303
+      Data2: 1249359224
+      Data3: -1788999037
+      Data4: 121204714
+    Path: event:/Objects/Dialogue_Close
 --- !u!1 &730087440
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,6 +3377,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InspectionVisualManager
   inspectionUIDoc: {fileID: 1831108607}
+  buttonHoverSound:
+    Guid:
+      Data1: -128432000
+      Data2: 1210964638
+      Data3: -611468907
+      Data4: 1997348918
+    Path: event:/UI/GenericHover
 --- !u!1001 &2040150596
 PrefabInstance:
   m_ObjectHideFlags: 0

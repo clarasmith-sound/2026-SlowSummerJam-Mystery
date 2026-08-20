@@ -2,9 +2,16 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 
+public enum AudioUIButtonType { Press, Hover, StartGame }
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
+
+    [Header("UI Sounds")]
+    public EventReference uiButtonPress;
+    public EventReference uiButtonHover;
+    public EventReference uiButtonStartGame;
 
     [Header("Volume Settings")]
     [Range(0f, 1f)] public float mainVolume = 1.0f;
@@ -55,6 +62,41 @@ public class AudioManager : MonoBehaviour
             return;
         }
         RuntimeManager.PlayOneShot(eventReference);
+    }
+
+    public void PlaySound2D(string eventPath)
+    {
+        if (string.IsNullOrEmpty(eventPath))
+        {
+            Debug.LogWarning("Event path is null or empty. Cannot play sound.");
+            return;
+        }
+        EventReference eventReference = RuntimeManager.PathToEventReference(eventPath);
+        if (eventReference.IsNull)
+        {
+            Debug.LogWarning($"EventReference for path '{eventPath}' is null. Cannot play sound.");
+            return;
+        }
+        PlaySound2D(eventReference);
+    }
+
+    public void PlayUISound(AudioUIButtonType buttonType)
+    {
+        switch (buttonType)
+        {
+            case AudioUIButtonType.Press:
+                PlaySound2D(uiButtonPress);
+                break;
+            case AudioUIButtonType.Hover:
+                PlaySound2D(uiButtonHover);
+                break;
+            case AudioUIButtonType.StartGame:
+                PlaySound2D(uiButtonStartGame);
+                break;
+            default:
+                Debug.LogWarning("Unknown UI button type.");
+                break;
+        }
     }
 
     public void PlayLoopingSound(EventReference eventReference, out EventInstance eventInstance)

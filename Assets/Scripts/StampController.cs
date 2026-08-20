@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class StampController : MonoBehaviour
 {
@@ -8,17 +9,24 @@ public class StampController : MonoBehaviour
     public GameObject StampBase;
     private bool stampPickedUp = false;
 
+    [Header("Audio")]
+    [SerializeField] private EventReference stampHoverSound;
+    [SerializeField] private EventReference stampPickupSound;
+    [SerializeField] private EventReference stampPutDownSound;
+
     private void OnMouseEnter()
     {
-        // TODO - SOUND :  The mouse is hovering over the stamp. If (!stampPickedUp), the stamp is not currently being held,
+        // SOUND :  The mouse is hovering over the stamp. If (!stampPickedUp), the stamp is not currently being held,
         // so the whole thing is outlined to indicate pickup. If (stampPickedUp), the stamp is already being held, 
         // and the base is outlined to indicate putting the stamp back. 
         if (!stampPickedUp)
         {
+            AudioManager.Instance.PlaySound2D(stampHoverSound);
             StampNotHeld.GetComponent<SpriteRenderer>().material.SetFloat("_Toggle", 1.0f);
         }
         else if (stampPickedUp)
         {
+            AudioManager.Instance.PlaySound2D(stampHoverSound);
             StampBase.GetComponent<SpriteRenderer>().material.SetFloat("_Toggle", 1.0f);
         }
     }
@@ -40,7 +48,8 @@ public class StampController : MonoBehaviour
         if (!stampPickedUp)
         {
             if (!GameManager.Instance.PrepareToStamp()) return;
-            // TODO - SOUND :  The stamp was picked up
+            // SOUND :  The stamp was picked up
+            AudioManager.Instance.PlaySound2D(stampPickupSound);
             StampNotHeld.SetActive(false);
             StampHeld.SetActive(true);
             stampPickedUp = true;
@@ -48,7 +57,8 @@ public class StampController : MonoBehaviour
         }
         else if (stampPickedUp)
         {
-            // TODO - SOUND :  The stamp was put down
+            // SOUND :  The stamp was put down
+            AudioManager.Instance.PlaySound2D(stampPutDownSound);
             GameManager.Instance.PutDownStamp();
             StampNotHeld.GetComponent<SpriteRenderer>().material.SetFloat("_Toggle", 1f);
             StampBase.GetComponent<SpriteRenderer>().material.SetFloat("_Toggle", 0f);

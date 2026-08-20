@@ -18,7 +18,7 @@ public class PhoneAudioController : MonoBehaviour
             phoneRingEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             phoneRingEventInstance.release();
         }
-            
+    
         phoneRingEventInstance = RuntimeManager.CreateInstance(phoneRingEvent);
         
         RuntimeManager.AttachInstanceToGameObject(phoneRingEventInstance, gameObject);

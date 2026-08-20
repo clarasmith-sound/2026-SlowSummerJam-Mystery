@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 229167544}
   - component: {fileID: 229167546}
   - component: {fileID: 229167545}
+  - component: {fileID: 229167547}
   m_Layer: 0
   m_Name: StartManager
   m_TagString: Untagged
@@ -165,6 +166,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartVisualManager
   startUIDoc: {fileID: 229167546}
+  buttonHoverSound:
+    Guid:
+      Data1: -128432000
+      Data2: 1210964638
+      Data3: -611468907
+      Data4: 1997348918
+    Path: event:/UI/GenericHover
+  startGameSound:
+    Guid:
+      Data1: 931675444
+      Data2: 1302087771
+      Data3: 26748568
+      Data4: 1625472086
+    Path: event:/UI/StartGame
 --- !u!114 &229167546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +203,32 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &229167547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229167543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9314c72305ff9044b67efff9a96fdd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSceneManager
+  ambienceSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  musicEvent:
+    Guid:
+      Data1: 153990978
+      Data2: 1253492707
+      Data3: -1259718489
+      Data4: -3410167
+    Path: event:/test_music
 --- !u!1 &454483939
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 454483942}
   - component: {fileID: 454483941}
-  - component: {fileID: 454483940}
+  - component: {fileID: 454483943}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -206,14 +247,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &454483940
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454483939}
-  m_Enabled: 1
 --- !u!20 &454483941
 Camera:
   m_ObjectHideFlags: 0
@@ -280,6 +313,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &454483943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454483939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1867253639
 GameObject:
   m_ObjectHideFlags: 0

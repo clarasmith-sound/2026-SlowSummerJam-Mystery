@@ -1,12 +1,16 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using FMODUnity;
 
 public class InspectionVisualManager : MonoBehaviour
 {
 
     public UIDocument inspectionUIDoc;
     private VisualElement inspectionUI;
+
+    [Header("Audio")]
+    [SerializeField] private EventReference buttonHoverSound;
 
     public void OnEnable()
     {
@@ -51,9 +55,9 @@ public class InspectionVisualManager : MonoBehaviour
 
     public void OnButtonHover(PointerEnterEvent evt)
     {
-        // TODO - SOUND :  The "back to default view" button was hovered over
+        // SOUND :  The "back to default view" button was hovered over
         // Note, the place I noted for the click of this button is actually in GameManager
         // in EndInspection (since it also causes a camera zoom and the permanent record to slide off right)
-        return;
+        AudioManager.Instance.PlaySound2D(buttonHoverSound);
     }
 }

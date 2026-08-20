@@ -93,6 +93,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Clue
   suspect: {fileID: 2488192455950128451}
   clueIndex: 1
+  clueSelectSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &5592180963837813234
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,27 +222,6 @@ MonoBehaviour:
       Data3: 1542981033
       Data4: -871487486
     Path: event:/Objects/Suspect_Hover
-  suspectSelectSound:
-    Guid:
-      Data1: -1643255849
-      Data2: 1079873628
-      Data3: 2141574587
-      Data4: -1375127852
-    Path: event:/Objects/Suspect_Select
-  suspectStampHoverSound:
-    Guid:
-      Data1: -1856551885
-      Data2: 1079162826
-      Data3: -573955693
-      Data4: 1789161429
-    Path: event:/Objects/SuspectStamp_Hover
-  suspectStampedSound:
-    Guid:
-      Data1: 1235331215
-      Data2: 1118454052
-      Data3: -2036148585
-      Data4: 1450571460
-    Path: event:/Objects/SuspectStamp_Suspend
 --- !u!60 &7242319887407271404
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -737,6 +723,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Clue
   suspect: {fileID: 2488192455950128451}
   clueIndex: 0
+  clueSelectSound:
+    Guid:
+      Data1: 1402957015
+      Data2: 1271468603
+      Data3: 1460932754
+      Data4: 265060402
+    Path: event:/Objects/Clue_Select
 --- !u!1 &8924781598836770024
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,3 +823,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Clue
   suspect: {fileID: 2488192455950128451}
   clueIndex: 2
+  clueSelectSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
