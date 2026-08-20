@@ -10,7 +10,6 @@ public class MonocleController : MonoBehaviour
     {
         pointAction = InputSystem.actions.FindAction("Point");
         rb = GetComponent<Rigidbody>();
-
     }
 
     void FixedUpdate()

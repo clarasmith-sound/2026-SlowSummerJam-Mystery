@@ -22,11 +22,19 @@ public class ToolkitDialogueView : DialoguePresenterBase
         dialogueRootEl.style.display = DisplayStyle.None;
         continueButton = dialogueRootEl.Q<Button>("Continue");
         continueButton.clicked += OnContinueClicked;
+        continueButton.RegisterCallback<PointerEnterEvent>(OnButtonHover);
     }
 
     public void OnDisabled()
     {
         dialogueRootEl.Q<Button>("Continue").clicked -= OnContinueClicked;
+        continueButton.UnregisterCallback<PointerEnterEvent>(OnButtonHover);
+    }
+
+    public void OnButtonHover(PointerEnterEvent evt)
+    {
+        // TODO - SOUND :  The "next/continue" button in a dialogue box was hovered over
+        return;
     }
 
     private void OnContinueClicked()
@@ -43,6 +51,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
     public override YarnTask OnDialogueStartedAsync()
     {
+        // TODO - SOUND :  Dialogue box pops up (note overlap - this happens when a clue is clicked)
         dialogueRootEl.style.display = DisplayStyle.Flex;
         Sequence.Create(cycles: 1)
            .Group(dialogueRootEl.VisualElementShakeScale(new ShakeSettings(strength: new Vector3(.1f, .1f, .1f), duration: 0.3f, frequency: 3)))
@@ -54,6 +63,8 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
     public override YarnTask OnDialogueCompleteAsync()
     {
+        // TODO - SOUND :  Dialogue box goes away (might happen at the same time as the case ending, since StartNextCase 
+        // in GameManager is called at the end of success/failure dialogues)
         dialogueRootEl.style.display = DisplayStyle.None;
         return YarnTask.CompletedTask;
     }
