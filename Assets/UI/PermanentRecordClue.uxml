@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="Clue" data-source-type="Clue, Assembly-CSharp">
         <ui:Label text="Clue: " style="font-size: 20px; -unity-font-style: bold;"/>
-        <ui:Label text="???" style="font-size: 18px;">
+        <ui:Label text="???" style="font-size: 18px; white-space: normal;">
             <Bindings>
                 <ui:DataBinding property="text" data-source-path="GetClueDescription" binding-mode="ToTarget"/>
             </Bindings>
