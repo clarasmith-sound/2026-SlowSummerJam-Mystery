@@ -30,6 +30,12 @@ public class AudioManager : MonoBehaviour
 
     private EventInstance musicEventInstance;
 
+    private const string MAIN_VOL_KEY = "Audio_MainVolume";
+    private const string MUSIC_VOL_KEY = "Audio_MusicVolume";
+    private const string SFX_VOL_KEY = "Audio_SFXVolume";
+    private const string DIALOGUE_VOL_KEY = "Audio_DialogueVolume";
+    private const string AMBIENT_VOL_KEY = "Audio_AmbientVolume";
+    
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void InitializeOnStartup()
     {
@@ -47,13 +53,19 @@ public class AudioManager : MonoBehaviour
         ambientBus = RuntimeManager.GetBus("bus:/Ambience");
     }
 
-    private void Update()
+private void Start()
     {
-        if (mainBus.isValid()) mainBus.setVolume(mainVolume);
-        if (musicBus.isValid()) musicBus.setVolume(musicVolume);
-        if (sfxBus.isValid()) sfxBus.setVolume(sfxVolume);
-        if (dialogueBus.isValid()) dialogueBus.setVolume(dialogueVolume);
-        if (ambientBus.isValid()) ambientBus.setVolume(ambientVolume);
+        mainVolume = PlayerPrefs.GetFloat(MAIN_VOL_KEY, mainVolume);
+        musicVolume = PlayerPrefs.GetFloat(MUSIC_VOL_KEY, musicVolume);
+        sfxVolume = PlayerPrefs.GetFloat(SFX_VOL_KEY, sfxVolume);
+        dialogueVolume = PlayerPrefs.GetFloat(DIALOGUE_VOL_KEY, dialogueVolume);
+        ambientVolume = PlayerPrefs.GetFloat(AMBIENT_VOL_KEY, ambientVolume);
+
+        SetBusVolumeLogarithmic(mainBus, mainVolume);
+        SetBusVolumeLogarithmic(musicBus, musicVolume);
+        SetBusVolumeLogarithmic(sfxBus, sfxVolume);
+        SetBusVolumeLogarithmic(dialogueBus, dialogueVolume);
+        SetBusVolumeLogarithmic(ambientBus, ambientVolume);
     }
 
     public void PlaySound2D(EventReference eventReference)
@@ -149,27 +161,54 @@ public class AudioManager : MonoBehaviour
 
     public void UpdateAudioOptionsSlider(AudioOptionSliders sliderType, float value)
     {
-        float clampedValue = Mathf.Clamp01(value); // Ensure the value is between 0 and 1
+        float clampedValue = Mathf.Clamp01(value); // Ensure the value is strictly between 0 and 1
+
         switch (sliderType)
         {
             case AudioOptionSliders.MainVolume:
                 mainVolume = clampedValue;
+                SetBusVolumeLogarithmic(mainBus, mainVolume);
+                PlayerPrefs.SetFloat(MAIN_VOL_KEY, mainVolume);
                 break;
             case AudioOptionSliders.MusicVolume:
                 musicVolume = clampedValue;
+                SetBusVolumeLogarithmic(musicBus, musicVolume);
+                PlayerPrefs.SetFloat(MUSIC_VOL_KEY, musicVolume);
                 break;
             case AudioOptionSliders.SFXVolume:
                 sfxVolume = clampedValue;
+                SetBusVolumeLogarithmic(sfxBus, sfxVolume);
+                PlayerPrefs.SetFloat(SFX_VOL_KEY, sfxVolume);
                 break;
             case AudioOptionSliders.DialogueVolume:
                 dialogueVolume = clampedValue;
+                SetBusVolumeLogarithmic(dialogueBus, dialogueVolume);
+                PlayerPrefs.SetFloat(DIALOGUE_VOL_KEY, dialogueVolume);
                 break;
             case AudioOptionSliders.AmbientVolume:
                 ambientVolume = clampedValue;
+                SetBusVolumeLogarithmic(ambientBus, ambientVolume);
+                PlayerPrefs.SetFloat(AMBIENT_VOL_KEY, ambientVolume);
                 break;
             default:
                 Debug.LogWarning("Unknown audio option slider type.");
                 break;
         }
+    }
+
+    private void SetBusVolumeLogarithmic(Bus targetBus, float linearValue)
+    {
+        if (!targetBus.isValid()) return;
+
+        // Mathematical conversion to prevent volume dropping off immediately
+        float logVolume = Mathf.Log10(linearValue * 9f + 1f);
+        logVolume = Mathf.Clamp01(logVolume);
+
+        targetBus.setVolume(logVolume);
+    }
+
+    public void SaveVolumeSettingsToDisk()
+    {
+        PlayerPrefs.Save();
     }
 }
