@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740f2bb7bc95e664488e96e9c00a4d3f, type: 3}
+  m_Name: Blink
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectSO
+  suspectName: Blink
+  prefabSuspect: {fileID: 1000504796863619713, guid: da7288b0f1bed3849ab6f96e3a850f05, type: 3}
+  clues:
+  - textDescription: Blink keeps looking away or to the ground when talking to you.
+      Are they hiding something?
+    yarnDialogueNode: BlinkClue0
+    discovered: 0
+  - textDescription: An art sketchbook. Inside is an assortment of candy wrappers
+      pasted in a different patterns across its pages.
+    yarnDialogueNode: BlinkClue1
+    discovered: 0
+  - textDescription: "You can\u2019t see or smell anything on them, but her fingers
+      feel sticky - ew!"
+    yarnDialogueNode: BlinkClue2
+    discovered: 0

@@ -160,8 +160,7 @@ MonoBehaviour:
   phoneController: {fileID: 0}
   monocleController: {fileID: 0}
   allCases:
-  - {fileID: 11400000, guid: 094386c0bd41bd747b52663d2332e1f9, type: 2}
-  - {fileID: 11400000, guid: 094386c0bd41bd747b52663d2332e1f9, type: 2}
+  - {fileID: 11400000, guid: 2c2c42e7cfa8036468cfe204a6b3f26a, type: 2}
   currentCaseIndex: 0
 --- !u!4 &113694256
 Transform:
@@ -2648,7 +2647,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: cd4a76c19ff4c224b9101c3a54447ffa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
