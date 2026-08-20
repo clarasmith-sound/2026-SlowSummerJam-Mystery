@@ -4,6 +4,8 @@ using FMOD.Studio;
 
 public enum AudioUIButtonType { Press, Hover, StartGame }
 
+public enum AudioOptionSliders { MainVolume, MusicVolume, SFXVolume, DialogueVolume, AmbientVolume }
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
@@ -143,5 +145,31 @@ public class AudioManager : MonoBehaviour
     public void SetGlobalParameter(string parameterName, float value)
     {
         RuntimeManager.StudioSystem.setParameterByName(parameterName, value);
+    }
+
+    public void UpdateAudioOptionsSlider(AudioOptionSliders sliderType, float value)
+    {
+        float clampedValue = Mathf.Clamp01(value); // Ensure the value is between 0 and 1
+        switch (sliderType)
+        {
+            case AudioOptionSliders.MainVolume:
+                mainVolume = clampedValue;
+                break;
+            case AudioOptionSliders.MusicVolume:
+                musicVolume = clampedValue;
+                break;
+            case AudioOptionSliders.SFXVolume:
+                sfxVolume = clampedValue;
+                break;
+            case AudioOptionSliders.DialogueVolume:
+                dialogueVolume = clampedValue;
+                break;
+            case AudioOptionSliders.AmbientVolume:
+                ambientVolume = clampedValue;
+                break;
+            default:
+                Debug.LogWarning("Unknown audio option slider type.");
+                break;
+        }
     }
 }
