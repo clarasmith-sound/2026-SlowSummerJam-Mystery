@@ -33,9 +33,11 @@ Moxie: Do you like my new lipstick? Hehe, it’s on trend this season! #line:mox
 title: CandyMafiaSuccess
 ---
 Blink: Th-thank you, Principal Judge! I-I’m glad I could keep my wrapper collection. Hey, maybe I could let you in on a little s-secret? In the hallway the other day, I noticed… (TODO: insert missing mascot clue here)
+<<next_case GameManager>>
 ===
 
 title: CandyMafiaFailure
 ---
 Superintendent: Really?? You couldn’t tell that Moxie was on a sugar high? They were downing Fizzy Dizzles like no tomorrow to get rid of the evidence! What kind of Principal are you? If you keep this up, you can kiss your job goodbye. I don’t have to say this twice. #line:candy_mafia_failure
+<<next_case GameManager>>
 ===

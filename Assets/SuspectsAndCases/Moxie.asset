@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740f2bb7bc95e664488e96e9c00a4d3f, type: 3}
+  m_Name: Moxie
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectSO
+  suspectName: Moxie
+  prefabSuspect: {fileID: 8316818600730451295, guid: b692cd0ce75b3524496d5fdb2122144c, type: 3}
+  clues:
+  - textDescription: "Moxie can\u2019t stop giggling and fidgeting about. What is
+      up with her? Restless, much?"
+    yarnDialogueNode: MoxieClue0
+    discovered: 0
+  - textDescription: " A note with a bunch of numbers scribbled haphazardly over
+      it. Hmm\u2026 it looks like some sort of sales calculation?"
+    yarnDialogueNode: MoxieClue1
+    discovered: 0
+  - textDescription: Wait, is her mouth blue?
+    yarnDialogueNode: MoxieClue2
+    discovered: 0

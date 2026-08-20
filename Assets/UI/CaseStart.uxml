@@ -7,7 +7,7 @@
                         <ui:DataBinding property="text" data-source-path="caseName" binding-mode="ToTarget"/>
                     </Bindings>
                 </ui:Label>
-                <ui:Label text="Label" name="CaseDescription" style="font-size: 24px; flex-grow: 1;">
+                <ui:Label text="Label" name="CaseDescription" style="font-size: 24px; flex-grow: 1; width: 100%; white-space: normal;">
                     <Bindings>
                         <ui:DataBinding property="text" data-source-path="caseDescription" binding-mode="ToTarget"/>
                     </Bindings>
