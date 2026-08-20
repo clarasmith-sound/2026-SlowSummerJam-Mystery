@@ -6,7 +6,7 @@
             <ui:Label text="Maggie" name="speech-speaker" style="font-size: 36px; margin-top: 0; margin-left: 0; -unity-text-align: middle-left; height: 100%; padding-top: 11px; margin-right: 0; margin-bottom: 0; padding-right: 6px; padding-bottom: 10px; padding-left: 8px;"/>
         </ui:VisualElement>
         <ui:VisualElement name="dialogue-content" style="flex-grow: 1; width: 100%; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px;">
-            <ui:Label text="Label" name="speech-text" style="font-size: 28px;"/>
+            <ui:Label text="Label" name="speech-text" style="font-size: 28px; white-space: normal;"/>
         </ui:VisualElement>
         <ui:Button name="Continue" style="align-self: flex-end; font-size: 28px; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=1846317298&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_arrow&quot;); -unity-background-scale-mode: scale-to-fit; background-color: rgba(188, 188, 188, 0); width: 101px; height: 80px; position: absolute; bottom: 1px; right: 31px; border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);"/>
     </ui:VisualElement>
