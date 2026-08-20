@@ -33,9 +33,11 @@ Theo: I got the lead in the the play! I know Skyler usually gets the lead, but t
 title: DramaClubSuccess
 ---
 Theo: I’m glad you didn’t fall for his acting, Principal Judge. I better get back to the rehearsal. You’ll come see the show, right? Oh, by the way… (TODO: insert missing mascot clue here)
+<<next_case GameManager>>
 ===
 
 title: DramaClubFailure
 ---
 Superintendent: Bad call, Judge. A kid in the drama club just dropped the act and admitted they saw Skyler applying makeup to fake a black eye before attacking Theo! He thought getting Theo suspended might give him another shot at the star role. You fell for it and caught the wrong kid! Don’t make me recast your role as Principal… #line:drama_club_failure
+<<next_case GameManager>>
 ===
