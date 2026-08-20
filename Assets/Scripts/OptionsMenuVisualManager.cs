@@ -45,6 +45,7 @@ public class OptionsMenuVisualManager : MonoBehaviour
     {
         // SOUND : options menus closes and goes back to start menu
         AudioManager.Instance.PlaySound2D(buttonBackSound);
+        AudioManager.Instance.SaveVolumeSettingsToDisk();
         SceneManager.LoadScene("Start", LoadSceneMode.Single);
     }
 
@@ -52,6 +53,7 @@ public class OptionsMenuVisualManager : MonoBehaviour
     {
         // SOUND : options menus closes 
         AudioManager.Instance.PlaySound2D(buttonBackSound);
+        AudioManager.Instance.SaveVolumeSettingsToDisk();
         optionsUI.Q<VisualElement>("OptionsMenu").style.display = DisplayStyle.None;
     }
 
