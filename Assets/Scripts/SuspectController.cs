@@ -15,9 +15,6 @@ public class SuspectController : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private EventReference suspectHoverSound;
-    [SerializeField] private EventReference suspectSelectSound;
-    [SerializeField] private EventReference suspectStampHoverSound;
-    [SerializeField] private EventReference suspectStampedSound;
 
 
     void Start()
@@ -68,8 +65,7 @@ public class SuspectController : MonoBehaviour
         HighlightKid();
         if (!GameManager.Instance.stampBeingHeld)
             AudioManager.Instance.PlaySound2D(suspectHoverSound);
-        else
-            AudioManager.Instance.PlaySound2D(suspectSelectSound);
+  
     }
 
 
@@ -89,13 +85,12 @@ public class SuspectController : MonoBehaviour
             foreach (GameObject clueObject in clueObjects)
                 clueObject.SetActive(true);
 
-            AudioManager.Instance.PlaySound2D(suspectStampedSound);
         }
         else
         {
             expelledStamp.SetActive(true);
             GameManager.Instance.StampedGuilty(this);
-            AudioManager.Instance.PlaySound2D(suspectSelectSound);
+
         }
     }
 

@@ -110,6 +110,9 @@
 			<destination>{c092afe3-82a8-4602-a370-1be35fed0bc3}</destination>
 			<destination>{7e195021-b8e7-4a54-a88a-efcc942fc474}</destination>
 		</relationship>
+		<relationship name="markers">
+			<destination>{e1c3b5f8-0f25-46fc-bc2e-1e47faa2d9f9}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{5e986ac6-8f07-4848-a5cc-db566a529e61}">
 		<relationship name="effectChain">
@@ -219,11 +222,14 @@
 	</object>
 	<object class="EventMixerGroup" id="{4980f1d6-d5f4-406e-a1a3-377d21751c3f}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-4.5</value>
 		</property>
 		<property name="name">
 			<value>Kids</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{14f7b119-ac3f-4b7a-9bff-31c69a9b315b}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{c0f3d90d-9a1b-472d-ba57-5c8dcb837561}</destination>
 		</relationship>
@@ -274,6 +280,20 @@
 			<destination>{5e986ac6-8f07-4848-a5cc-db566a529e61}</destination>
 		</relationship>
 	</object>
+	<object class="LoopRegion" id="{e1c3b5f8-0f25-46fc-bc2e-1e47faa2d9f9}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="length">
+			<value>179.74827083333332</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{ff748e48-f1e5-4e3c-a721-40ee1d41ef02}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{b7b8c5b5-1cc5-4631-b443-b52b989b6e8a}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{f7895c15-59dc-4ac8-bb47-9725419b4433}">
 		<relationship name="effects">
 			<destination>{8b8c550d-9259-471c-adb3-b3ffff9eeb7d}</destination>
@@ -311,6 +331,20 @@
 		</property>
 		<property name="amount">
 			<value>100</value>
+		</property>
+	</object>
+	<object class="ADSRModulator" id="{14f7b119-ac3f-4b7a-9bff-31c69a9b315b}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="decayTime">
+			<value>0</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
 		</property>
 	</object>
 	<object class="MixerBusEffectChain" id="{c0f3d90d-9a1b-472d-ba57-5c8dcb837561}">

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Yarn.Unity;
 using PrimeTween;
+using FMODUnity;
 
 public class ToolkitDialogueView : DialoguePresenterBase
 {
@@ -15,6 +16,12 @@ public class ToolkitDialogueView : DialoguePresenterBase
     private VisualElement dialogueRootEl;
     private Button continueButton;
     private bool _waitingForNextLine;
+
+    [Header("Audio")]
+    [SerializeField] private EventReference buttonHoverSound;
+    [SerializeField] private EventReference continueButtonSound;
+    [SerializeField] private EventReference dialogueOpenSound;
+    [SerializeField] private EventReference dialogueCloseSound;
 
     public void OnEnable()
     {
@@ -33,8 +40,8 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
     public void OnButtonHover(PointerEnterEvent evt)
     {
-        // TODO - SOUND :  The "next/continue" button in a dialogue box was hovered over
-        return;
+        // SOUND :  The "next/continue" button in a dialogue box was hovered over
+        AudioManager.Instance.PlaySound2D(buttonHoverSound);
     }
 
     private void OnContinueClicked()
@@ -51,7 +58,8 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
     public override YarnTask OnDialogueStartedAsync()
     {
-        // TODO - SOUND :  Dialogue box pops up (note overlap - this happens when a clue is clicked)
+        // SOUND :  Dialogue box pops up (note overlap - this happens when a clue is clicked)
+        AudioManager.Instance.PlaySound2D(dialogueOpenSound);
         dialogueRootEl.style.display = DisplayStyle.Flex;
         Sequence.Create(cycles: 1)
            .Group(dialogueRootEl.VisualElementShakeScale(new ShakeSettings(strength: new Vector3(.1f, .1f, .1f), duration: 0.3f, frequency: 3)))
@@ -63,8 +71,9 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
     public override YarnTask OnDialogueCompleteAsync()
     {
-        // TODO - SOUND :  Dialogue box goes away (might happen at the same time as the case ending, since StartNextCase 
+        // SOUND :  Dialogue box goes away (might happen at the same time as the case ending, since StartNextCase 
         // in GameManager is called at the end of success/failure dialogues)
+        AudioManager.Instance.PlaySound2D(dialogueCloseSound);
         dialogueRootEl.style.display = DisplayStyle.None;
         return YarnTask.CompletedTask;
     }

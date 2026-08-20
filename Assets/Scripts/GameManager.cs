@@ -1,6 +1,7 @@
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using Yarn.Unity;
+using FMODUnity;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,12 @@ public class GameManager : MonoBehaviour
     public CaseSO[] allCases;
     public int currentCaseIndex = 0;
 
+    [Header("Audio")]
+    [SerializeField] private EventReference suspectEnterRoomSound;
+    [SerializeField] private EventReference startInspectionSound;
+    [SerializeField] private EventReference endInspectionSound;
+    [SerializeField] private EventReference moreToDiscoverSound;
+    [SerializeField] private EventReference guiltyStampSound;
 
     private void Awake()
     {
@@ -44,8 +51,9 @@ public class GameManager : MonoBehaviour
         await caseStartVisualManager.DisplayStartCase(caseToStart);
         foreach (SuspectSO suspect in caseToStart.suspects)
             Instantiate(suspect.prefabSuspect);
-        // TODO - SOUND :  Instantiating a prefab suspect is the suspects "entering" the room. Currently they just
+        // SOUND :  Instantiating a prefab suspect is the suspects "entering" the room. Currently they just
         // pop into existence, but they could fade in, or slide in, etc.
+        AudioManager.Instance.PlaySound2D(suspectEnterRoomSound);
         FindAllSuspectsInScene();
     }
 
@@ -64,8 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void StartInspection(GameObject targetSuspect)
     {
-        // TODO - SOUND :  A suspect was clicked, and we're entering inspect mode.
-        // (the click also triggers the "permanent record" to slide out, the camera to zoom in, and the monocle to be picked up)
+        AudioManager.Instance.PlaySound2D(startInspectionSound);
         inspectionVisualManager.StartInspection(targetSuspect);
         cameraManager.MoveToInspection(targetSuspect);
         foreach (GameObject suspect in allSuspects)
@@ -76,9 +83,10 @@ public class GameManager : MonoBehaviour
     public void EndInspection()
     {
         _ = dialogueRunner.Stop();
-        // TODO - SOUND :  We're exiting inspect mode and going back to the regular view.
+        // SOUND :  We're exiting inspect mode and going back to the regular view.
         // This is the "back to default view" button being clicked in inspect mode
         // (the "permanent record" slides back out, and camera zooms out, and the monocle disappears)
+        AudioManager.Instance.PlaySound2D(endInspectionSound);
         cameraManager.MoveToDefault();
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().RestoreToReady();
@@ -111,9 +119,10 @@ public class GameManager : MonoBehaviour
         if (undiscoveredClues)
         {
             _ = dialogueRunner.StartDialogue("UndiscoveredClues");
-            // TODO - SOUND :  The player tried to pick up the stamp, but there were undiscovered clues, so
+            // SOUND :  The player tried to pick up the stamp, but there were undiscovered clues, so
             // the dialogue with Principal Judge thinking "there's more to discover here..." plays. The dialogue might have sound, 
             // but if it doesn't, a sound to indicate "denial" here may be helpful since the stamp won't get picked up 
+            AudioManager.Instance.PlaySound2D(moreToDiscoverSound);
             return false;
         }
         else
@@ -131,7 +140,8 @@ public class GameManager : MonoBehaviour
 
     public void StampedGuilty(SuspectController accusedSuspect)
     {
-        // TODO - SOUND :  A suspect was stamped as the guilty one. 
+        // SOUND :  A suspect was stamped as the guilty one. 
+        AudioManager.Instance.PlaySound2D(guiltyStampSound);
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().state = SuspectState.Judged;
         PutDownStamp();
@@ -152,8 +162,9 @@ public class GameManager : MonoBehaviour
         // Remove current suspects
         foreach (GameObject suspect in allSuspects)
             Destroy(suspect);
-        // TODO - SOUND :  As the success or failure dialogue finishes, the current case gets cleared.
+        // SOUND :  As the success or failure dialogue finishes, the current case gets cleared.
         // Currently, the suspects just disappear, but they could fade out/slide out/etc. 
+        //AudioManager.Instance.PlaySound2D(guiltyStampSound);
         if (currentCaseIndex < (allCases.Length - 1))
         {
             currentCaseIndex++;

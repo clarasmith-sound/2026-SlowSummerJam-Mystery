@@ -1,11 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using FMODUnity;
 
 public class OptionsMenuVisualManager : MonoBehaviour
 {
     public UIDocument optionsMenuUIDoc;
     private VisualElement optionsUI;
+
+    [Header("Audio")]
+    [SerializeField] private EventReference buttonHoverSound;
+    [SerializeField] private EventReference buttonSelectSound;
+    [SerializeField] private EventReference buttonBackSound;
 
     public void OnEnable()
     {
@@ -30,24 +36,28 @@ public class OptionsMenuVisualManager : MonoBehaviour
 
     public void ShowOptionsMenu()
     {
-        // TODO - SOUND : options menus opens 
+        // SOUND : options menus opens 
+        AudioManager.Instance.PlaySound2D(buttonSelectSound);
         optionsUI.Q<VisualElement>("OptionsMenu").style.display = DisplayStyle.Flex;
     }
 
     public void BackToStartMenu()
     {
+        // SOUND : options menus closes and goes back to start menu
+        AudioManager.Instance.PlaySound2D(buttonBackSound);
         SceneManager.LoadScene("Start", LoadSceneMode.Single);
     }
 
     public void HideOptionsMenu()
     {
-        // TODO - SOUND : options menus closes 
+        // SOUND : options menus closes 
+        AudioManager.Instance.PlaySound2D(buttonBackSound);
         optionsUI.Q<VisualElement>("OptionsMenu").style.display = DisplayStyle.None;
     }
 
     public void OnButtonHover(PointerEnterEvent evt)
     {
-        // TODO - SOUND : a button in the settings menu was hovered over
-        return;
+        // SOUND : a button in the settings menu was hovered over
+        AudioManager.Instance.PlaySound2D(buttonHoverSound);
     }
 }

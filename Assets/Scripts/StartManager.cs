@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class StartManager : MonoBehaviour
 {
     public UIDocument startUIDoc;
     private VisualElement startUI;
+
+    [Header("Audio")]
+    [SerializeField] private EventReference buttonHoverSound;
+    [SerializeField] private EventReference startGameSound;
 
     public void OnEnable()
     {
@@ -22,12 +27,14 @@ public class StartManager : MonoBehaviour
 
     public void OnButtonHover(PointerEnterEvent evt)
     {
-        // TODO - SOUND : a button in the start menu was hovered over
-        return;
+        // SOUND : a button in the start menu was hovered over
+        AudioManager.Instance.PlaySound2D(buttonHoverSound);
     }
 
     public void StartGame()
     {
+        // SOUND : the start game button was clicked
+        AudioManager.Instance.PlaySound2D(startGameSound);
         SceneManager.LoadScene("Office", LoadSceneMode.Single);
     }
 }
