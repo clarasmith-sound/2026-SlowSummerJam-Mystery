@@ -12,11 +12,13 @@ public class InspectionVisualManager : MonoBehaviour
     {
         inspectionUI = inspectionUIDoc.rootVisualElement;
         inspectionUI.Q<Button>("ExitInspection").clicked += CallEndInspection;
+        inspectionUI.Q<Button>("ExitInspection").RegisterCallback<PointerEnterEvent>(OnButtonHover);
     }
 
     public void OnDisable()
     {
         inspectionUI.Q<Button>("ExitInspection").clicked -= CallEndInspection;
+        inspectionUI.Q<Button>("ExitInspection").UnregisterCallback<PointerEnterEvent>(OnButtonHover);
     }
 
     public void StartInspection(GameObject targetSuspect)
@@ -45,5 +47,13 @@ public class InspectionVisualManager : MonoBehaviour
     {
         GameManager.Instance.EndInspection();
         EndInspection();
+    }
+
+    public void OnButtonHover(PointerEnterEvent evt)
+    {
+        // TODO - SOUND :  The "back to default view" button was hovered over
+        // Note, the place I noted for the click of this button is actually in GameManager
+        // in EndInspection (since it also causes a camera zoom and the permanent record to slide off right)
+        return;
     }
 }

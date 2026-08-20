@@ -19,7 +19,6 @@ public class PhoneController : MonoBehaviour
     private void OnMouseEnter()
     {
         if (!IsRinging) return;
-        
         spriteRenderer.material.SetFloat("_Toggle", 1.0f);
     }
 
@@ -34,17 +33,16 @@ public class PhoneController : MonoBehaviour
 
         spriteRenderer.material.SetFloat("_Toggle", 0f);
         ringingAnimation.Stop();
-        
+
         IsRinging = false;
-        OnPhoneRingStateChanged?.Invoke(false); 
+        OnPhoneRingStateChanged?.Invoke(false);
 
         GameManager.Instance.PhonePickedUp();
     }
 
     public void StartPhoneRinging()
     {
-
-        if (IsRinging) return; 
+        if (IsRinging) return;
 
         IsRinging = true;
         OnPhoneRingStateChanged?.Invoke(true);

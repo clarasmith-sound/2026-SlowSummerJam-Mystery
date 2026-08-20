@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
         await caseStartVisualManager.DisplayStartCase(caseToStart);
         foreach (SuspectSO suspect in caseToStart.suspects)
             Instantiate(suspect.prefabSuspect);
+        // TODO - SOUND :  Instantiating a prefab suspect is the suspects "entering" the room. Currently they just
+        // pop into existence, but they could fade in, or slide in, etc.
         FindAllSuspectsInScene();
     }
 
@@ -62,6 +64,8 @@ public class GameManager : MonoBehaviour
 
     public void StartInspection(GameObject targetSuspect)
     {
+        // TODO - SOUND :  A suspect was clicked, and we're entering inspect mode.
+        // (the click also triggers the "permanent record" to slide out, the camera to zoom in, and the monocle to be picked up)
         inspectionVisualManager.StartInspection(targetSuspect);
         cameraManager.MoveToInspection(targetSuspect);
         foreach (GameObject suspect in allSuspects)
@@ -72,6 +76,9 @@ public class GameManager : MonoBehaviour
     public void EndInspection()
     {
         _ = dialogueRunner.Stop();
+        // TODO - SOUND :  We're exiting inspect mode and going back to the regular view.
+        // This is the "back to default view" button being clicked in inspect mode
+        // (the "permanent record" slides back out, and camera zooms out, and the monocle disappears)
         cameraManager.MoveToDefault();
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().RestoreToReady();
@@ -80,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     public void RunDialogue(string startNode)
     {
-        // TODO: I would expect clicking where I clicked again progresses the dialogue, but it restarts in (in the case of multi-line dialogue options)
+        // TODO - GAME DESIGN: I would expect clicking where I clicked again progresses the dialogue, but it restarts
         // Evaluate this UX, maybe once a node starts, you enter a state where clicks continue instead of restarting it
         _ = dialogueRunner.StartDialogue(startNode);
     }
@@ -104,6 +111,9 @@ public class GameManager : MonoBehaviour
         if (undiscoveredClues)
         {
             _ = dialogueRunner.StartDialogue("UndiscoveredClues");
+            // TODO - SOUND :  The player tried to pick up the stamp, but there were undiscovered clues, so
+            // the dialogue with Principal Judge thinking "there's more to discover here..." plays. The dialogue might have sound, 
+            // but if it doesn't, a sound to indicate "denial" here may be helpful since the stamp won't get picked up 
             return false;
         }
         else
@@ -121,6 +131,7 @@ public class GameManager : MonoBehaviour
 
     public void StampedGuilty(SuspectController accusedSuspect)
     {
+        // TODO - SOUND :  A suspect was stamped as the guilty one. 
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().state = SuspectState.Judged;
         PutDownStamp();
@@ -141,6 +152,8 @@ public class GameManager : MonoBehaviour
         // Remove current suspects
         foreach (GameObject suspect in allSuspects)
             Destroy(suspect);
+        // TODO - SOUND :  As the success or failure dialogue finishes, the current case gets cleared.
+        // Currently, the suspects just disappear, but they could fade out/slide out/etc. 
         if (currentCaseIndex < (allCases.Length - 1))
         {
             currentCaseIndex++;
