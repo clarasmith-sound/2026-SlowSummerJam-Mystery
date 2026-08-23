@@ -141,13 +141,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Phone
+      name: PhoneBase
       rect:
         serializedVersion: 2
-        x: 525
-        y: 1757
+        x: 1039
+        y: 1786
         width: 440
-        height: 239
+        height: 238
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,6 +206,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: StampHeld
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1728
+        width: 476
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57bf0360d8d9a8a4c94b23eccdda4c83
+      internalID: -1282362676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Phone
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 1567
+        width: 125
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673497d49bbf8994eafab9890da398ac
+      internalID: 1165825377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -224,8 +268,10 @@ TextureImporter:
     nameFileIdTable:
       OfficeBackground: -1123933958
       OfficeBackground_Desk: 801538349
-      Phone: -469372484
+      Phone: 1165825377
+      PhoneBase: -469372484
       StampBottomSM: -238589696
+      StampHeld: -1282362676
       StampTopSM: -1751007272
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
