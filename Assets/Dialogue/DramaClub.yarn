@@ -32,7 +32,7 @@ Theo: I got the lead in the the play! I know Skyler usually gets the lead, but t
 
 title: DramaClubSuccess
 ---
-Theo: I’m glad you didn’t fall for his acting, Principal Judge. I better get back to the rehearsal. You’ll come see the show, right? Oh, by the way… (TODO: insert missing mascot clue here)
+Theo: I’m glad you didn’t fall for his acting, Principal Judge. I better get back to the rehearsal. You’ll come see the show, right? Oh, by the way… I don’t mean to be a tattletale, but the day before Pork Pie went missing, I saw Skyler lurking around the corridor where Pork Pie’s storage room is. He sure spent a lot of time pacing back and forth, and even tested out the doorknob of the room. Do you think he might have taken poor Pork Pie? #line:drama_club_success
 <<next_case GameManager>>
 ===
 
