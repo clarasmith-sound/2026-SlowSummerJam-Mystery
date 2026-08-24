@@ -32,7 +32,7 @@ Moxie: Do you like my new lipstick? Hehe, it’s on trend this season! #line:mox
 
 title: CandyMafiaSuccess
 ---
-Blink: Th-thank you, Principal Judge! I-I’m glad I could keep my wrapper collection. Hey, maybe I could let you in on a little s-secret? In the hallway the other day, I noticed… (TODO: insert missing mascot clue here)
+Blink: Th-thank you, Principal Judge! I-I’m so happy I can keep my wrapper collection. Maybe I could let you in on a little s-secret? Y-you know that day? I-I mean the day before Pork Pie went missing, I s-saw Moxie running down the hallway with a large duffel bag. I-It looked a-a-as if there were something stuffed in it. S-s-something huge, like a mascot! Do y-you think she was the one who took little Porkie? #line:candy_mafia_success
 <<next_case GameManager>>
 ===
 
