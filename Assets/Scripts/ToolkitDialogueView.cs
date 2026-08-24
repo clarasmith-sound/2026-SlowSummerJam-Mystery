@@ -22,6 +22,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
     [SerializeField] private EventReference continueButtonSound;
     [SerializeField] private EventReference dialogueOpenSound;
     [SerializeField] private EventReference dialogueCloseSound;
+    [SerializeField] private EventReference typeWriterSound;
 
     public void OnEnable()
     {
@@ -107,6 +108,12 @@ public class ToolkitDialogueView : DialoguePresenterBase
             }
 
             speechText.text = output;
+
+            if(i < text.Length && !char.IsWhiteSpace(text[i]))
+            {
+                // SOUND :  A character in a dialogue line is displayed (not for whitespace)
+                AudioManager.Instance.PlaySound2D(typeWriterSound);
+            }
 
             await Task.Delay(TimeSpan.FromSeconds(0.01));
 
