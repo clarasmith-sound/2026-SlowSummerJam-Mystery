@@ -2205,6 +2205,13 @@ MonoBehaviour:
       Data3: -1788999037
       Data4: 121204714
     Path: event:/Objects/Dialogue_Close
+  typeWriterSound:
+    Guid:
+      Data1: 495340651
+      Data2: 1166283123
+      Data3: -521315170
+      Data4: -902480676
+    Path: event:/UI/Dialogue_Text
 --- !u!1 &730087440
 GameObject:
   m_ObjectHideFlags: 0
