@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f5e12f01326c5489e930b23514c39b, type: 3}
+  m_Name: TeachersLounge
+  m_EditorClassIdentifier: Assembly-CSharp::CaseSO
+  caseName: "Something\u2019s Brewing in the Teacher\u2019s Lounge"
+  caseDescription: "Multiple reports of yelling coming from the teachers\u2019 lounge.
+    Apparently, someone broke the coffee machine, and chaos has broken loose as the
+    stress of the under-caffeinated staff finally boiled over."
+  suspects:
+  - {fileID: 11400000, guid: f6593bf8a4076f840b02ea42c3fb7ad4, type: 2}
+  - {fileID: 11400000, guid: 7953bcb295e558c45bd7018ef2ca9bfe, type: 2}
+  guiltySuspect: {fileID: 11400000, guid: f6593bf8a4076f840b02ea42c3fb7ad4, type: 2}
+  yarnSuccessNode: TeachersLoungeSuccess
+  yarnFailureNode: TeachersLoungeFailure

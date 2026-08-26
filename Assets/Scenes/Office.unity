@@ -161,6 +161,7 @@ MonoBehaviour:
   monocleController: {fileID: 0}
   allCases:
   - {fileID: 11400000, guid: 75ba4045b12d5d64db5e721d5626c6f9, type: 2}
+  - {fileID: 11400000, guid: 7ebef47bea1c0f747b025cb527c0fa1c, type: 2}
   - {fileID: 11400000, guid: 2c2c42e7cfa8036468cfe204a6b3f26a, type: 2}
   currentCaseIndex: 0
   suspectEnterRoomSound:
@@ -273,7 +274,7 @@ GameObject:
   - component: {fileID: 142887112}
   - component: {fileID: 142887111}
   - component: {fileID: 142887110}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chain (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +642,7 @@ GameObject:
   - component: {fileID: 289361911}
   - component: {fileID: 289361910}
   - component: {fileID: 289361909}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chain (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2513,7 +2514,7 @@ GameObject:
   - component: {fileID: 881101652}
   - component: {fileID: 881101651}
   - component: {fileID: 881101650}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chain (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2694,7 +2695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1037012914}
   - component: {fileID: 1037012915}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MonocleMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3555,7 +3556,7 @@ GameObject:
   - component: {fileID: 1359255014}
   - component: {fileID: 1359255013}
   - component: {fileID: 1359255016}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Monocle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3787,7 +3788,7 @@ GameObject:
   - component: {fileID: 1597108487}
   - component: {fileID: 1597108486}
   - component: {fileID: 1597108485}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3971,7 +3972,7 @@ GameObject:
   - component: {fileID: 1719022225}
   - component: {fileID: 1719022224}
   - component: {fileID: 1719022223}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Chain (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
