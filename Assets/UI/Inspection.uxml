@@ -2,13 +2,22 @@
     <ui:Template name="PermanentRecordClue" src="project://database/Assets/UI/PermanentRecordClue.uxml?fileID=9197481963319205126&amp;guid=f3263413286036849bbe66b559f689b2&amp;type=3#PermanentRecordClue"/>
     <Style src="project://database/Assets/UI/Inspection.uss?fileID=7433441132597879392&amp;guid=c0e559634da683c4a8ae3cc6e5d3e851&amp;type=3#Inspection"/>
     <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_UIText.uss?fileID=7433441132597879392&amp;guid=3a7e2beb4811d9f4bacf815c11e4b61e&amp;type=3#PorkPieFiles_UIText"/>
-    <ui:VisualElement name="PermanentRecord" data-source-type="SuspectSO, Assembly-CSharp" class="hidden" style="position: absolute; top: 10%; bottom: 10%; height: 80%; width: 30%; right: 0%; background-color: rgb(255, 255, 255); transition-duration: 0.2s; transition-property: translate; padding-top: 20px; padding-right: 40px; padding-bottom: 20px; padding-left: 40px;">
-        <ui:Label text="Permanent Record:" name="TItle" style="font-size: 48px; -unity-text-align: upper-center; margin-top: 26px; -unity-font-style: bold;"/>
-        <ui:Label text="maggie" name="Name" style="font-size: 48px; -unity-text-align: upper-center; margin-top: 4px; -unity-font-style: bold;">
-            <Bindings>
-                <ui:DataBinding property="text" data-source-path="suspectName" binding-mode="ToTarget"/>
-            </Bindings>
-        </ui:Label>
+    <ui:VisualElement name="PermanentRecord" data-source-type="SuspectSO, Assembly-CSharp" class="hidden" style="position: absolute; top: 10%; bottom: 10%; height: 80%; width: 30%; right: 0%; transition-duration: 0.2s; transition-property: translate; padding-top: 20px; padding-right: 40px; padding-bottom: 20px; padding-left: 40px; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;);">
+        <ui:VisualElement name="HeaderRow" class="header-row">
+            <ui:Image source="project://database/Assets/Art/UI.png?fileID=-421481591&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_17" name="SchoolEmblem"/>
+            <ui:VisualElement name="HeaderTextGroup" class="header-text-group">
+                <ui:Label text="Hard Knocks Academy " name="AcademyTitle"/>
+                <ui:Label text="Permanent Record - Incident Report" name="DocumentSubheader"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="TitleBlockRow" class="title-block-row" style="flex-direction: row; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=-571982699&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_6&quot;); -unity-background-image-tint-color: rgb(137, 46, 16); background-color: rgb(255, 255, 255);">
+            <ui:Label text="Student Name:" name="StudentTitle" style="-unity-text-align: upper-center; margin-top: 4px;"/>
+            <ui:Label text="Maggie" name="Name" style="margin-top: 4px;">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="suspectName" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
         <ui:VisualElement name="Clues" style="flex-grow: 1;">
             <ui:Instance template="PermanentRecordClue" name="PermanentRecordClue"/>
         </ui:VisualElement>

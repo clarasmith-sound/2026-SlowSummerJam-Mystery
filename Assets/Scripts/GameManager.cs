@@ -16,8 +16,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public StampController stampController;
     [HideInInspector] public PhoneController phoneController;
     [HideInInspector] public MonocleController monocleController;
+
     public CaseSO[] allCases;
     public int currentCaseIndex = 0;
+
+    public bool optionsMenuOpen = false;
 
     [Header("Audio")]
     [SerializeField] private EventReference suspectEnterRoomSound;
