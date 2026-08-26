@@ -18,10 +18,7 @@
     height: auto;
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
-    -unity-slice-top: 100;
-    -unity-slice-bottom: 100;
-    -unity-slice-left: 100;
-    -unity-slice-right: 100;
+
     -unity-background-scale-mode: stretch-to-fill;
 }
 
@@ -46,7 +43,7 @@
 }
 
 #AcademyTitle {
-    font-size: 34px;
+    font-size: 54px;
     -unity-font-style: bold-and-italic;
     color: rgb(0, 0, 0);
     margin: 0;
@@ -54,7 +51,7 @@
 }
 
 #DocumentSubheader {
-    font-size: 24px;
+    font-size: 48px;
     -unity-font-style: italic;
     color: rgb(60, 60, 60);
     margin-top: 4px;
@@ -91,7 +88,7 @@
 
 #CaseName {
     color: rgb(225, 255, 225);
-    font-size: 28px;
+    font-size: 48px;
     -unity-font-style: bold-and-italic;
     -unity-text-align: middle-center;
     white-space: normal;
@@ -99,9 +96,10 @@
 
 #CaseBodyText
 {
-    padding-left: 50px;
-    padding-right: 50px;
-    -unity-text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    -unity-text-align: top-left;
+    font-size: 32px;
 }
 
 .body-content-row {

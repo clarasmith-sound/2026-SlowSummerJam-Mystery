@@ -2187,11 +2187,11 @@ MonoBehaviour:
     Path: event:/UI/GenericHover
   continueButtonSound:
     Guid:
-      Data1: -387476541
-      Data2: 1327725152
-      Data3: -98903880
-      Data4: -1388507670
-    Path: event:/UI/GenericClick
+      Data1: 1930915516
+      Data2: 1243495239
+      Data3: 954891939
+      Data4: -714114780
+    Path: event:/UI/DialogueContinue
   dialogueOpenSound:
     Guid:
       Data1: -315020731

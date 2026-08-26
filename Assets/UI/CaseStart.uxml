@@ -1,8 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_UIText.uss?fileID=7433441132597879392&amp;guid=3a7e2beb4811d9f4bacf815c11e4b61e&amp;type=3#PorkPieFiles_UIText"/>
     <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_CaseFileStyling.uss?fileID=7433441132597879392&amp;guid=bc1b0ed425d4d9c4da9cee906210dfbd&amp;type=3#PorkPieFiles_CaseFileStyling"/>
-    <ui:VisualElement name="DocumentRoot" style="flex-grow: 1; position: absolute; top: 0%; left: 0%; bottom: 0%; right: 0%;">
-        <ui:Image name="CardBackground" scale-mode="StretchToFill" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;);">
+    <ui:VisualElement name="DocumentRoot" style="flex-grow: 1; position: absolute; top: 0%; left: 0%; bottom: 0%; right: 0%; display: none;">
+        <ui:Image name="CardBackground" scale-mode="StretchToFill" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;); height: 772px; width: 1040px;">
             <ui:VisualElement name="HeaderRow" class="header-row">
                 <ui:Image source="project://database/Assets/Art/UI.png?fileID=-421481591&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_17" name="SchoolEmblem"/>
                 <ui:VisualElement name="HeaderTextGroup" class="header-text-group">
@@ -18,7 +18,7 @@
                 </ui:Label>
             </ui:VisualElement>
             <ui:VisualElement name="BodyContentRow" class="body-content-row">
-                <ui:Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." name="CaseBodyText" style="font-size: 24px; flex-grow: 1; width: 100%; white-space: normal;">
+                <ui:Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." name="CaseBodyText" style="flex-grow: 1; width: 100%; white-space: normal;">
                     <Bindings>
                         <ui:DataBinding property="text" data-source-path="caseDescription" binding-mode="ToTarget"/>
                     </Bindings>
