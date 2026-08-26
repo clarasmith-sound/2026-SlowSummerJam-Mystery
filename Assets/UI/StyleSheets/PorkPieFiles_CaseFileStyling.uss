@@ -1,0 +1,123 @@
+:root {
+}
+
+#DocumentRoot {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#CardBackground {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    width: 800px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    -unity-slice-top: 100;
+    -unity-slice-bottom: 100;
+    -unity-slice-left: 100;
+    -unity-slice-right: 100;
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.header-row {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-bottom: 16px;
+}
+
+#SchoolEmblem {
+    width: 128px;
+    height: 128px;
+    min-height: 128px;
+    max-height: 128px;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+#AcademyTitle {
+    font-size: 34px;
+    -unity-font-style: bold-and-italic;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+}
+
+#DocumentSubheader {
+    font-size: 24px;
+    -unity-font-style: italic;
+    color: rgb(60, 60, 60);
+    margin-top: 4px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.header-text-group {
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.title-block-row {
+    width: 100%;
+    margin-bottom: 10px;
+    height: auto;
+    flex-grow: 0;
+    background-color: rgba(0, 0, 0, 0);
+    align-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 72px;
+    -unity-slice-left: 100;
+    -unity-slice-top: 100;
+    -unity-slice-right: 100;
+    -unity-slice-bottom: 100;
+    -unity-slice-scale: 1px;
+}
+
+#CaseName {
+    color: rgb(225, 255, 225);
+    font-size: 28px;
+    -unity-font-style: bold-and-italic;
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
+
+#CaseBodyText
+{
+    padding-left: 50px;
+    padding-right: 50px;
+    -unity-text-align: left;
+}
+
+.body-content-row {
+    width: 100%;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.body-content-row .unity-label {
+    font-size: 20px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
+
+#StartCase
+{
+    margin-top: 24px;
+}
