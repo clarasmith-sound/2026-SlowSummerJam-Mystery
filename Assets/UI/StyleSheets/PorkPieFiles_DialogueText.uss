@@ -1,0 +1,7 @@
+:root {
+}
+
+.unity-text-element {
+    -unity-font-definition: url("project://database/Assets/UI/Typeface/Schoolbell-Regular.ttf?fileID=12800000&guid=64a9ee6639566aa43ade492bbff8cca6&type=3#Schoolbell-Regular");
+    font-size: 8px;
+}

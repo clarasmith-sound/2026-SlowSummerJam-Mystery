@@ -1,0 +1,47 @@
+:root {
+}
+
+
+.unity-text-element {
+    -unity-font-definition: url("project://database/Assets/UI/Typeface/PlayfairDisplay-VariableFont_wght.ttf?fileID=12800000&guid=0fc5960e5c8e2414b85175b516dbf28b&type=3#PlayfairDisplay-VariableFont_wght");
+}
+
+.credit-row {
+    flex-direction: row;        
+    align-items: center;        
+    width: 100%;
+    height: auto;               
+    min-height: 48px;  
+    margin-bottom: 24px; 
+}
+
+.credit-row #JobTitle {
+    font-size: 20px;   
+    white-space: normal; 
+    max-width: 50%;
+    height: auto;
+    flex-shrink: 0;
+    overflow: visible;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.credit-row #CreditName {
+    font-size: 20px; 
+    white-space: nowrap;
+    height: auto;
+    flex-shrink: 0;
+}
+
+
+.credit-row #DottedLeader {
+    font-size: 20px;
+    flex-grow: 1;              
+    flex-shrink: 1;
+    overflow: hidden;          
+    text-overflow: ellipsis;   
+    white-space: nowrap;       
+    margin-left: 12px;
+    margin-right: 12px;
+    color: rgb(0, 0, 0);
+}

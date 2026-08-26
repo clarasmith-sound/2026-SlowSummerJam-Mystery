@@ -1,7 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_UIText.uss?fileID=7433441132597879392&amp;guid=3a7e2beb4811d9f4bacf815c11e4b61e&amp;type=3#PorkPieFiles_UIText"/>
     <ui:VisualElement name="Clue" data-source-type="Clue, Assembly-CSharp">
-        <ui:Label text="Clue: " style="font-size: 20px; -unity-font-style: bold;"/>
-        <ui:Label text="???" style="font-size: 18px; white-space: normal;">
+        <ui:Label text="Clue: " class="uiText" style="font-size: 20px; -unity-font-style: bold;"/>
+        <ui:Label text="???" class="uiText" style="font-size: 18px; white-space: normal;">
             <Bindings>
                 <ui:DataBinding property="text" data-source-path="GetClueDescription" binding-mode="ToTarget"/>
             </Bindings>
