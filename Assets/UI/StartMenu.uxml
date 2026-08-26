@@ -1,6 +1,50 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
-        <ui:Label text="PRINCIPAL JUDGE" style="font-size: 134px; -unity-font-style: bold;"/>
-        <ui:Button text="Start Game" name="StartGame" style="font-size: 50px; -unity-font-style: bold;"/>
+    <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_UIText.uss?fileID=7433441132597879392&amp;guid=3a7e2beb4811d9f4bacf815c11e4b61e&amp;type=3#PorkPieFiles_UIText"/>
+    <ui:VisualElement name="MainMenuContainer" style="flex-grow: 1; align-items: stretch; -unity-text-align: middle-left; align-self: center; bottom: 0%; border-bottom-width: 115px; background-position-y: center; position: absolute; display: flex;">
+        <ui:Button text="Start Game" name="StartGame" class="start-btn"/>
+        <ui:Button text="Options" name="Options" class="start-btn"/>
+        <ui:Button text="Credits" name="Credits" class="start-btn"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="OptionsMenuContainer" style="position: absolute; top: 0; width: 100%; height: 100%; align-items: center; justify-content: center; display: none; left: 0%; right: 0%; bottom: 0%;">
+        <ui:VisualElement name="ClipboardBackgound" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=667777397&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_4&quot;); -unity-background-scale-mode: scale-to-fit; aspect-ratio: 0.7521743; width: 30%;">
+            <ui:VisualElement name="ClipboardPaper" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=1946861&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_13&quot;); width: 87%; height: 91%; left: 50%; top: 3%; translate: -50% 0%;">
+                <ui:VisualElement name="MenuContent" style="flex-grow: 1; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px; align-items: center;">
+                    <ui:Label text="Options" style="font-size: 40px; -unity-text-align: middle-center; -unity-font-style: bold;"/>
+                    <ui:Label text="Volume:" style="font-size: 30px; -unity-text-align: middle-left; -unity-font-style: normal; align-self: flex-start;"/>
+                    <ui:Slider label="Main" value="42" high-value="10" name="SliderMain" low-value="-60" class="custom-slider" style="width: 100%;">
+                        <ui:Label text="0 dB" name="MainValueLabel"/>
+                    </ui:Slider>
+                    <ui:Slider label="Music" value="42" high-value="100" name="SliderMusic" low-value="-60" class="custom-slider" style="width: 100%;">
+                        <ui:Label text="0 dB" name="MusicValueLabel" style="height: 27px;"/>
+                    </ui:Slider>
+                    <ui:Slider label="SFX" value="-60" high-value="10" name="SliderSFX" low-value="-60" class="custom-slider" style="width: 100%;">
+                        <ui:Label text="0 dB" name="SFXValueLabel"/>
+                    </ui:Slider>
+                    <ui:Slider label="Ambience" value="0" high-value="10" name="SliderAmbience" low-value="-60" class="custom-slider" style="width: 100%;">
+                        <ui:Label text="0 dB" name="AmbienceValueLabel"/>
+                    </ui:Slider>
+                    <ui:Slider label="Dialogue" value="0" high-value="10" name="SliderDialogue" low-value="-60" style="width: 100%; display: none;">
+                        <ui:Label text="Label" name="DialogueValueLabel"/>
+                    </ui:Slider>
+                    <ui:Button text="Back" name="BackToStart" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=530779322&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_11&quot;); -unity-background-scale-mode: stretch-to-fill; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; padding-top: 24px; padding-left: 16px; padding-bottom: 24px; padding-right: 16px; margin-top: 30px; margin-bottom: 30px; background-size: 100% 50%;"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="ClipboardClip" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=450507457&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_3&quot;); -unity-background-scale-mode: scale-to-fit; width: 33%; aspect-ratio: 2.228346; left: 50%; translate: -50% -50%; position: absolute;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="CreditsMenuContainer" style="flex-grow: 1; top: 0; right: 0; left: 0; bottom: 0; position: absolute; display: none;">
+        <ui:VisualElement name="FolderImages" style="flex-grow: 1; position: absolute; top: 0%; left: 0%; bottom: 0%; right: 0%;">
+            <ui:Image source="project://database/Assets/Art/FolderTitle.png?fileID=-961851279&amp;guid=e99ce10d404df7d49ab430ec50b6e979&amp;type=3#FolderOpen" name="FolderImg" style="top: 0%; left: 0%; bottom: 0%; right: 0%; position: absolute;">
+                <ui:Image source="project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16" scale-mode="StretchToFill" name="PaperImg" style="position: absolute; height: 1076px; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=1422909059&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_0&quot;); align-items: center; width: 735px; right: 9%; top: -1px;">
+                    <ui:VisualElement name="PageTitleElements" style="flex-grow: 1; flex-direction: row; position: absolute; height: 77px; width: 690px; left: 18px; top: 35px;">
+                        <ui:Image source="project://database/Assets/Art/UI.png?fileID=-421481591&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_17" name="SchoolEmblem"/>
+                        <ui:Label text="Hard Knocks Academy &#10;Staff" name="GameTitle" style="-unity-text-align: middle-center; font-size: 24px; -unity-font-style: bold; padding-left: 0; margin-left: 41px; margin-right: 18px; margin-top: 0; margin-bottom: 0; padding-bottom: 0; padding-top: 0;"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="BlackLineDividerImg" style="flex-grow: 1; position: absolute; top: 14%; left: 10%; right: 10%; bottom: 74.8%; background-size: 100% auto; -unity-background-scale-mode: stretch-to-fill; height: 1px; width: auto; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=1422909059&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_0&quot;); background-color: rgb(0, 0, 0);"/>
+                    <ui:VisualElement name="CreditsList" style="flex-grow: 1; position: absolute; top: 129px; left: 26px; right: 33px; bottom: 106px; margin-left: 30px; margin-right: 10px; padding-right: 30px; justify-content: space-between; align-self: stretch; align-content: stretch;"/>
+                    <ui:Button text="Back" name="OptionsBackBtn" class="start-btn" style="position: absolute; top: auto; left: auto; width: 122px; height: 38px; font-size: 25px; align-items: center; align-self: center; right: 49px; bottom: 45px;"/>
+                </ui:Image>
+            </ui:Image>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
