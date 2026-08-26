@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2616474207775590784}
   - component: {fileID: 7919870577258226204}
   - component: {fileID: 2229911967427394028}
+  - component: {fileID: 8724093793022781042}
   m_Layer: 0
   m_Name: Skyler
   m_TagString: Suspect
@@ -366,6 +367,28 @@ PolygonCollider2D:
       - {x: 1.49, y: 0.19}
       - {x: 1.52, y: 0.21}
   m_UseDelaunayMesh: 1
+--- !u!95 &8724093793022781042
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620314260105726622}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a22ce3254e0a1441a753c3300462f00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3124347120038284606
 GameObject:
   m_ObjectHideFlags: 0

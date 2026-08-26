@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 576865865694894216}
   - component: {fileID: 4726187404436164446}
   - component: {fileID: 4142673955540389396}
+  - component: {fileID: 6522178293512049607}
   m_Layer: 0
   m_Name: Moxie
   m_TagString: Suspect
@@ -1072,3 +1073,25 @@ PolygonCollider2D:
       - {x: 2, y: 9.559999}
       - {x: 2.03, y: 9.5}
   m_UseDelaunayMesh: 1
+--- !u!95 &6522178293512049607
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316818600730451295}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32eef8082b283af46b225c32bf415b80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

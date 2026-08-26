@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 593999035711079958}
   - component: {fileID: 8270421371270378770}
   - component: {fileID: 6047629816971679835}
+  - component: {fileID: 1692221499405765867}
   m_Layer: 0
   m_Name: Theo
   m_TagString: Suspect
@@ -681,6 +682,28 @@ PolygonCollider2D:
       - {x: 2.28, y: 0.21}
       - {x: 2.26, y: 0.22}
   m_UseDelaunayMesh: 1
+--- !u!95 &1692221499405765867
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4102544317489018108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a67ce656bd76e141bfcdf65807f0102, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6347086632034952040
 GameObject:
   m_ObjectHideFlags: 0
