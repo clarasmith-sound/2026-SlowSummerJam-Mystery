@@ -31,14 +31,14 @@ public class CaseStartVisualManager : MonoBehaviour
         AudioManager.Instance.PlaySound2D(caseOpenSound);
         var tcs = new TaskCompletionSource<bool>();
         caseStartUI.dataSource = caseToStart;
-        caseStartUI.Q<VisualElement>("Overlay").style.display = DisplayStyle.Flex;
+        caseStartUI.Q<VisualElement>("DocumentRoot").style.display = DisplayStyle.Flex;
         caseStartUI.Q<Button>("StartCase").clicked += ClickedStart;
         void ClickedStart()
         {
             // SOUND :  The "Start Case" button is clicked and the popup goes away.  
             AudioManager.Instance.PlaySound2D(caseStartSound);
             caseStartUI.Q<Button>("StartCase").clicked -= ClickedStart;
-            caseStartUI.Q<VisualElement>("Overlay").style.display = DisplayStyle.None;
+            caseStartUI.Q<VisualElement>("DocumentRoot").style.display = DisplayStyle.None;
             tcs.TrySetResult(true); // Wait until button is clicked
         }
         return tcs.Task;

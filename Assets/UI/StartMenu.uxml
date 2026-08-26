@@ -5,28 +5,28 @@
         <ui:Button text="Options" name="Options" class="start-btn"/>
         <ui:Button text="Credits" name="Credits" class="start-btn"/>
     </ui:VisualElement>
-    <ui:VisualElement name="OptionsMenuContainer" style="position: absolute; top: 0; width: 100%; height: 100%; align-items: center; justify-content: center; display: none; left: 0%; right: 0%; bottom: 0%;">
-        <ui:VisualElement name="ClipboardBackgound" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=667777397&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_4&quot;); -unity-background-scale-mode: scale-to-fit; aspect-ratio: 0.7521743; width: 30%;">
+    <ui:VisualElement name="OptionsMenuContainer" style="position: absolute; top: 0; width: 100%; height: 100%; align-items: center; justify-content: center; display: flex; left: 0%; right: 0%; bottom: 0%;">
+        <ui:VisualElement name="ClipboardBackgound" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=667777397&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_4&quot;); -unity-background-scale-mode: scale-to-fit; aspect-ratio: 0.7521743; width: 708px; height: 944px;">
             <ui:VisualElement name="ClipboardPaper" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=1946861&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_13&quot;); width: 87%; height: 91%; left: 50%; top: 3%; translate: -50% 0%;">
                 <ui:VisualElement name="MenuContent" style="flex-grow: 1; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px; align-items: center;">
                     <ui:Label text="Options" style="font-size: 40px; -unity-text-align: middle-center; -unity-font-style: bold;"/>
                     <ui:Label text="Volume:" style="font-size: 30px; -unity-text-align: middle-left; -unity-font-style: normal; align-self: flex-start;"/>
-                    <ui:Slider label="Main" value="42" high-value="10" name="SliderMain" low-value="-60" class="custom-slider" style="width: 100%;">
+                    <ui:Slider label="Main" value="42" high-value="10" name="SliderMain" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
                         <ui:Label text="0 dB" name="MainValueLabel"/>
                     </ui:Slider>
-                    <ui:Slider label="Music" value="42" high-value="100" name="SliderMusic" low-value="-60" class="custom-slider" style="width: 100%;">
+                    <ui:Slider label="Music" value="42" high-value="100" name="SliderMusic" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
                         <ui:Label text="0 dB" name="MusicValueLabel" style="height: 27px;"/>
                     </ui:Slider>
-                    <ui:Slider label="SFX" value="-60" high-value="10" name="SliderSFX" low-value="-60" class="custom-slider" style="width: 100%;">
+                    <ui:Slider label="SFX" value="-60" high-value="10" name="SliderSFX" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
                         <ui:Label text="0 dB" name="SFXValueLabel"/>
                     </ui:Slider>
-                    <ui:Slider label="Ambience" value="0" high-value="10" name="SliderAmbience" low-value="-60" class="custom-slider" style="width: 100%;">
+                    <ui:Slider label="Ambience" value="0" high-value="10" name="SliderAmbience" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
                         <ui:Label text="0 dB" name="AmbienceValueLabel"/>
                     </ui:Slider>
                     <ui:Slider label="Dialogue" value="0" high-value="10" name="SliderDialogue" low-value="-60" style="width: 100%; display: none;">
                         <ui:Label text="Label" name="DialogueValueLabel"/>
                     </ui:Slider>
-                    <ui:Button text="Back" name="BackToStart" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=530779322&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_11&quot;); -unity-background-scale-mode: stretch-to-fill; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; padding-top: 24px; padding-left: 16px; padding-bottom: 24px; padding-right: 16px; margin-top: 30px; margin-bottom: 30px; background-size: 100% 50%;"/>
+                    <ui:Button text="Back" name="BackToStart" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=530779322&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_11&quot;); -unity-background-scale-mode: stretch-to-fill; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; padding-top: 24px; padding-left: 16px; padding-bottom: 24px; padding-right: 16px; margin-top: 30px; margin-bottom: 30px; background-size: 100% 50%; width: 130px; height: 97px; font-size: 20px;"/>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="ClipboardClip" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=450507457&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_3&quot;); -unity-background-scale-mode: scale-to-fit; width: 33%; aspect-ratio: 2.228346; left: 50%; translate: -50% -50%; position: absolute;"/>

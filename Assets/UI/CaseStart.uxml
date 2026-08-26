@@ -1,20 +1,30 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_UIText.uss?fileID=7433441132597879392&amp;guid=3a7e2beb4811d9f4bacf815c11e4b61e&amp;type=3#PorkPieFiles_UIText"/>
-    <ui:VisualElement name="Overlay" data-source-type="CaseSO, Assembly-CSharp" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.706); justify-content: center; align-items: center; display: none;">
-        <ui:VisualElement name="Container" style="position: absolute; top: 0; width: 100%; height: 100%; align-items: center; justify-content: center;">
-            <ui:VisualElement name="Modal" style="width: 50%; height: 50%; background-color: rgb(255, 255, 255); align-items: center; padding-top: 40px; padding-right: 40px; padding-bottom: 40px; padding-left: 40px;">
-                <ui:Label text="Label" name="CaseName" style="font-size: 45px; -unity-font-style: bold;">
+    <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_CaseFileStyling.uss?fileID=7433441132597879392&amp;guid=bc1b0ed425d4d9c4da9cee906210dfbd&amp;type=3#PorkPieFiles_CaseFileStyling"/>
+    <ui:VisualElement name="DocumentRoot" style="flex-grow: 1; position: absolute; top: 0%; left: 0%; bottom: 0%; right: 0%;">
+        <ui:Image name="CardBackground" scale-mode="StretchToFill" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;);">
+            <ui:VisualElement name="HeaderRow" class="header-row">
+                <ui:Image source="project://database/Assets/Art/UI.png?fileID=-421481591&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_17" name="SchoolEmblem"/>
+                <ui:VisualElement name="HeaderTextGroup" class="header-text-group">
+                    <ui:Label text="Hard Knocks Academy " name="AcademyTitle"/>
+                    <ui:Label text="Incident Summary" name="DocumentSubheader"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="TitleBlockRow" class="title-block-row" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=-571982699&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_6&quot;); -unity-background-image-tint-color: rgb(137, 46, 16);">
+                <ui:Label text="Case Name" name="CaseName">
                     <Bindings>
                         <ui:DataBinding property="text" data-source-path="caseName" binding-mode="ToTarget"/>
                     </Bindings>
                 </ui:Label>
-                <ui:Label text="Label" name="CaseDescription" style="font-size: 24px; flex-grow: 1; width: 100%; white-space: normal;">
+            </ui:VisualElement>
+            <ui:VisualElement name="BodyContentRow" class="body-content-row">
+                <ui:Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." name="CaseBodyText" style="font-size: 24px; flex-grow: 1; width: 100%; white-space: normal;">
                     <Bindings>
                         <ui:DataBinding property="text" data-source-path="caseDescription" binding-mode="ToTarget"/>
                     </Bindings>
                 </ui:Label>
-                <ui:Button text="Start Case" name="StartCase" class="case-btn"/>
             </ui:VisualElement>
-        </ui:VisualElement>
+        </ui:Image>
+        <ui:Button text="Start Case" name="StartCase" class="case-btn"/>
     </ui:VisualElement>
 </ui:UXML>
