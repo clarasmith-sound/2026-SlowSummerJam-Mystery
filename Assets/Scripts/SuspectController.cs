@@ -77,7 +77,7 @@ public class SuspectController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(GameManager.Instance.optionsMenuOpen == true) return;
+        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
         if (state != SuspectState.Hover) return;
         spriteRenderer.material.SetFloat("_Toggle", 0f);
         if (!GameManager.Instance.stampBeingHeld)
