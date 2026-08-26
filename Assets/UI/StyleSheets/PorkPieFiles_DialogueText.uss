@@ -5,3 +5,21 @@
     -unity-font-definition: url("project://database/Assets/UI/Typeface/Schoolbell-Regular.ttf?fileID=12800000&guid=64a9ee6639566aa43ade492bbff8cca6&type=3#Schoolbell-Regular");
     font-size: 8px;
 }
+
+
+#Continue {
+    -unity-background-image-tint-color: rgb(255, 255, 255); 
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+
+    width: 150px;
+    height: 50px;
+
+    transition-property: -unity-background-image-tint-color;
+    transition-duration: 0.15s;
+}
+
+#Continue:hover {
+    -unity-background-image-tint-color: rgb(203, 66, 155);
+    color: rgb(255, 255, 255);
+}

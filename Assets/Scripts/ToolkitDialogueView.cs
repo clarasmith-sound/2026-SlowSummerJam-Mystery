@@ -47,6 +47,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
     private void OnContinueClicked()
     {
+        AudioManager.Instance.PlaySound2D(continueButtonSound);
         if (_waitingForNextLine)
         {
             runner.RequestNextLine();
