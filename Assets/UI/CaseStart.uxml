@@ -25,6 +25,6 @@
                 </ui:Label>
             </ui:VisualElement>
         </ui:Image>
-        <ui:Button text="Start Case" name="StartCase" class="case-btn"/>
+        <ui:Button text="Start Case" name="StartCase" class="case-btn" style="height: 84px; width: 210px;"/>
     </ui:VisualElement>
 </ui:UXML>

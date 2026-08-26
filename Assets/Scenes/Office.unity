@@ -2138,11 +2138,11 @@ MonoBehaviour:
     Path: event:/Objects/Phone_Pickup
   hoverSound:
     Guid:
-      Data1: -128432000
-      Data2: 1210964638
-      Data3: -611468907
-      Data4: 1997348918
-    Path: event:/UI/GenericHover
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &687576001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7262066351540048079, guid: 52571f68872914e24837210513edea1d, type: 3}

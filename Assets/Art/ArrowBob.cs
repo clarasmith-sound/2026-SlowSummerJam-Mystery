@@ -12,7 +12,7 @@ public class ArrowBob : MonoBehaviour
     {
         float endTarget = gameObject.transform.position.x + 0.25f;
 
-        Sequence.Create(cycles: -1, cycleMode: CycleMode.Yoyo)
+        Sequence.Create(cycles: -1, cycleMode: Sequence.SequenceCycleMode.Yoyo)
             .Group(Tween.PositionX(gameObject.transform, endValue: endTarget, duration: .35f));
     }
 }

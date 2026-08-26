@@ -9,11 +9,13 @@ public class AudioBasicInteractions : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if(clickSound.IsNull) return;
         AudioManager.Instance.PlaySound2D(clickSound);
     }
 
     private void OnMouseEnter()
     {
+        if(hoverSound.IsNull) return;
         AudioManager.Instance.PlaySound2D(hoverSound);
     }
 }

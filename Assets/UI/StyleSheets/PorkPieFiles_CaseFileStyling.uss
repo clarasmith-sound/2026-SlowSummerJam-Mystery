@@ -98,7 +98,7 @@
 {
     padding-left: 20px;
     padding-right: 20px;
-    -unity-text-align: top-left;
+    -unity-text-align: upper-left;
     font-size: 32px;
 }
 
@@ -118,4 +118,5 @@
 #StartCase
 {
     margin-top: 24px;
+    font-size: 28px;
 }

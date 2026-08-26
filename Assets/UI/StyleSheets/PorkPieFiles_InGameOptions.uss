@@ -1,0 +1,31 @@
+:root {
+
+}
+
+#OptionsMenuContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.01);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.options-btn {
+    -unity-background-image-tint-color: rgb(255, 255, 255); 
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    transition-property: -unity-background-image-tint-color;
+    transition-duration: 0.15s;
+}
+
+.options-btn:hover {
+    -unity-background-image-tint-color: rgb(203, 66, 155);
+    color: rgb(255, 255, 255);
+}

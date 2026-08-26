@@ -18,6 +18,7 @@ public class PhoneController : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
         if (!IsRinging) return;
         spriteRenderer.material.SetFloat("_Toggle", 1.0f);
     }
@@ -29,6 +30,7 @@ public class PhoneController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
         if (!IsRinging) return;
 
         spriteRenderer.material.SetFloat("_Toggle", 0f);
