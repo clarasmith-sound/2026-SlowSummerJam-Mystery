@@ -160,7 +160,8 @@ MonoBehaviour:
   phoneController: {fileID: 0}
   monocleController: {fileID: 0}
   allCases:
-  - {fileID: 11400000, guid: 2c2c42e7cfa8036468cfe204a6b3f26a, type: 2}
+  - {fileID: 11400000, guid: 75ba4045b12d5d64db5e721d5626c6f9, type: 2}
+  - {fileID: 11400000, guid: 7ebef47bea1c0f747b025cb527c0fa1c, type: 2}
   - {fileID: 11400000, guid: 2c2c42e7cfa8036468cfe204a6b3f26a, type: 2}
   currentCaseIndex: 0
   optionsMenuOpen: 0
@@ -1556,7 +1557,7 @@ Transform:
   m_GameObject: {fileID: 672523345}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.37, y: -4.61, z: 0}
+  m_LocalPosition: {x: 5.37, y: -5.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2480,7 +2481,7 @@ Transform:
   m_GameObject: {fileID: 1350442661}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8700004, y: -3.3500004, z: 0}
+  m_LocalPosition: {x: 3.8700004, y: -3.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
