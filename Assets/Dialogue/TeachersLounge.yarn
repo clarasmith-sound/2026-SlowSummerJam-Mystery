@@ -32,12 +32,16 @@ Teacher Williams: Look, I had a tough morning. By the time I got here, the regul
 
 title: TeachersLoungeSuccess
 ---
-Teacher Williams: Bet she was hoping you’d just pony up and buy a new machine for the lounge. Glad you saw through it. Hey, while I’m here, I wanted to tell you something weird about Pork Pie. Thought it might help with your investigation… So, the day before it went missing, I saw Teacher Warhol heading into Pork Pie’s storage room, looking for something. Don’t know what for though. It’s not like we had a match coming up soon where it’d be needed. I hate to say this, but do you think she might have taken good ol’ Porky? #line:teachers_lounge_success
+Teacher Williams: Bet she was hoping you’d just pony up and buy a new machine for the lounge. Glad you saw through it. Hey, while I’m here, I wanted to tell you something weird about Pork Pie. Thought it might help with your investigation... #line:teachers_lounge_success_01
+Teacher Williams: So, the day before it went missing, I saw Teacher Warhol heading into Pork Pie’s storage room, looking for something. Don’t know what for though. It’s not like we had a match coming up soon where it’d be needed. #line:teachers_lounge_success_02
+Teacher Williams: I hate to say this, but do you think she might have taken good ol’ Porky? #line:teachers_lounge_success_03
 <<next_case GameManager>>
 ===
 
 title: TeachersLoungeFailure
 ---
-Superintendent: What’s this I hear about you offering to buy Teacher Warhol a new espresso machine for the teachers' lounge?? You numbskull, she probably broke it herself, and you walked right into a trap! That’ll be coming out of your salary. And on top of that, now we have nobody to coach the softball game today! Oh, wait, yes we do, consider yourself up at bat. Good luck! #line:teachers_lounge_failure
+Superintendent: What’s this I hear about you offering to buy Teacher Warhol a new espresso machine for the teachers' lounge?? You numbskull, she probably broke it herself, and you walked right into a trap! #line:teachers_lounge_failure_01
+Superintendent: That’ll be coming out of your salary. And on top of that, now we have nobody to coach the softball game today! #line:teachers_lounge_failure_02
+Superintendent: Oh, wait, yes we do, consider yourself up at bat. Good luck! #line:teachers_lounge_failure_03
 <<next_case GameManager>>
 ===

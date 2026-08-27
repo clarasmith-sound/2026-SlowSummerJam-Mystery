@@ -17,7 +17,6 @@ public class SuspectController : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private EventReference suspectHoverSound;
 
-
     void Start()
     {
         suspectData = Instantiate(suspectOrigin);
@@ -110,8 +109,8 @@ public class SuspectController : MonoBehaviour
     public void RestoreToReady()
     {
         HideAllClues();
-        Tween.Alpha(spriteRenderer, endValue: 1.0f, duration: 1f);
         state = SuspectState.Ready;
+        Tween.Alpha(spriteRenderer, endValue: 1.0f, duration: 1f);
     }
 
     public void FadeOut()
