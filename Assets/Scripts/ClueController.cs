@@ -19,8 +19,6 @@ public class ClueController : MonoBehaviour
             clueSelectSound = "event:/Objects/Clue_Select";
         }
         AudioManager.Instance.PlaySound2D(clueSelectSound);
-        suspect.suspectData.clues[clueIndex].discovered = true;
-        GameManager.Instance.RunDialogue(suspect.suspectData.clues[clueIndex].yarnDialogueNode);
-        GameManager.Instance.CheckAllCluesDiscovered();
+        _ = GameManager.Instance.ClickClue(suspect.suspectData.clues[clueIndex], suspect);
     }
 }

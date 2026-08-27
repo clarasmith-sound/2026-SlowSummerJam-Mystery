@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         inspectionVisualManager.StartInspection(targetSuspect);
         cameraManager.MoveToInspection(targetSuspect);
         foreach (GameObject suspect in allSuspects)
-            if (suspect != targetSuspect) suspect.GetComponent<SuspectController>().state = SuspectState.Blurred;
+            if (suspect != targetSuspect) suspect.GetComponent<SuspectController>().FadeOut();
         monocleController.gameObject.SetActive(true);
     }
 
@@ -101,6 +101,22 @@ public class GameManager : MonoBehaviour
         // TODO - GAME DESIGN: I would expect clicking where I clicked again progresses the dialogue, but it restarts
         // Evaluate this UX, maybe once a node starts, you enter a state where clicks continue instead of restarting it
         _ = dialogueRunner.StartDialogue(startNode);
+    }
+
+    public async YarnTask ClickClue(Clue clue, SuspectController suspect)
+    {
+        clue.discovered = true;
+        CheckAllCluesDiscovered();
+        // Hide monocle while clue dialogue plays
+        monocleController.gameObject.SetActive(false);
+        suspect.HideAllClues();
+
+        await dialogueRunner.StartDialogue(clue.yarnDialogueNode);
+        await dialogueRunner.DialogueTask;
+
+        // Resume
+        suspect.ShowAllClues();
+        monocleController.gameObject.SetActive(true);
     }
 
     public void CheckAllCluesDiscovered()

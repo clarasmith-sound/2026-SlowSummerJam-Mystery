@@ -27,19 +27,17 @@ public class StartManager : MonoBehaviour
 
     [Header("Credits Configuration Data")]
     [SerializeField] private VisualTreeAsset creditRowTemplate;
-   
+
     private CreditEntry[] gameCredits = new CreditEntry[]
     {
-        new CreditEntry { jobTitle = "Game Designer & UI/UX",                                               personName = "Cat Preimesberger" },
-        new CreditEntry { jobTitle = "Tech Audio & UI Programming",                                         personName = "Clara Smith" },
-        new CreditEntry { jobTitle = "Programming & Writing",                                               personName = "IfThenCreate" },
-        new CreditEntry { jobTitle = "Composer & Sound Designer",                                           personName = "Jamie Billings" },
-        new CreditEntry { jobTitle = "Audio Implementation",                                                personName = "Jamie Billings" },
-        new CreditEntry { jobTitle = "Voice Actor",                                                         personName = "Jamie Billings" },
-        new CreditEntry { jobTitle = "Project Management & Writing",                                        personName = "Nathania Wong" },
-        new CreditEntry { jobTitle = "Art Support",                                                         personName = "Widelczyna" }
+        new CreditEntry { jobTitle = "Art", personName = "Ashleypox" },
+        new CreditEntry { jobTitle = "Game Designer & UI/UX", personName = "Cat Preimesberger" },
+        new CreditEntry { jobTitle = "Tech Audio & UI Programming", personName = "Clara Smith" },
+        new CreditEntry { jobTitle = "Programming & Writing", personName = "IfThenCreate" },
+        new CreditEntry { jobTitle = "Sound Design, Composition, Voice Acting, Audio Implementation", personName = "Jamie Billings" },
+        new CreditEntry { jobTitle = "Project Management & Writing", personName = "Nathania Wong" },
+        new CreditEntry { jobTitle = "Art Support", personName = "Widelczyna" }
     };
-
 
     public UIDocument startUIDoc;
     private VisualElement startUI;
@@ -66,7 +64,7 @@ public class StartManager : MonoBehaviour
     //Scene containers
     private VisualElement mainMenuContainer;
     private VisualElement optionsMenuContainer;
-    private VisualElement creditsMenuContainer; 
+    private VisualElement creditsMenuContainer;
     private VisualElement creditsListContainer;
 
     //cached buttons
@@ -74,7 +72,7 @@ public class StartManager : MonoBehaviour
     private Button optionsButton;
     private Button creditsButton;
     private Button optionsBackToStartButton;
-    private Button creditsBackButton; 
+    private Button creditsBackButton;
 
 
     public void OnEnable()
@@ -99,26 +97,26 @@ public class StartManager : MonoBehaviour
 
         if (creditsMenuContainer != null)
         {
-            creditsBackButton = creditsMenuContainer.Q<Button>("OptionsBackBtn"); 
+            creditsBackButton = creditsMenuContainer.Q<Button>("OptionsBackBtn");
         }
 
         // Setup Audio Sliders Loop
-        for(int i=0; i < audioChannels.Length; i++)
+        for (int i = 0; i < audioChannels.Length; i++)
         {
             audioChannels[i].slider = startUI.Q<Slider>(audioChannels[i].sliderUxmlName);
             audioChannels[i].label = startUI.Q<Label>(audioChannels[i].labelUxmlName);
 
-            if(audioChannels[i].slider != null)
+            if (audioChannels[i].slider != null)
             {
                 audioChannels[i].slider.lowValue = sliderLowValue;
                 audioChannels[i].slider.highValue = sliderHighValue;
-                int cachedIndex = i; 
+                int cachedIndex = i;
 
                 float savedVolume = GetSavedVolumeFromManager(audioChannels[cachedIndex].sliderType);
 
                 audioChannels[i].slider.SetValueWithoutNotify(savedVolume);
                 audioChannels[i].slider.RegisterValueChangedCallback(evt => OnVolumeSliderChanged(cachedIndex, evt.newValue));
-            
+
                 UpdateVolumeLabel(audioChannels[cachedIndex], audioChannels[cachedIndex].slider.value);
             }
         }
@@ -135,7 +133,7 @@ public class StartManager : MonoBehaviour
             optionsButton.RegisterCallback<PointerEnterEvent>(OnButtonHover);
             optionsButton.clicked += OpenOptions;
         }
-        
+
         if (creditsButton != null)
         {
             creditsButton.RegisterCallback<PointerEnterEvent>(OnButtonHover);
@@ -213,7 +211,7 @@ public class StartManager : MonoBehaviour
         SceneManager.LoadScene("Office", LoadSceneMode.Single);
     }
 
-public void OpenOptions()
+    public void OpenOptions()
     {
         AudioManager.Instance.PlaySound2D(genericClickSound);
         if (mainMenuContainer != null) mainMenuContainer.style.display = DisplayStyle.None;
@@ -226,7 +224,7 @@ public void OpenOptions()
         AudioManager.Instance.PlaySound2D(genericClickSound);
         if (mainMenuContainer != null) mainMenuContainer.style.display = DisplayStyle.None;
         if (optionsMenuContainer != null) optionsMenuContainer.style.display = DisplayStyle.None;
-        if (creditsMenuContainer != null) creditsMenuContainer.style.display = DisplayStyle.Flex; 
+        if (creditsMenuContainer != null) creditsMenuContainer.style.display = DisplayStyle.Flex;
     }
 
     public void CloseSubMenus()
@@ -247,9 +245,9 @@ public void OpenOptions()
 
     private void UpdateVolumeLabel(AudioChannelUI channel, float dbValue)
     {
-        if(channel.label == null) return;
+        if (channel.label == null) return;
 
-        if(dbValue <= (sliderLowValue + 0.5f))
+        if (dbValue <= (sliderLowValue + 0.5f))
         {
             channel.label.text = "MUTED";
         }
@@ -264,32 +262,31 @@ public void OpenOptions()
     {
         switch (sliderType)
         {
-            case AudioOptionSliders.MainVolume:     return PlayerPrefs.GetFloat("MAIN_VOL_KEY", 0f); 
-            case AudioOptionSliders.MusicVolume:    return PlayerPrefs.GetFloat("MUSIC_VOL_KEY", 0f);
-            case AudioOptionSliders.SFXVolume:      return PlayerPrefs.GetFloat("SFX_VOL_KEY", 0f);
+            case AudioOptionSliders.MainVolume: return PlayerPrefs.GetFloat("MAIN_VOL_KEY", 0f);
+            case AudioOptionSliders.MusicVolume: return PlayerPrefs.GetFloat("MUSIC_VOL_KEY", 0f);
+            case AudioOptionSliders.SFXVolume: return PlayerPrefs.GetFloat("SFX_VOL_KEY", 0f);
             case AudioOptionSliders.DialogueVolume: return PlayerPrefs.GetFloat("DIALOGUE_VOL_KEY", 0f);
-            case AudioOptionSliders.AmbientVolume:  return PlayerPrefs.GetFloat("AMBIENT_VOL_KEY", 0f);
-            default:                                return 0f;
+            case AudioOptionSliders.AmbientVolume: return PlayerPrefs.GetFloat("AMBIENT_VOL_KEY", 0f);
+            default: return 0f;
         }
     }
 
-
     private void PopulateCreditsScreen()
     {
-        if(creditsListContainer == null || creditRowTemplate == null) return;
-        
+        if (creditsListContainer == null || creditRowTemplate == null) return;
+
         creditsListContainer.Clear();
 
-        for(int i = 0; i < gameCredits.Length; i++)
+        for (int i = 0; i < gameCredits.Length; i++)
         {
             VisualElement rowInstance = creditRowTemplate.Instantiate();
 
             Label jobLabel = rowInstance.Q<Label>("JobTitle");
             Label nameLabel = rowInstance.Q<Label>("CreditName");
 
-            if(jobLabel != null) jobLabel.text = gameCredits[i].jobTitle;
-            if(nameLabel != null) nameLabel.text = gameCredits[i].personName;
-            
+            if (jobLabel != null) jobLabel.text = gameCredits[i].jobTitle;
+            if (nameLabel != null) nameLabel.text = gameCredits[i].personName;
+
             creditsListContainer.Add(rowInstance);
         }
     }

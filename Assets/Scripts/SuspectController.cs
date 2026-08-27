@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using PrimeTween;
 using FMODUnity;
+
 public enum SuspectState { Ready, Hover, Inspection, Blurred, Judged };
 
 public class SuspectController : MonoBehaviour
@@ -62,11 +63,11 @@ public class SuspectController : MonoBehaviour
             // If the inspector mode is active, we don't want to highlight the kid or play any sounds.
             return;
         }
-        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
+        if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
         HighlightKid();
         if (!GameManager.Instance.stampBeingHeld)
             AudioManager.Instance.PlaySound2D(suspectHoverSound);
-  
+
     }
 
 
@@ -77,16 +78,14 @@ public class SuspectController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
+        if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
         if (state != SuspectState.Hover) return;
         spriteRenderer.material.SetFloat("_Toggle", 0f);
         if (!GameManager.Instance.stampBeingHeld)
         {
             state = SuspectState.Inspection;
             GameManager.Instance.StartInspection(gameObject);
-            foreach (GameObject clueObject in clueObjects)
-                clueObject.SetActive(true);
-
+            ShowAllClues();
         }
         else
         {
@@ -96,7 +95,13 @@ public class SuspectController : MonoBehaviour
         }
     }
 
-    private void HideAllClues()
+    public void ShowAllClues()
+    {
+        foreach (GameObject clueObject in clueObjects)
+            clueObject.SetActive(true);
+    }
+
+    public void HideAllClues()
     {
         foreach (GameObject clueObject in clueObjects)
             clueObject.SetActive(false);
@@ -105,6 +110,13 @@ public class SuspectController : MonoBehaviour
     public void RestoreToReady()
     {
         HideAllClues();
+        Tween.Alpha(spriteRenderer, endValue: 1.0f, duration: 1f);
         state = SuspectState.Ready;
+    }
+
+    public void FadeOut()
+    {
+        state = SuspectState.Blurred;
+        Tween.Alpha(spriteRenderer, endValue: 0f, duration: 1f);
     }
 }
