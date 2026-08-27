@@ -23,7 +23,7 @@ public class CameraManager : MonoBehaviour
 
     public void MoveToInspection(GameObject targetSuspect)
     {
-        Vector3 cameraTarget = new Vector3(targetSuspect.transform.position.x + 0.75f, -0.7f, -10f);
+        Vector3 cameraTarget = new Vector3(targetSuspect.transform.position.x + 0.75f, 0f, -10f);
         Sequence.Create(cycles: 1)
             .Group(Tween.Position(mainCam.transform, endValue: cameraTarget, duration: moveDuration, ease: Ease.InOutSine)) // move camera
             .Group(Tween.CameraOrthographicSize(mainCam, endValue: 4f, duration: moveDuration))

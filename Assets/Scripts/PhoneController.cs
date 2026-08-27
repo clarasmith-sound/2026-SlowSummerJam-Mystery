@@ -9,11 +9,8 @@ public class PhoneController : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private EventReference phoneRingEvent;
     private EventInstance phoneRingEventInstance;
-
-
     private SpriteRenderer spriteRenderer;
     private Sequence ringingAnimation;
-
 
     public void Start()
     {
@@ -26,15 +23,15 @@ public class PhoneController : MonoBehaviour
             phoneRingEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             phoneRingEventInstance.release();
         }
-    
+
         phoneRingEventInstance = RuntimeManager.CreateInstance(phoneRingEvent);
-        
+
         RuntimeManager.AttachInstanceToGameObject(phoneRingEventInstance, gameObject);
     }
 
     private void OnMouseEnter()
     {
-        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
+        if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
         spriteRenderer.material.SetFloat("_Toggle", 1.0f);
     }
 
@@ -45,7 +42,7 @@ public class PhoneController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
+        if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
         spriteRenderer.material.SetFloat("_Toggle", 0f);
         ringingAnimation.Stop();
 

@@ -33,12 +33,15 @@ Moxie: Oh, that’s old news. We were looking for a place to set up shop for the
 
 title: FinalASuccess
 ---
-Teacher Warhol: Well, I’m pleased that all the fuss over the mascot has been sorted out! Who knew that Skyler would stoop to such behavior? Oh, how the star has fallen! Though I have to say that all this excitement has inspired me to design a new outfit for Pork Pie! #line:warhol_final_A_success
-
-Moxie: Phew! That’s a relief. I mean, hey, for once it wasn’t me, right? Only when it comes to candy, hehe! Fine, that was a bad joke. Don’t get me wrong though, it’s nice to have Pork Pie back. Skyler was kinda insufferable anyway. He always talked {"#$@!%"} about you. Hehe, sorry! #line:moxie_final_A_success
+Teacher Warhol: Well, I’m pleased that all the fuss over the mascot has been sorted out! Who knew that Skyler would stoop to such behavior? Oh, how the star has fallen!  #line:warhol_final_A_success_01
+Teacher Warhol: Though I have to say that all this excitement has inspired me to design a new outfit for Pork Pie! #line:warhol_final_A_success_02
+Moxie: Phew! That’s a relief. I mean, hey, for once it wasn’t me, right? Only when it comes to candy, hehe! #line:moxie_final_A_success_01
+Moxie: Fine, that was a bad joke. Don’t get me wrong though, it’s nice to have Pork Pie back. Skyler was kinda insufferable anyway. He always talked {"#$@!%"} about you. Hehe, sorry! #line:moxie_final_A_success_02
 ===
 
 title: FinalAFailure
 ---
-Superintendent: GOSH DARN IT, JUDGE!! How on earth did you miss out on that drama brat? Thanks to Teacher Warhol’s sleuthing, we have evidence that Skyler broke into the storage room and stole Pork Pie! Rumor has it, he’s been out to get you fired since day one, just so he could do as he pleases again. Guess what? His dreams have come true. Yes, you heard me right! You are NO LONGER Principal of the esteemed Hard Knocks Academy. Consider yourself fired for such a wanton display of incompetency!! #line:final_A_failure
+Superintendent: GOSH DARN IT, JUDGE!! How on earth did you miss out on that drama brat? Thanks to Teacher Warhol’s sleuthing, we have evidence that Skyler broke into the storage room and stole Pork Pie! #line:final_A_failure_01
+Superintendent: Rumor has it, he’s been out to get you fired since day one, just so he could do as he pleases again. #line:final_A_failure_02
+Superintendent: Guess what? His dreams have come true. Yes, you heard me right! You are NO LONGER Principal of the esteemed Hard Knocks Academy. Consider yourself fired for such a wanton display of incompetency!! #line:final_A_failure_03
 ===
