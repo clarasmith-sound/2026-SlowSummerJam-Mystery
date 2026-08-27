@@ -1483,8 +1483,6 @@ GameObject:
   - component: {fileID: 672523348}
   - component: {fileID: 672523347}
   - component: {fileID: 672523346}
-  - component: {fileID: 672523350}
-  - component: {fileID: 672523351}
   m_Layer: 0
   m_Name: PhoneBase
   m_TagString: Untagged
@@ -2026,6 +2024,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db79c45882a9a144f94d5079022060cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhoneController
+  phoneRingEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!212 &672523348
 SpriteRenderer:
   serializedVersion: 3
@@ -2101,51 +2106,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &672523350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672523345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d35aef782b1a914a83a81fd6630b94d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioPhoneScript
-  phoneRingEvent:
-    Guid:
-      Data1: 600144116
-      Data2: 1248270830
-      Data3: -1836765821
-      Data4: 792835817
-    Path: event:/Objects/Phone_Ring
---- !u!114 &672523351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672523345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67adc08a1c39264ab5a3f3cdf02cfa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioBasicInteractions
-  clickSound:
-    Guid:
-      Data1: 1550911847
-      Data2: 1148447651
-      Data3: -1971866721
-      Data4: -1626566845
-    Path: event:/Objects/Phone_Pickup
-  hoverSound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
 --- !u!1 &687576001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7262066351540048079, guid: 52571f68872914e24837210513edea1d, type: 3}
@@ -2884,8 +2844,6 @@ GameObject:
   - component: {fileID: 1350442666}
   - component: {fileID: 1350442665}
   - component: {fileID: 1350442664}
-  - component: {fileID: 1350442663}
-  - component: {fileID: 1350442662}
   m_Layer: 0
   m_Name: Phone
   m_TagString: Untagged
@@ -2893,51 +2851,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1350442662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350442661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b67adc08a1c39264ab5a3f3cdf02cfa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioBasicInteractions
-  clickSound:
-    Guid:
-      Data1: 1550911847
-      Data2: 1148447651
-      Data3: -1971866721
-      Data4: -1626566845
-    Path: event:/Objects/Phone_Pickup
-  hoverSound:
-    Guid:
-      Data1: -128432000
-      Data2: 1210964638
-      Data3: -611468907
-      Data4: 1997348918
-    Path: event:/UI/GenericHover
---- !u!114 &1350442663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350442661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d35aef782b1a914a83a81fd6630b94d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioPhoneScript
-  phoneRingEvent:
-    Guid:
-      Data1: 600144116
-      Data2: 1248270830
-      Data3: -1836765821
-      Data4: 792835817
-    Path: event:/Objects/Phone_Ring
 --- !u!60 &1350442664
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3035,6 +2948,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db79c45882a9a144f94d5079022060cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhoneController
+  phoneRingEvent:
+    Guid:
+      Data1: 600144116
+      Data2: 1248270830
+      Data3: -1836765821
+      Data4: 792835817
+    Path: event:/Objects/Phone_Ring
 --- !u!212 &1350442666
 SpriteRenderer:
   serializedVersion: 3
