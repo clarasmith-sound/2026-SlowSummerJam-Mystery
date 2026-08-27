@@ -12,6 +12,8 @@ public class PhoneController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Sequence ringingAnimation;
 
+    public bool IsRinging { get; private set; } = false;
+
     public void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,6 +33,7 @@ public class PhoneController : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (!IsRinging) return;
         if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
         spriteRenderer.material.SetFloat("_Toggle", 1.0f);
     }
@@ -42,9 +45,11 @@ public class PhoneController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!IsRinging) return;
         if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
         spriteRenderer.material.SetFloat("_Toggle", 0f);
         ringingAnimation.Stop();
+        IsRinging = false;
 
         GameManager.Instance.PhonePickedUp();
 
@@ -57,6 +62,8 @@ public class PhoneController : MonoBehaviour
 
     public void StartPhoneRinging()
     {
+        if (IsRinging) return;
+        IsRinging = true;
         phoneRingEventInstance.start();
         AudioManager.Instance.PlayLoopingSound(phoneRingEvent, out phoneRingEventInstance);
 
