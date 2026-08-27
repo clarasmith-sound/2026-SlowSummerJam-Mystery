@@ -32,12 +32,15 @@ Moxie: Do you like my new lipstick? Hehe, it’s on trend this season! #line:mox
 
 title: CandyMafiaSuccess
 ---
-Blink: Th-thank you, Principal Judge! I-I’m so happy I can keep my wrapper collection. Maybe I could let you in on a little s-secret? Y-you know that day? I-I mean the day before Pork Pie went missing, I s-saw Moxie running down the hallway with a large duffel bag. I-It looked a-a-as if there were something stuffed in it. S-s-something huge, like a mascot! Do y-you think she was the one who took little Porkie? #line:candy_mafia_success
+Blink: Th-thank you, Principal Judge! I-I’m so happy I can keep my wrapper collection. Maybe I could let you in on a little s-secret? #line:candy_mafia_success_01
+Blink: Y-you know that day? I-I mean the day before Pork Pie went missing, I s-saw Moxie running down the hallway with a large duffel bag. #line:candy_mafia_success_02
+Blink: I-It looked a-a-as if there were something stuffed in it. S-s-something huge, like a mascot! Do y-you think she was the one who took little Porkie? #line:candy_mafia_success_03
 <<next_case GameManager>>
 ===
 
 title: CandyMafiaFailure
 ---
-Superintendent: Really?? You couldn’t tell that Moxie was on a sugar high? They were downing Fizzy Dizzles like no tomorrow to get rid of the evidence! What kind of Principal are you? If you keep this up, you can kiss your job goodbye. I don’t have to say this twice. #line:candy_mafia_failure
+Superintendent: Really?? You couldn’t tell that Moxie was on a sugar high? They were downing Fizzy Dizzles like no tomorrow to get rid of the evidence! What kind of Principal are you? #line:candy_mafia_failure_01
+Superintendent: If you keep this up, you can kiss your job goodbye. I don’t have to say this twice. #line:candy_mafia_failure_2
 <<next_case GameManager>>
 ===
