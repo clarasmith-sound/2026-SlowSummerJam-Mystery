@@ -16,7 +16,7 @@
 			<value>AT_Localized_EN</value>
 		</property>
 		<property name="sourceDirectory">
-			<value>../../../2026-SummerSlowJam-Mystery-Dialogue</value>
+			<value>Assets/Dialogue</value>
 		</property>
 		<property name="includeSubDirectories">
 			<value>true</value>

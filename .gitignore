@@ -149,3 +149,9 @@ fmod_editor.log
 fmod.log
 fmod_editor.log
 *.wav
+.DS_Store
+.DS_Store
+**/.DS_Store
+
+!Assets/**/*.wav
+!FMODProject/**/*.wav
