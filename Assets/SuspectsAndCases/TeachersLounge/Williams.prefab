@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975e72569fbabfd4c9595f98bd7a86f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Suspect
+  detailSpriteRenderer: {fileID: 3694549110872782766}
   state: 0
   suspectOrigin: {fileID: 11400000, guid: 7953bcb295e558c45bd7018ef2ca9bfe, type: 2}
   suspectData: {fileID: 0}

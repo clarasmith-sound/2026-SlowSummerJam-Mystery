@@ -125,9 +125,14 @@ public class GameManager : MonoBehaviour
         bool allCluesDiscovered = true;
         foreach (GameObject suspect in allSuspects)
         {
-            foreach (Clue clue in suspect.GetComponent<SuspectController>().suspectData.clues)
+            SuspectController suspectController = suspect.GetComponent<SuspectController>();
+            if (!suspectController.suspectData) allCluesDiscovered = false; // Not set yet
+            else
             {
-                if (!clue.discovered) allCluesDiscovered = false;
+                foreach (Clue clue in suspectController.suspectData.clues)
+                {
+                    if (!clue.discovered) allCluesDiscovered = false;
+                }
             }
         }
         undiscoveredClues = !allCluesDiscovered;
