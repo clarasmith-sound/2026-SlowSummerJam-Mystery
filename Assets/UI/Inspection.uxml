@@ -21,6 +21,6 @@
         <ui:VisualElement name="Clues" style="flex-grow: 1;">
             <ui:Instance template="PermanentRecordClue" name="PermanentRecordClue"/>
         </ui:VisualElement>
+        <ui:Button text="Continue" name="ExitInspection" class="options-btn" style="position: absolute; right: 50px; bottom: 50px; margin-bottom: 8px; margin-top: 8px; margin-right: 8px; margin-left: 8px; display: flex; font-size: 24px;"/>
     </ui:VisualElement>
-    <ui:Button text="Back to Default View" name="ExitInspection" style="position: absolute; right: 10px; bottom: 10px; margin-bottom: 8px; margin-top: 8px; margin-right: 8px; margin-left: 8px; display: none; font-size: 24px;"/>
 </ui:UXML>

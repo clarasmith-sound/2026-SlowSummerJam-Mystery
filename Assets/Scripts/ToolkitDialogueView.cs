@@ -31,6 +31,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
         continueButton = dialogueRootEl.Q<Button>("Continue");
         continueButton.clicked += OnContinueClicked;
         continueButton.RegisterCallback<PointerEnterEvent>(OnButtonHover);
+
     }
 
     public void OnDisabled()
@@ -62,6 +63,10 @@ public class ToolkitDialogueView : DialoguePresenterBase
     {
         // SOUND :  Dialogue box pops up (note overlap - this happens when a clue is clicked)
         AudioManager.Instance.PlaySound2D(dialogueOpenSound);
+
+        //Disable all other selectables using the options bool
+        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
+
         dialogueRootEl.style.display = DisplayStyle.Flex;
         Sequence.Create(cycles: 1)
            .Group(dialogueRootEl.VisualElementShakeScale(new ShakeSettings(strength: new Vector3(.1f, .1f, .1f), duration: 0.3f, frequency: 3)))
@@ -77,6 +82,8 @@ public class ToolkitDialogueView : DialoguePresenterBase
         // in GameManager is called at the end of success/failure dialogues)
         AudioManager.Instance.PlaySound2D(dialogueCloseSound);
         dialogueRootEl.style.display = DisplayStyle.None;
+
+        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
         return YarnTask.CompletedTask;
     }
 
