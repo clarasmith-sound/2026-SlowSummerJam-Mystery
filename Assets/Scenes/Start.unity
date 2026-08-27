@@ -353,11 +353,11 @@ MonoBehaviour:
     Path: 
   musicEvent:
     Guid:
-      Data1: 153990978
-      Data2: 1253492707
-      Data3: -1259718489
-      Data4: -3410167
-    Path: event:/test_music
+      Data1: -1036197670
+      Data2: 1303420812
+      Data3: 744859294
+      Data4: -2110056936
+    Path: event:/PorkPieFiles_Lobby
 --- !u!1 &454483939
 GameObject:
   m_ObjectHideFlags: 0
