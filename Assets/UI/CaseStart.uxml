@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_UIText.uss?fileID=7433441132597879392&amp;guid=3a7e2beb4811d9f4bacf815c11e4b61e&amp;type=3#PorkPieFiles_UIText"/>
     <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_CaseFileStyling.uss?fileID=7433441132597879392&amp;guid=bc1b0ed425d4d9c4da9cee906210dfbd&amp;type=3#PorkPieFiles_CaseFileStyling"/>
     <ui:VisualElement name="DocumentRoot" style="flex-grow: 1; position: absolute; top: 0%; left: 0%; bottom: 0%; right: 0%; display: none;">
-        <ui:Image name="CardBackground" scale-mode="StretchToFill" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;); height: 772px; width: 1040px;">
+        <ui:Image name="CardBackground" scale-mode="StretchToFill" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;); height: 1052px; width: 1040px;">
             <ui:VisualElement name="HeaderRow" class="header-row">
                 <ui:Image source="project://database/Assets/Art/UI.png?fileID=-421481591&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_17" name="SchoolEmblem"/>
                 <ui:VisualElement name="HeaderTextGroup" class="header-text-group">
@@ -24,7 +24,7 @@
                     </Bindings>
                 </ui:Label>
             </ui:VisualElement>
+            <ui:Button text="Start Case" name="StartCase" class="case-btn" style="height: 84px; width: 210px;"/>
         </ui:Image>
-        <ui:Button text="Start Case" name="StartCase" class="case-btn" style="height: 84px; width: 210px;"/>
     </ui:VisualElement>
 </ui:UXML>

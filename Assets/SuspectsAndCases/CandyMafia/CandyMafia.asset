@@ -16,12 +16,12 @@ MonoBehaviour:
   caseDescription: "Fizzy Dizzles have been the hottest candies in town, with their
     eye-catching color, distinct bubblegum scent, and ability to make your mouth
     go \u2018pop\u2019! Unfortunately, they were recently found to contain the artificial
-    blue dye, X-TREME 9999, banned in 17 countries! What a scandal!  Yet that only
-    makes the forbidden fruit sweeter. A secret gang who call themselves \u201CThe
-    Irresistables\u201D are tempting other students with the promise of the illict
-    candy and making bank off their misfortune.  You receive an anonymous tip-off
-    that they have set up shop in the abandoned hallway behind the school gym and
-    find two shady suspects!"
+    blue dye, X-TREME 9999, banned in 17 countries! What a scandal! <br><br>  Yet
+    that only makes the forbidden fruit sweeter. A secret gang who call themselves
+    \u201CThe Irresistables\u201D are tempting other students with the promise of
+    the illict candy and making bank off their misfortune.  <br><br>You receive an
+    anonymous tip-off that they have set up shop in the abandoned hallway behind
+    the school gym and find two shady suspects!"
   suspects:
   - {fileID: 11400000, guid: a7d38216c5a000540beaf5020ed1b58c, type: 2}
   - {fileID: 11400000, guid: dc34e7a1caf46d541af8ce088567099f, type: 2}

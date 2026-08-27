@@ -29,6 +29,7 @@ public class CaseStartVisualManager : MonoBehaviour
     {
         // SOUND :  This is where the initial case popup opens. It will open at the start of each case. 
         AudioManager.Instance.PlaySound2D(caseOpenSound);
+        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
         var tcs = new TaskCompletionSource<bool>();
         caseStartUI.dataSource = caseToStart;
         caseStartUI.Q<VisualElement>("DocumentRoot").style.display = DisplayStyle.Flex;
@@ -37,6 +38,7 @@ public class CaseStartVisualManager : MonoBehaviour
         {
             // SOUND :  The "Start Case" button is clicked and the popup goes away.  
             AudioManager.Instance.PlaySound2D(caseStartSound);
+            if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
             caseStartUI.Q<Button>("StartCase").clicked -= ClickedStart;
             caseStartUI.Q<VisualElement>("DocumentRoot").style.display = DisplayStyle.None;
             tcs.TrySetResult(true); // Wait until button is clicked
