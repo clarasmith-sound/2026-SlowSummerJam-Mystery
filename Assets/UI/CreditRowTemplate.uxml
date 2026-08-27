@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_CreditsStyling.uss?fileID=7433441132597879392&amp;guid=69f8e0a872fd01142944be7a056b72a0&amp;type=3#PorkPieFiles_CreditsStyling"/>
-    <ui:VisualElement name="CreditRow" class="credit-row" style="flex-grow: 1; flex-direction: row; width: 100%;">
+    <ui:VisualElement name="CreditRow" class="credit-row" style="flex-grow: 1; flex-direction: row; width: 100%; margin-bottom: 53px;">
         <ui:Label text="Label" name="JobTitle" style="white-space: pre-wrap;"/>
         <ui:Label text=". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  " name="DottedLeader"/>
         <ui:Label text="Label" name="CreditName"/>
