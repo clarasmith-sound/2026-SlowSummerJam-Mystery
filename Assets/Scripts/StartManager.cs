@@ -34,6 +34,7 @@ public class StartManager : MonoBehaviour
         new CreditEntry { jobTitle = "Game Designer & UI/UX", personName = "Cat Preimesberger" },
         new CreditEntry { jobTitle = "Tech Audio & UI Programming", personName = "Clara Smith" },
         new CreditEntry { jobTitle = "Programming & Writing", personName = "IfThenCreate" },
+        new CreditEntry { jobTitle = "Voice Acting, Vocal Restoration, Sound Design", personName = "James Bartlett" },
         new CreditEntry { jobTitle = "Sound Design, Composition, Voice Acting, Audio Implementation", personName = "Jamie Billings" },
         new CreditEntry { jobTitle = "Project Management & Writing", personName = "Nathania Wong" },
         new CreditEntry { jobTitle = "Art Support", personName = "Widelczyna" }

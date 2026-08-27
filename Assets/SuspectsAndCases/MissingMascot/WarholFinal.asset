@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740f2bb7bc95e664488e96e9c00a4d3f, type: 3}
+  m_Name: WarholFinal
+  m_EditorClassIdentifier: Assembly-CSharp::SuspectSO
+  suspectName: Teacher Warhol
+  prefabSuspect: {fileID: 8234159986567242207, guid: d70d73124774c58448efb24834411366, type: 3}
+  clues:
+  - textDescription: "A set of keys, including one for Pork Pie\u2019s storage room."
+    yarnDialogueNode: WarholFinalAClue0
+    discovered: 0
+  - textDescription: Red paint is splattered across her clothes. Is she trying to
+      make a statement?
+    yarnDialogueNode: WarholFinalAClue1
+    discovered: 0
