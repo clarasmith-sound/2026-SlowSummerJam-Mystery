@@ -123,7 +123,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
                 AudioManager.Instance.PlaySound2D(typeWriterSound);
             }
 
-            float delay = char.IsPunctuation(text[i]) ? 0.05f : 0.01f;
+            float delay = char.IsPunctuation(text[i]) ? 0.1f : 0.01f;
             await Task.Delay(TimeSpan.FromSeconds(delay));
 
             if (token.IsCancellationRequested)
