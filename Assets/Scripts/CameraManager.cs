@@ -8,7 +8,7 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private Transform Desk;
     private Vector3 deskStartPos;
-    [SerializeField] private Vector3 deskMoveAmt = new Vector3(0, -0.35f, 0);
+    [SerializeField] private Vector3 deskMoveAmt = new Vector3(0, -0.15f, 0);
 
     [SerializeField] private SpriteRenderer backgroundBlur;
     private Color blurIn = new Color(1f, 1f, 1f, 1f);
@@ -23,10 +23,10 @@ public class CameraManager : MonoBehaviour
 
     public void MoveToInspection(GameObject targetSuspect)
     {
-        Vector3 cameraTarget = new Vector3(targetSuspect.transform.position.x + 0.75f, -0.75f, -10f);
+        Vector3 cameraTarget = new Vector3(targetSuspect.transform.position.x + 0.75f, -0.7f, -10f);
         Sequence.Create(cycles: 1)
             .Group(Tween.Position(mainCam.transform, endValue: cameraTarget, duration: moveDuration, ease: Ease.InOutSine)) // move camera
-            .Group(Tween.CameraOrthographicSize(mainCam, endValue: 3.35f, duration: moveDuration))
+            .Group(Tween.CameraOrthographicSize(mainCam, endValue: 4f, duration: moveDuration))
             .Group(Tween.Position(Desk, endValue: Desk.position + deskMoveAmt, duration: moveDuration, ease: Ease.InOutSine)) // move out desk
             .Group(Tween.Color(backgroundBlur, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)); // fade in background blur
     }
