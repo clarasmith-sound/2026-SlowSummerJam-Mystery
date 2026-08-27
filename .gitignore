@@ -152,3 +152,6 @@ fmod_editor.log
 .DS_Store
 .DS_Store
 **/.DS_Store
+
+!Assets/**/*.wav
+!FMODProject/**/*.wav
