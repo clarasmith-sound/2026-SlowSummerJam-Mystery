@@ -237,7 +237,7 @@ MonoBehaviour:
   Desk: {fileID: 730087442}
   deskMoveAmt: {x: 0, y: -0.15, z: 0}
   Phone: {fileID: 672523349}
-  phoneMoveAmt: {x: 0, y: -0.5, z: 0}
+  phoneMoveAmt: {x: 0, y: -0.6, z: 0}
   backgroundBlur: {fileID: 150058392}
 --- !u!114 &113694258
 MonoBehaviour:
