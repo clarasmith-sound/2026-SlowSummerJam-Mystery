@@ -88,10 +88,9 @@ public class OptionsMenuVisualManager : MonoBehaviour
                 audioChannels[i].slider.highValue = sliderHighValue;
                 int cachedIndex = i; 
 
-                float savedLinearValue = GetSavedLinearVolumeFromManager(audioChannels[cachedIndex].sliderType);
-                float savedDbValue = LerpUnclamped(sliderLowValue, sliderHighValue, savedLinearValue);
+                float savedVolume = GetSavedVolumeFromManager(audioChannels[cachedIndex].sliderType);
 
-                audioChannels[i].slider.SetValueWithoutNotify(savedDbValue);
+                audioChannels[i].slider.SetValueWithoutNotify(savedVolume);
                 audioChannels[i].slider.RegisterValueChangedCallback(evt => OnVolumeSliderChanged(cachedIndex, evt.newValue));
             
                 UpdateVolumeLabel(audioChannels[cachedIndex], audioChannels[cachedIndex].slider.value);
@@ -180,15 +179,10 @@ public class OptionsMenuVisualManager : MonoBehaviour
         AudioChannelUI activeChannel = audioChannels[channelIndex];
         UpdateVolumeLabel(activeChannel, dbValue);
 
-        float normalizedValue = InverseLerpUnclamped(sliderLowValue, sliderHighValue, dbValue);
-        AudioManager.Instance.UpdateAudioOptionsSlider(activeChannel.sliderType, normalizedValue);
+        AudioManager.Instance.UpdateAudioOptionsSlider(activeChannel.sliderType, dbValue);
     }
 
-    private float InverseLerpUnclamped(float low, float high, float value)
-    {
-        if (Mathf.Approximately(low, high)) return 0f;
-        return (value - low) / (high - low);
-    }
+  
 
     private void UpdateVolumeLabel(AudioChannelUI channel, float dbValue)
     {
@@ -205,21 +199,17 @@ public class OptionsMenuVisualManager : MonoBehaviour
         }
     }
 
-    private float GetSavedLinearVolumeFromManager(AudioOptionSliders sliderType)
+    private float GetSavedVolumeFromManager(AudioOptionSliders sliderType)
     {
         switch (sliderType)
         {
-            case AudioOptionSliders.MainVolume:     return PlayerPrefs.GetFloat("MAIN_VOL_KEY", 0.8f); 
-            case AudioOptionSliders.MusicVolume:    return PlayerPrefs.GetFloat("MUSIC_VOL_KEY", 0.8f);
-            case AudioOptionSliders.SFXVolume:      return PlayerPrefs.GetFloat("SFX_VOL_KEY", 0.8f);
-            case AudioOptionSliders.DialogueVolume: return PlayerPrefs.GetFloat("DIALOGUE_VOL_KEY", 1.0f);
-            case AudioOptionSliders.AmbientVolume:  return PlayerPrefs.GetFloat("AMBIENT_VOL_KEY", 0.5f);
-            default:                                return 1.0f;
+            case AudioOptionSliders.MainVolume:     return PlayerPrefs.GetFloat("MAIN_VOL_KEY", 0f); 
+            case AudioOptionSliders.MusicVolume:    return PlayerPrefs.GetFloat("MUSIC_VOL_KEY", 0f);
+            case AudioOptionSliders.SFXVolume:      return PlayerPrefs.GetFloat("SFX_VOL_KEY", 0f);
+            case AudioOptionSliders.DialogueVolume: return PlayerPrefs.GetFloat("DIALOGUE_VOL_KEY", 0f);
+            case AudioOptionSliders.AmbientVolume:  return PlayerPrefs.GetFloat("AMBIENT_VOL_KEY", 0f);
+            default:                                return 0f;
         }
     }
 
-    private float LerpUnclamped(float low, float high, float interpolationFactor)
-    {
-        return low + (high - low) * interpolationFactor;
-    }
 }

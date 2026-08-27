@@ -36,7 +36,7 @@ public class StartManager : MonoBehaviour
         new CreditEntry { jobTitle = "Composer & Sound Designer",                                           personName = "Jamie Billings" },
         new CreditEntry { jobTitle = "Audio Implementation",                                                personName = "Jamie Billings" },
         new CreditEntry { jobTitle = "Voice Actor",                                                         personName = "Jamie Billings" },
-        new CreditEntry { jobTitle = "Project Management",                                                  personName = "Nathania Wong" },
+        new CreditEntry { jobTitle = "Project Management & Writing",                                        personName = "Nathania Wong" },
         new CreditEntry { jobTitle = "Art Support",                                                         personName = "Widelczyna" }
     };
 
@@ -53,13 +53,13 @@ public class StartManager : MonoBehaviour
     [SerializeField] private float sliderLowValue = -60f;
     [SerializeField] private float sliderHighValue = 10f;
 
-     private AudioChannelUI[] audioChannels = new AudioChannelUI[]
+    private AudioChannelUI[] audioChannels = new AudioChannelUI[]
     {
-        new AudioChannelUI { channelName = "Master",    sliderUxmlName = "SliderMain",     labelUxmlName = "MainValueLabel" },
-        new AudioChannelUI { channelName = "Music",     sliderUxmlName = "SliderMusic",    labelUxmlName = "MusicValueLabel" },
-        new AudioChannelUI { channelName = "SFX",       sliderUxmlName = "SliderSFX",      labelUxmlName = "SFXValueLabel" },
-        new AudioChannelUI { channelName = "Ambience",  sliderUxmlName = "SliderAmbience", labelUxmlName = "AmbienceValueLabel" },
-        new AudioChannelUI { channelName = "Dialogue",  sliderUxmlName = "SliderDialogue", labelUxmlName = "DialogueValueLabel" }
+        new AudioChannelUI { channelName = "Master",    sliderUxmlName = "SliderMain",     labelUxmlName = "MainValueLabel",     sliderType = AudioOptionSliders.MainVolume },
+        new AudioChannelUI { channelName = "Music",     sliderUxmlName = "SliderMusic",    labelUxmlName = "MusicValueLabel",    sliderType = AudioOptionSliders.MusicVolume },
+        new AudioChannelUI { channelName = "SFX",       sliderUxmlName = "SliderSFX",      labelUxmlName = "SFXValueLabel",      sliderType = AudioOptionSliders.SFXVolume },
+        new AudioChannelUI { channelName = "Ambience",  sliderUxmlName = "SliderAmbience", labelUxmlName = "AmbienceValueLabel", sliderType = AudioOptionSliders.AmbientVolume },
+        new AudioChannelUI { channelName = "Dialogue",  sliderUxmlName = "SliderDialogue", labelUxmlName = "DialogueValueLabel", sliderType = AudioOptionSliders.DialogueVolume }
     };
 
 
@@ -105,7 +105,6 @@ public class StartManager : MonoBehaviour
         // Setup Audio Sliders Loop
         for(int i=0; i < audioChannels.Length; i++)
         {
-            // FIXED syntax error paths here:
             audioChannels[i].slider = startUI.Q<Slider>(audioChannels[i].sliderUxmlName);
             audioChannels[i].label = startUI.Q<Label>(audioChannels[i].labelUxmlName);
 
@@ -115,10 +114,9 @@ public class StartManager : MonoBehaviour
                 audioChannels[i].slider.highValue = sliderHighValue;
                 int cachedIndex = i; 
 
-                float savedLinearValue = GetSavedLinearVolumeFromManager(audioChannels[cachedIndex].sliderType);
-                float savedDbValue = LerpUnclamped(sliderLowValue, sliderHighValue, savedLinearValue);
+                float savedVolume = GetSavedVolumeFromManager(audioChannels[cachedIndex].sliderType);
 
-                audioChannels[i].slider.SetValueWithoutNotify(savedDbValue);
+                audioChannels[i].slider.SetValueWithoutNotify(savedVolume);
                 audioChannels[i].slider.RegisterValueChangedCallback(evt => OnVolumeSliderChanged(cachedIndex, evt.newValue));
             
                 UpdateVolumeLabel(audioChannels[cachedIndex], audioChannels[cachedIndex].slider.value);
@@ -242,16 +240,9 @@ public void OpenOptions()
     private void OnVolumeSliderChanged(int channelIndex, float dbValue)
     {
         AudioChannelUI activeChannel = audioChannels[channelIndex];
-        UpdateVolumeLabel(activeChannel,dbValue);
+        UpdateVolumeLabel(activeChannel, dbValue);
 
-        float normalizedValue = InverseLerpUnclamped(sliderLowValue, sliderHighValue, dbValue);
-        AudioManager.Instance.UpdateAudioOptionsSlider(activeChannel.sliderType, normalizedValue);
-    }
-
-    private float InverseLerpUnclamped(float low, float high, float value)
-    {
-        if (Mathf.Approximately(low, high)) return 0f;
-        return (value - low) / (high - low);
+        AudioManager.Instance.UpdateAudioOptionsSlider(activeChannel.sliderType, dbValue);
     }
 
     private void UpdateVolumeLabel(AudioChannelUI channel, float dbValue)
@@ -264,34 +255,24 @@ public void OpenOptions()
         }
         else
         {
-            string sign = dbValue > 0 ? "+" : "-";
+            string sign = dbValue > 0 ? "+" : "";
             channel.label.text = $"{sign}{dbValue:F1} dB";
         }
     }
 
-    private float GetSavedLinearVolumeFromManager(AudioOptionSliders sliderType)
+    private float GetSavedVolumeFromManager(AudioOptionSliders sliderType)
     {
         switch (sliderType)
         {
-            case AudioOptionSliders.MainVolume:
-                return PlayerPrefs.GetFloat("MAIN_VOL_KEY", 0.8f); 
-            case AudioOptionSliders.MusicVolume:
-                return PlayerPrefs.GetFloat("MUSIC_VOL_KEY", 0.8f);
-            case AudioOptionSliders.SFXVolume:
-                return PlayerPrefs.GetFloat("SFX_VOL_KEY", 0.8f);
-            case AudioOptionSliders.DialogueVolume:
-                return PlayerPrefs.GetFloat("DIALOGUE_VOL_KEY", 1.0f);
-            case AudioOptionSliders.AmbientVolume:
-                return PlayerPrefs.GetFloat("AMBIENT_VOL_KEY", 0.5f);
-            default:
-                return 1.0f;
+            case AudioOptionSliders.MainVolume:     return PlayerPrefs.GetFloat("MAIN_VOL_KEY", 0f); 
+            case AudioOptionSliders.MusicVolume:    return PlayerPrefs.GetFloat("MUSIC_VOL_KEY", 0f);
+            case AudioOptionSliders.SFXVolume:      return PlayerPrefs.GetFloat("SFX_VOL_KEY", 0f);
+            case AudioOptionSliders.DialogueVolume: return PlayerPrefs.GetFloat("DIALOGUE_VOL_KEY", 0f);
+            case AudioOptionSliders.AmbientVolume:  return PlayerPrefs.GetFloat("AMBIENT_VOL_KEY", 0f);
+            default:                                return 0f;
         }
     }
 
-    private float LerpUnclamped(float low, float high, float interpolationFactor)
-    {
-        return low + (high - low) * interpolationFactor;
-    }
 
     private void PopulateCreditsScreen()
     {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using System.Dynamic;
 
 public enum AudioUIButtonType { Press, Hover, StartGame }
 
@@ -56,11 +57,11 @@ private void Start()
         dialogueVolume = PlayerPrefs.GetFloat(DIALOGUE_VOL_KEY, dialogueVolume);
         ambientVolume = PlayerPrefs.GetFloat(AMBIENT_VOL_KEY, ambientVolume);
 
-        SetBusVolumeLogarithmic(mainBus, mainVolume);
-        SetBusVolumeLogarithmic(musicBus, musicVolume);
-        SetBusVolumeLogarithmic(sfxBus, sfxVolume);
-        SetBusVolumeLogarithmic(dialogueBus, dialogueVolume);
-        SetBusVolumeLogarithmic(ambientBus, ambientVolume);
+        SetBusVolume(mainBus, mainVolume);
+        SetBusVolume(musicBus, musicVolume);
+        SetBusVolume(sfxBus, sfxVolume);
+        SetBusVolume(dialogueBus, dialogueVolume);
+        SetBusVolume(ambientBus, ambientVolume);
     }
 
     public void PlaySound2D(EventReference eventReference)
@@ -138,33 +139,33 @@ private void Start()
 
     public void UpdateAudioOptionsSlider(AudioOptionSliders sliderType, float value)
     {
-        float clampedValue = Mathf.Clamp01(value); // Ensure the value is strictly between 0 and 1
+        float clampedValue = Mathf.Clamp(value, -60.0f, 10.0f); // Ensure the value is strictly between 0 and 1
 
         switch (sliderType)
         {
             case AudioOptionSliders.MainVolume:
                 mainVolume = clampedValue;
-                SetBusVolumeLogarithmic(mainBus, mainVolume);
+                SetBusVolume(mainBus, mainVolume);
                 PlayerPrefs.SetFloat(MAIN_VOL_KEY, mainVolume);
                 break;
             case AudioOptionSliders.MusicVolume:
                 musicVolume = clampedValue;
-                SetBusVolumeLogarithmic(musicBus, musicVolume);
+                SetBusVolume(musicBus, musicVolume);
                 PlayerPrefs.SetFloat(MUSIC_VOL_KEY, musicVolume);
                 break;
             case AudioOptionSliders.SFXVolume:
                 sfxVolume = clampedValue;
-                SetBusVolumeLogarithmic(sfxBus, sfxVolume);
+                SetBusVolume(sfxBus, sfxVolume);
                 PlayerPrefs.SetFloat(SFX_VOL_KEY, sfxVolume);
                 break;
             case AudioOptionSliders.DialogueVolume:
                 dialogueVolume = clampedValue;
-                SetBusVolumeLogarithmic(dialogueBus, dialogueVolume);
+                SetBusVolume(dialogueBus, dialogueVolume);
                 PlayerPrefs.SetFloat(DIALOGUE_VOL_KEY, dialogueVolume);
                 break;
             case AudioOptionSliders.AmbientVolume:
                 ambientVolume = clampedValue;
-                SetBusVolumeLogarithmic(ambientBus, ambientVolume);
+                SetBusVolume(ambientBus, ambientVolume);
                 PlayerPrefs.SetFloat(AMBIENT_VOL_KEY, ambientVolume);
                 break;
             default:
@@ -173,15 +174,13 @@ private void Start()
         }
     }
 
-    private void SetBusVolumeLogarithmic(Bus targetBus, float linearValue)
+    private void SetBusVolume(Bus targetBus, float inDb)
     {
         if (!targetBus.isValid()) return;
 
-        // Mathematical conversion to prevent volume dropping off immediately
-        float logVolume = Mathf.Log10(linearValue * 9f + 1f);
-        logVolume = Mathf.Clamp01(logVolume);
+        float linear = Mathf.Pow(10,(inDb/20));
 
-        targetBus.setVolume(logVolume);
+        targetBus.setVolume(linear);
     }
 
     public void SaveVolumeSettingsToDisk()

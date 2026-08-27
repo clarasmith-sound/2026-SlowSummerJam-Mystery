@@ -27,6 +27,10 @@ public class InspectionVisualManager : MonoBehaviour
 
     public void StartInspection(GameObject targetSuspect)
     {
+        //Disable all other selectables using the options bool
+        //TODO: Talk with Reagan about this feature as disabling here actually disables the monacle
+        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
+
         inspectionUI.Q<VisualElement>("Clues").Clear();
         SuspectSO suspectData = targetSuspect.GetComponent<SuspectController>().suspectData;
         foreach (Clue clue in suspectData.clues)
@@ -35,6 +39,7 @@ public class InspectionVisualManager : MonoBehaviour
             VisualElement clueUI = clueAsset.Instantiate();
             clueUI.dataSource = clue;
             inspectionUI.Q<VisualElement>("Clues").Add(clueUI);
+            
         }
         inspectionUI.Q<VisualElement>("PermanentRecord").dataSource = suspectData;
         inspectionUI.Q<VisualElement>("PermanentRecord").RemoveFromClassList("hidden");
@@ -43,6 +48,8 @@ public class InspectionVisualManager : MonoBehaviour
 
     public void EndInspection()
     {
+        //Disable all other selectables using the options bool
+        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
         inspectionUI.Q<VisualElement>("PermanentRecord").AddToClassList("hidden");
         inspectionUI.Q<Button>("ExitInspection").style.display = DisplayStyle.None;
     }
