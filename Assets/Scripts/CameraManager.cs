@@ -30,7 +30,7 @@ public class CameraManager : MonoBehaviour
         Vector3 cameraTarget = new Vector3(targetSuspect.transform.position.x + 0.75f, 0f, -10f);
         Sequence.Create(cycles: 1)
             .Group(Tween.Position(mainCam.transform, endValue: cameraTarget, duration: moveDuration, ease: Ease.InOutSine)) // move camera
-            .Group(Tween.CameraOrthographicSize(mainCam, endValue: 4f, duration: moveDuration))
+            .Group(Tween.CameraOrthographicSize(mainCam, endValue: 4.15f, duration: moveDuration))
             .Group(Tween.Position(Desk, endValue: Desk.position + deskMoveAmt, duration: moveDuration, ease: Ease.InOutSine)) // move out desk
             .Group(Tween.Position(Phone, endValue: Phone.position + phoneMoveAmt, duration: moveDuration, ease: Ease.InOutSine)) // move out phone
             .Group(Tween.Color(backgroundBlur, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)); // fade in background blur
