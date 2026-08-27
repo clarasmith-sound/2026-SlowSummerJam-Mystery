@@ -10,7 +10,7 @@ Skyler: My mom is on the PTA! She helps out in the drama club too and does all o
 
 title: SkylerClue2
 ---
-Skyler: I can explain this, it’s just for the show. In fact, I can do your makeup for you! I know how to do a great smoky eye! I’ve got plenty of colors, look! #line:skyler_drama_club_C02
+Skyler: I can explain this, it’s just for the show. In fact, I can do your makeup for you! I know how to do a great smokey eye! I’ve got plenty of colors, look! #line:skyler_drama_club_C02
 ===
 
 
@@ -21,7 +21,8 @@ Theo: Skyler came out of nowhere and punched me in the face. He already had a bl
 
 title: TheoClue1
 ---
-Theo: I’ve been taking voice lessons! I used to be too nervous to sing in front of people, but I’ve really worked on my confidence and I think it’s paying off. I need to take good care of my vocal chords. Did you know honey helps soothe inflammation? #line:theo_drama_club_C01
+Theo: I’ve been taking voice lessons! I used to be too nervous to sing in front of people, but I’ve really worked on my confidence and I think it’s paying off. #line:theo_drama_club_C01_01
+Theo: I need to take good care of my vocal chords. Did you know honey helps soothe inflammation? #line:theo_drama_club_C01_02
 ===
 
 title: TheoClue2
@@ -32,12 +33,15 @@ Theo: I got the lead in the the play! I know Skyler usually gets the lead, but t
 
 title: DramaClubSuccess
 ---
-Theo: I’m glad you didn’t fall for his acting, Principal Judge. I better get back to the rehearsal. You’ll come see the show, right? Oh, by the way… I don’t mean to be a tattletale, but the day before Pork Pie went missing, I saw Skyler lurking around the corridor where Pork Pie’s storage room is. He sure spent a lot of time pacing back and forth, and even tested out the doorknob of the room. Do you think he might have taken poor Pork Pie? #line:drama_club_success
+Theo: I’m glad you didn’t fall for his acting, Principal Judge. I better get back to the rehearsal. You’ll come see the show, right? Oh, by the way... #line:drama_club_success_01
+Theo: I don’t mean to be a tattletale, but the day before Pork Pie went missing, I saw Skyler lurking around the corridor where Pork Pie’s storage room is. #line:drama_club_success_02
+Theo: He sure spent a lot of time pacing back and forth, and even tested out the doorknob of the room. Do you think he might have taken poor Pork Pie? #line:drama_club_success_03
 <<next_case GameManager>>
 ===
 
 title: DramaClubFailure
 ---
-Superintendent: Bad call, Judge. A kid in the drama club just dropped the act and admitted they saw Skyler applying makeup to fake a black eye before attacking Theo! He thought getting Theo suspended might give him another shot at the star role. You fell for it and caught the wrong kid! Don’t make me recast your role as Principal… #line:drama_club_failure
+Superintendent: Bad call, Judge. A kid in the drama club just dropped the act and admitted they saw Skyler applying makeup to fake a black eye before attacking Theo! He thought getting Theo suspended might give him another shot at the star role. #line:drama_club_failure_01
+Superintendent: You fell for it and caught the wrong kid! Don’t make me recast your role as Principal... #line:drama_club_failure_02
 <<next_case GameManager>>
 ===

@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
         // pop into existence, but they could fade in, or slide in, etc.
         AudioManager.Instance.PlaySound2D(suspectEnterRoomSound);
         FindAllSuspectsInScene();
+        CheckAllCluesDiscovered();
     }
 
     private void FindAllSuspectsInScene()
