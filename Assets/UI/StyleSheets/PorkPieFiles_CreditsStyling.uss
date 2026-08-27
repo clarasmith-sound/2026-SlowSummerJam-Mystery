@@ -1,47 +1,66 @@
 :root {
 }
 
-
 .unity-text-element {
-    -unity-font-definition: url("project://database/Assets/UI/Typeface/PlayfairDisplay-VariableFont_wght.ttf?fileID=12800000&guid=0fc5960e5c8e2414b85175b516dbf28b&type=3#PlayfairDisplay-VariableFont_wght");
+    -unity-font-definition: url("project://database/Assets/UI/Typeface/NotoSerif-VariableFont_wdth,wght.ttf?fileID=12800000&guid=625150be64b3a1549a64af9158f5273f&type=3#NotoSerif-VariableFont_wdth,wght");
+    margin: 0;
+    padding: 0;
 }
 
 .credit-row {
-    flex-direction: row;        
-    align-items: center;        
+    flex-direction: row;
+    align-items: center;
     width: 100%;
-    height: auto;               
-    min-height: 48px;  
-    margin-bottom: 24px; 
+    height: auto;
+    min-height: 48px;
+    margin-bottom: 24px;
 }
 
 .credit-row #JobTitle {
-    font-size: 20px;   
-    white-space: normal; 
-    max-width: 50%;
+    font-size: 24px;
+    white-space: normal;
+    -unity-text-wrap: wrap; 
+    
+    max-width: 60%; 
+    min-width: 160px; 
+    
     height: auto;
     flex-shrink: 0;
     overflow: visible;
     padding-top: 4px;
     padding-bottom: 4px;
+    padding-right: 4px; 
+    margin-right: 0;
 }
 
+
 .credit-row #CreditName {
-    font-size: 20px; 
+    font-size: 24px;
     white-space: nowrap;
     height: auto;
     flex-shrink: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    
+    padding-right: 2px;
+    padding-left: 0;
+    margin-left: 0;
+    
+    -unity-text-align: middle-right; 
 }
 
 
 .credit-row #DottedLeader {
-    font-size: 20px;
-    flex-grow: 1;              
+    font-size: 12px;
+    flex-grow: 1;
     flex-shrink: 1;
-    overflow: hidden;          
-    text-overflow: ellipsis;   
-    white-space: nowrap;       
-    margin-left: 12px;
-    margin-right: 12px;
+    flex-basis: 0; 
+    
+    overflow: hidden;
+    white-space: nowrap;
+    
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 6px; 
     color: rgb(0, 0, 0);
 }

@@ -5,23 +5,23 @@
         <ui:Button text="Options" name="Options" class="start-btn"/>
         <ui:Button text="Credits" name="Credits" class="start-btn"/>
     </ui:VisualElement>
-    <ui:VisualElement name="OptionsMenuContainer" style="position: absolute; top: 0; width: 100%; height: 100%; align-items: center; justify-content: center; display: none; left: 0%; right: 0%; bottom: 0%;">
+    <ui:VisualElement name="OptionsMenuContainer" style="position: absolute; top: -1px; width: 100%; height: 100%; align-items: center; justify-content: center; display: none; left: 0; right: 0; bottom: 2px;">
         <ui:VisualElement name="ClipboardBackgound" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=667777397&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_4&quot;); -unity-background-scale-mode: scale-to-fit; aspect-ratio: 0.7521743; width: 708px; height: 944px;">
             <ui:VisualElement name="ClipboardPaper" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=1946861&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_13&quot;); width: 87%; height: 91%; left: 50%; top: 3%; translate: -50% 0%;">
                 <ui:VisualElement name="MenuContent" style="flex-grow: 1; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px; align-items: center;">
                     <ui:Label text="Options" style="font-size: 40px; -unity-text-align: middle-center; -unity-font-style: bold;"/>
                     <ui:Label text="Volume:" style="font-size: 30px; -unity-text-align: middle-left; -unity-font-style: normal; align-self: flex-start;"/>
                     <ui:Slider label="Main" value="0" high-value="10" name="SliderMain" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
-                        <ui:Label text="0 dB" name="MainValueLabel"/>
+                        <ui:Label text="0 dB" name="MainValueLabel" style="width: 65px; margin-left: 25px;"/>
                     </ui:Slider>
                     <ui:Slider label="Music" value="0" high-value="10" name="SliderMusic" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
-                        <ui:Label text="0 dB" name="MusicValueLabel" style="height: 27px;"/>
+                        <ui:Label text="0 dB" name="MusicValueLabel" style="height: 27px; width: 65px; margin-left: 25px;"/>
                     </ui:Slider>
                     <ui:Slider label="SFX" value="0" high-value="10" name="SliderSFX" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
-                        <ui:Label text="0 dB" name="SFXValueLabel"/>
+                        <ui:Label text="0 dB" name="SFXValueLabel" style="width: 65px; margin-left: 25px;"/>
                     </ui:Slider>
                     <ui:Slider label="Ambience" value="0" high-value="10" name="SliderAmbience" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
-                        <ui:Label text="0 dB" name="AmbienceValueLabel"/>
+                        <ui:Label text="0 dB" name="AmbienceValueLabel" style="width: 65px; margin-left: 25px;"/>
                     </ui:Slider>
                     <ui:Slider label="Dialogue" value="0" high-value="10" name="SliderDialogue" low-value="-60" style="width: 100%; display: none;">
                         <ui:Label text="Label" name="DialogueValueLabel"/>
@@ -35,14 +35,14 @@
     <ui:VisualElement name="CreditsMenuContainer" style="flex-grow: 1; top: 0; right: 0; left: 0; bottom: 0; position: absolute; display: none;">
         <ui:VisualElement name="FolderImages" style="flex-grow: 1; position: absolute; top: 0%; left: 0%; bottom: 0%; right: 0%;">
             <ui:Image source="project://database/Assets/Art/FolderTitle.png?fileID=-961851279&amp;guid=e99ce10d404df7d49ab430ec50b6e979&amp;type=3#FolderOpen" name="FolderImg" style="top: 0%; left: 0%; bottom: 0%; right: 0%; position: absolute;">
-                <ui:Image source="project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16" scale-mode="StretchToFill" name="PaperImg" style="position: absolute; height: 1076px; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=1422909059&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_0&quot;); align-items: center; width: 735px; right: 9%; top: -1px;">
+                <ui:Image source="project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16" scale-mode="StretchToFill" name="PaperImg" style="position: absolute; height: 1014px; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=1422909059&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_0&quot;); align-items: center; width: 735px; right: 9%; top: 33px;">
                     <ui:VisualElement style="width: 690px;">
                         <ui:VisualElement name="PageTitleElements" style="position: relative; height: 77px; width: auto; flex-direction: row; margin-top: 36px; margin-right: 12px; margin-bottom: 12px;">
                             <ui:Image source="project://database/Assets/Art/UI.png?fileID=-421481591&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_17" name="SchoolEmblem" style="height: 100%;"/>
                             <ui:Label text="Hard Knocks Academy &#10;Staff" name="GameTitle" style="-unity-text-align: middle-center; font-size: 24px; -unity-font-style: bold;"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="BlackLineDividerImg" style="background-size: 100% auto; -unity-background-scale-mode: stretch-to-fill; height: 1px; width: auto; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=1422909059&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_0&quot;); background-color: rgb(0, 0, 0);"/>
-                        <ui:VisualElement name="CreditsList" style="margin-left: 30px; margin-right: 10px; padding-right: 30px; justify-content: space-between; align-self: stretch; align-content: stretch;"/>
+                        <ui:VisualElement name="CreditsList" style="margin-left: 30px; margin-right: 10px; padding-right: 30px; justify-content: space-between; align-self: stretch; align-content: stretch; padding-top: 0; margin-top: 25px; bottom: 0%; top: 0%; left: 0%; right: 0%; position: relative;"/>
                     </ui:VisualElement>
                     <ui:Button text="Back" name="OptionsBackBtn" class="start-btn" style="position: absolute; top: auto; left: auto; width: 122px; height: 38px; font-size: 25px; align-items: center; align-self: center; right: 49px; bottom: 45px;"/>
                 </ui:Image>

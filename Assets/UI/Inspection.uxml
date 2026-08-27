@@ -11,8 +11,8 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="TitleBlockRow" class="title-block-row" style="flex-direction: row; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=-571982699&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_6&quot;); -unity-background-image-tint-color: rgb(137, 46, 16); background-color: rgb(255, 255, 255);">
-            <ui:Label text="Student Name:" name="StudentTitle" style="-unity-text-align: upper-center; margin-top: 4px;"/>
-            <ui:Label text="Maggie" name="Name" style="margin-top: 4px;">
+            <ui:Label text="Student Name:" name="StudentTitle" style="-unity-text-align: upper-center; margin-top: 0; margin-bottom: 4px;"/>
+            <ui:Label text="Maggie" name="Name" style="margin-top: 0; margin-bottom: 4px;">
                 <Bindings>
                     <ui:DataBinding property="text" data-source-path="suspectName" binding-mode="ToTarget"/>
                 </Bindings>
