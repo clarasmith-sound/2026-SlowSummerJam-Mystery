@@ -8,6 +8,7 @@ public enum SuspectState { Ready, Hover, Inspection, Blurred, Judged };
 public class SuspectController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+    public SpriteRenderer detailSpriteRenderer;
     public SuspectState state = SuspectState.Ready;
     public SuspectSO suspectOrigin; // Unmodified scriptable object, for comparisons
     [HideInInspector] public SuspectSO suspectData;
@@ -90,7 +91,6 @@ public class SuspectController : MonoBehaviour
         {
             expelledStamp.SetActive(true);
             GameManager.Instance.StampedGuilty(this);
-
         }
     }
 
@@ -110,12 +110,20 @@ public class SuspectController : MonoBehaviour
     {
         HideAllClues();
         state = SuspectState.Ready;
-        Tween.Alpha(spriteRenderer, endValue: 1.0f, duration: 1f);
+        if (spriteRenderer.color.a != 1f)
+        {
+            Tween.Alpha(spriteRenderer, endValue: 1.0f, duration: 1f);
+            Tween.Alpha(detailSpriteRenderer, endValue: 1.0f, duration: 1f);
+        }
     }
 
     public void FadeOut()
     {
         state = SuspectState.Blurred;
-        Tween.Alpha(spriteRenderer, endValue: 0f, duration: 1f);
+        if (spriteRenderer.color.a != 0f)
+        {
+            Tween.Alpha(spriteRenderer, endValue: 0f, duration: 1f);
+            Tween.Alpha(detailSpriteRenderer, endValue: 0f, duration: 1f);
+        }
     }
 }
