@@ -13,7 +13,8 @@
 }
 
 .unity-text-element {
-    -unity-font-definition: url("project://database/Assets/UI/Typeface/PlayfairDisplay-VariableFont_wght.ttf?fileID=12800000&guid=0fc5960e5c8e2414b85175b516dbf28b&type=3#PlayfairDisplay-VariableFont_wght");
+    -unity-font-definition: url("project://database/Assets/UI/Typeface/NotoSerif-VariableFont_wdth,wght.ttf?fileID=12800000&guid=625150be64b3a1549a64af9158f5273f&type=3#NotoSerif-VariableFont_wdth,wght");
+    -unity-font-style: normal;
 }
 
 .start-btn {
@@ -64,17 +65,16 @@
     color: rgb(255, 255, 255);
 }
 
-.custom-slider #unity-tracker{
+.custom-slider #unity-tracker {
     background-image: url("project://database/Assets/Art/UI.png?fileID=1422909059&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_0");
     background-color: rgba(200, 200, 200, 0);
     height: 12px;
 }
 
-.custom-slider #unity-dragger{
+.custom-slider #unity-dragger {
     background-image: url("project://database/Assets/Art/UI.png?fileID=-1876962846&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_1");
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
     width: 20px;
     height: 20px;
-
 }

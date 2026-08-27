@@ -9,16 +9,16 @@
                     <ui:Label text="Options" style="font-size: 40px; -unity-text-align: middle-center; -unity-font-style: bold;"/>
                     <ui:Label text="Volume:" style="font-size: 30px; -unity-text-align: middle-left; -unity-font-style: normal; align-self: flex-start;"/>
                     <ui:Slider label="Main" value="42" high-value="10" name="SliderMain" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
-                        <ui:Label text="0 dB" name="MainValueLabel"/>
+                        <ui:Label text="0 dB" name="MainValueLabel" style="width: 65px; margin-left: 25px;"/>
                     </ui:Slider>
                     <ui:Slider label="Music" value="42" high-value="100" name="SliderMusic" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
-                        <ui:Label text="0 dB" name="MusicValueLabel" style="height: 27px;"/>
+                        <ui:Label text="0 dB" name="MusicValueLabel" style="height: 27px; width: 65px; margin-left: 25px;"/>
                     </ui:Slider>
                     <ui:Slider label="SFX" value="-60" high-value="10" name="SliderSFX" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
-                        <ui:Label text="0 dB" name="SFXValueLabel"/>
+                        <ui:Label text="0 dB" name="SFXValueLabel" style="width: 65px; margin-left: 25px;"/>
                     </ui:Slider>
                     <ui:Slider label="Ambience" value="0" high-value="10" name="SliderAmbience" low-value="-60" class="custom-slider" style="width: 100%; font-size: 20px;">
-                        <ui:Label text="0 dB" name="AmbienceValueLabel"/>
+                        <ui:Label text="0 dB" name="AmbienceValueLabel" style="width: 65px; margin-left: 25px;"/>
                     </ui:Slider>
                     <ui:Slider label="Dialogue" value="0" high-value="10" name="SliderDialogue" low-value="-60" style="width: 100%; display: none;">
                         <ui:Label text="Label" name="DialogueValueLabel"/>

@@ -78,6 +78,8 @@
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
     min-height: 72px;
     -unity-slice-left: 100;
     -unity-slice-top: 100;
