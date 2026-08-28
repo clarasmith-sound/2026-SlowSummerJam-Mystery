@@ -3,6 +3,7 @@ using UnityEngine;
 using PrimeTween;
 using FMODUnity;
 using Yarn.Unity;
+using System.Threading.Tasks;
 
 public enum SuspectState { Ready, Hover, Inspection, Blurred, Judged };
 
@@ -139,5 +140,12 @@ public class SuspectController : MonoBehaviour
     public void PlayAnimation(string animationName)
     {
         animator.Play(animationName);
+    }
+
+    public async Task WaitThenFade()
+    {
+        await Task.Delay(1000);
+        _ = Tween.Alpha(expelledStamp.GetComponent<SpriteRenderer>(), endValue: 0f, duration: 1f);
+        FadeOut();
     }
 }
