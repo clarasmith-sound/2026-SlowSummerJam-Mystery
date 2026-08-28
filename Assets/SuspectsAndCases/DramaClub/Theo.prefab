@@ -410,6 +410,8 @@ MonoBehaviour:
   suspectOrigin: {fileID: 11400000, guid: 1178ff980dff76a4ba5ea1dab051d49b, type: 2}
   suspectData: {fileID: 0}
   expelledStamp: {fileID: 859325049232010312}
+  idleAnimationName: Theo_Idle
+  freezeAnimationName: Theo_Freeze
   suspectHoverSound:
     Guid:
       Data1: -36675197
