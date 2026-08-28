@@ -5,7 +5,6 @@
 #
 # This template is maintained from the gitattributes/gitattributes repository
 # and distributed under MIT License.
-
 # Define macros (only works in top-level gitattributes files)
 [attr]lfs               filter=lfs diff=lfs merge=lfs -text
 [attr]unity-json        eol=lf linguist-language=json
@@ -163,4 +162,5 @@ Assets/Plugins/FMOD/**/Info.plist text eol=lf
 /FMODProject/Assets/**/*.ogg lfs
 # Track the final built audio banks that Unity actually plays
 *.bank lfs
+**/*.wav filter=lfs diff=lfs merge=lfs -text
 Assets/Plugins/FMOD/** !text !filter !merge !diff

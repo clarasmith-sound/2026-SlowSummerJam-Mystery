@@ -1,0 +1,98 @@
+.unity-text-element {
+    -unity-font-definition: url("project://database/Assets/UI/Typeface/NotoSerif-VariableFont_wdth,wght.ttf?fileID=12800000&guid=625150be64b3a1549a64af9158f5273f&type=3#NotoSerif-VariableFont_wdth,wght");
+    -unity-font-style: normal;
+}
+
+#MenuContent {
+    width: auto;
+    max-width: 650px;
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-sizing: border-box;
+}
+
+.custom-slider-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin-bottom: 24px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.custom-slider-row .channel-label {
+    font-size: 26px;
+    width: 130px;
+    min-width: 130px;
+    max-width: 130px;
+    -unity-text-align: middle-left;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    color: rgb(60, 60, 60);
+}
+
+.custom-slider-row .custom-slider {
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+    width: 270px;
+    min-width: 270px;
+    max-width: 270px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.custom-slider-row .custom-slider .unity-base-slider__input {
+    flex-grow: 1;
+    width: 100%;
+    margin: 0;
+}
+
+.custom-slider-row .db-value {
+    font-size: 24px;
+    width: 90px;
+    min-width: 90px;
+    max-width: 90px;
+    -unity-text-align: middle-right;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    color: rgb(60, 60, 60);
+}
+
+.custom-slider-row .custom-slider #unity-tracker {
+    -unity-background-image-source-sub-sprite: "UI_0";
+    -unity-background-scale-mode: stretch-to-fill;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    height: 12px;
+    background-image: url("project://database/Assets/Art/UI.png?fileID=1422909059&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_0");
+}
+
+.custom-slider-row .custom-slider #unity-dragger {
+    -unity-background-image-source-sub-sprite: "UI_1";
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url("project://database/Assets/Art/UI.png?fileID=-1876962846&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_1");
+}
+
+.options-btn {
+    justify-content: flex-start;
+}
+
+.btn-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    align-self: auto;
+}
