@@ -168,7 +168,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ebef47bea1c0f747b025cb527c0fa1c, type: 2}
   - {fileID: 11400000, guid: 2c2c42e7cfa8036468cfe204a6b3f26a, type: 2}
   - {fileID: 11400000, guid: ba4b47abe6e8e454da09059c1a5428e0, type: 2}
-  currentCaseIndex: 0
+  currentCaseIndex: 1
   optionsMenuOpen: 0
   suspectEnterRoomSound:
     Guid:
@@ -891,8 +891,6 @@ MonoBehaviour:
       Data3: -1345085792
       Data4: -1155642036
     Path: event:/UI/GenericBack
-  sliderLowValue: -60
-  sliderHighValue: 10
 --- !u!114 &311103586
 MonoBehaviour:
   m_ObjectHideFlags: 0

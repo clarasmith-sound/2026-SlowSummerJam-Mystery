@@ -6,15 +6,12 @@
     font-size: 8px;
 }
 
-
 #Continue {
-    -unity-background-image-tint-color: rgb(255, 255, 255); 
+    -unity-background-image-tint-color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
-
     width: 150px;
     height: 50px;
-
     transition-property: -unity-background-image-tint-color;
     transition-duration: 0.15s;
 }
@@ -24,7 +21,56 @@
     color: rgb(255, 255, 255);
 }
 
-#speech-text
-{
+#speech-text {
     font-size: 38px;
+}
+
+#speaker-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    margin-top: -35px;
+    margin-left: 20px; 
+    align-self: flex-start;
+
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-left: 10;
+    -unity-slice-right: 10;
+    -unity-slice-top: 10;
+    -unity-slice-bottom: 10;
+    background-image: url("project://database/Assets/Art/UI.png?fileID=-1701186701&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_dialogueLabel");
+    -unity-background-image-tint-color: rgb(188, 233, 238);
+}
+
+#speaker-label-outline {
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    left: -6px;
+    right: -6px;
+
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-left: 14;
+    -unity-slice-right: 14;
+    -unity-slice-top: 14;
+    -unity-slice-bottom: 14;
+
+    background-image: url("project://database/Assets/Art/UI.png?fileID=-1708307500&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_14");
+}
+
+#speech-speaker {
+    width: auto;
+    height: auto;
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+    padding: 0;
+    font-size: 42px;
 }
