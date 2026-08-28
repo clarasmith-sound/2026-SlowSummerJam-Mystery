@@ -1,40 +1,51 @@
 title: BlinkClue0
 ---
+<<play_animation Blink Blink_MoveHair>>
 Blink: Ju-just minding my own b-business, th-that’s all. #line:blink_candy_mafia_C00
 ===
 
 title: BlinkClue1
 ---
+<<play_animation Blink Blink_Shame>>
+
 Blink: I-I… f-found t-these on the floor! U-uhh th-thought they’d make a nice collage… I-I didn’t eat any, I swear! #line:blink_candy_mafia_C01
 ===
 
 title: BlinkClue2
 ---
+<<play_animation Blink Blink_MoveHair>>
 Blink: I-It’s glue. I-I stick th-things in my book, s-s-see? #line:blink_candy_mafia_C02
 ===
 
 
 title: MoxieClue0
 ---
+<<play_animation Moxie Moxie_Laugh>>
 Moxie: Hehehe!! I’m just excited to get to my gym class after this. I could really use a run! #line:moxie_candy_mafia_C00
 ===
 
 title: MoxieClue1
 ---
+<<play_animation Moxie Moxie_Laugh>>
 Moxie: I can explain, it’s part of my math homework! But I made some mistakes, so I was gonna do up a new copy. Hehe!! #line:moxie_candy_mafia_C01
 ===
 
 title: MoxieClue2
 ---
+<<play_animation Moxie Moxie_Hair>>
 Moxie: Do you like my new lipstick? Hehe, it’s on trend this season! #line:moxie_candy_mafia_C02
 ===
 
 
 title: CandyMafiaSuccess
 ---
+<<play_animation Blink Blink_MoveHair>>
 Blink: Th-thank you, Principal Judge! I-I’m so happy I can keep my wrapper collection. Maybe I could let you in on a little s-secret? #line:candy_mafia_success_01
+<<play_animation Blink Blink_Shame>>
 Blink: Y-you know that day? I-I mean the day before Pork Pie went missing, I s-saw Moxie running down the hallway with a large duffel bag. #line:candy_mafia_success_02
-Blink: I-It looked a-a-as if there were something stuffed in it. S-s-something huge, like a mascot! Do y-you think she was the one who took little Porkie? #line:candy_mafia_success_03
+Blink: I-It looked a-a-as if there were something stuffed in it. S-s-something huge, like a mascot! 
+<<play_animation Blink Blink_Idle>>
+Blink: Do y-you think she was the one who took little Porkie? #line:candy_mafia_success_03
 <<next_case GameManager>>
 ===
 
