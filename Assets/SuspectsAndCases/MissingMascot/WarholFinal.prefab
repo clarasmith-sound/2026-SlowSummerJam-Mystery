@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 1998905654426996011}
   - component: {fileID: 2428712550626192079}
   - component: {fileID: 2198267601714633490}
+  - component: {fileID: 1728133392480918779}
   m_Layer: 0
   m_Name: WarholFinal
   m_TagString: Suspect
@@ -502,6 +503,8 @@ MonoBehaviour:
   suspectOrigin: {fileID: 11400000, guid: 73feb757bf0aed74ca90d9e3aa936e62, type: 2}
   suspectData: {fileID: 0}
   expelledStamp: {fileID: 277310285029959518}
+  idleAnimationName: 
+  freezeAnimationName: 
   suspectHoverSound:
     Guid:
       Data1: -36675197
@@ -992,3 +995,25 @@ PolygonCollider2D:
       - {x: -1.87, y: 6.5899997}
       - {x: -1.91, y: 6.58}
   m_UseDelaunayMesh: 1
+--- !u!95 &1728133392480918779
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234159986567242207}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfbb08213984f8e4ca93cf5fba1c6036, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
