@@ -18,6 +18,11 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float dialogueVolume = 1.0f;
     [Range(0f, 1f)] public float ambientVolume = 1.0f;
 
+    [Header("Slider Bounds")]
+    public float SliderLowValue = -60f;
+    public float SliderHighValue = 10f;
+    public float SliderDefaultValue = 0f;
+
     private Bus mainBus;
     private Bus musicBus;
     private Bus sfxBus;
@@ -25,6 +30,7 @@ public class AudioManager : MonoBehaviour
     private Bus ambientBus;
 
     private EventInstance musicEventInstance;
+    private EventReference currentMusicReference;
 
     private const string MAIN_VOL_KEY = "Audio_MainVolume";
     private const string MUSIC_VOL_KEY = "Audio_MusicVolume";
@@ -101,22 +107,22 @@ private void Start()
     {
         if (eventReference.IsNull) return;
 
-        if (musicEventInstance.isValid())
-        {
-            musicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            musicEventInstance.release();
-        }
+        StopMusic();
 
         musicEventInstance = RuntimeManager.CreateInstance(eventReference);
         musicEventInstance.start();
+        currentMusicReference = eventReference;
     }
 
     public void StopMusic()
     {
         if (musicEventInstance.isValid())
         {
-            musicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            musicEventInstance.release();
+            EventInstance oldInstance = musicEventInstance;
+            oldInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            oldInstance.release();
+            musicEventInstance = default;
+            currentMusicReference = default;
         }
     }
 
@@ -186,5 +192,22 @@ private void Start()
     public void SaveVolumeSettingsToDisk()
     {
         PlayerPrefs.Save();
+    }
+    public float GetVolume(AudioOptionSliders sliderType)
+    {
+        switch (sliderType)
+        {
+            case AudioOptionSliders.MainVolume: return mainVolume;
+            case AudioOptionSliders.MusicVolume: return musicVolume;
+            case AudioOptionSliders.SFXVolume: return sfxVolume;
+            case AudioOptionSliders.DialogueVolume: return dialogueVolume;
+            case AudioOptionSliders.AmbientVolume: return ambientVolume;
+            default: return 0f;
+        }
+    }
+
+    public void SetVolume(AudioOptionSliders sliderType, float dbValue)
+    {
+        UpdateAudioOptionsSlider(sliderType, dbValue);
     }
 }

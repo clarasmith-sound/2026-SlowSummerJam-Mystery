@@ -3,45 +3,25 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using FMODUnity;
 using System;
+using System.Collections.Generic;
 
 public class OptionsMenuVisualManager : MonoBehaviour
 {
     public UIDocument optionsMenuUIDoc;
     private VisualElement optionsUI;
-
-    [Serializable]
-    public struct AudioChannelUI
-    {
-        public string channelName;
-        public string sliderUxmlName;
-        public string labelUxmlName;
-        public AudioOptionSliders sliderType;
-
-        internal Slider slider;
-        internal Label label;
-    }
     
     [Header("Audio Properties")]
     [SerializeField] private EventReference buttonHoverSound;
     [SerializeField] private EventReference buttonSelectSound;
     [SerializeField] private EventReference buttonBackSound;
 
-    [Header("Decibel Slider Bounds")]
-    [SerializeField] private float sliderLowValue = -60f;
-    [SerializeField] private float sliderHighValue = 10f;
-
     private Button backToStartBtn;
     private Button backToGameBtn;
     private Button openOptionsMenuBtn;
 
-    private AudioChannelUI[] audioChannels = new AudioChannelUI[]
-    {
-        new AudioChannelUI { channelName = "Master",    sliderUxmlName = "SliderMain",     labelUxmlName = "MainValueLabel",     sliderType = AudioOptionSliders.MainVolume },
-        new AudioChannelUI { channelName = "Music",     sliderUxmlName = "SliderMusic",    labelUxmlName = "MusicValueLabel",    sliderType = AudioOptionSliders.MusicVolume },
-        new AudioChannelUI { channelName = "SFX",       sliderUxmlName = "SliderSFX",      labelUxmlName = "SFXValueLabel",      sliderType = AudioOptionSliders.SFXVolume },
-        new AudioChannelUI { channelName = "Ambience",  sliderUxmlName = "SliderAmbience", labelUxmlName = "AmbienceValueLabel", sliderType = AudioOptionSliders.AmbientVolume },
-        new AudioChannelUI { channelName = "Dialogue",  sliderUxmlName = "SliderDialogue", labelUxmlName = "DialogueValueLabel", sliderType = AudioOptionSliders.DialogueVolume }
-    };
+    private AudioChannelUI[] audioChannels = AudioSliderBinder.DefaultChannels;
+    private Dictionary<int, EventCallback<ChangeEvent<float>>> valueCallbacks = new();
+    private Dictionary<int, EventCallback<PointerDownEvent>> clickCallbacks = new();
 
     public void OnEnable()
     {
@@ -54,7 +34,6 @@ public class OptionsMenuVisualManager : MonoBehaviour
             optionsContainer.pickingMode = PickingMode.Position;
         }
 
-        // Query Button References Safely
         backToStartBtn = optionsUI.Q<Button>("BackToStart");
         backToGameBtn = optionsUI.Q<Button>("BackToGame");
         openOptionsMenuBtn = optionsUI.Q<Button>("OpenOptionsMenu");
@@ -77,25 +56,10 @@ public class OptionsMenuVisualManager : MonoBehaviour
             openOptionsMenuBtn.clicked += ShowOptionsMenu;
         }
 
-        for(int i=0; i < audioChannels.Length; i++)
-        {
-            audioChannels[i].slider = optionsUI.Q<Slider>(audioChannels[i].sliderUxmlName);
-            audioChannels[i].label = optionsUI.Q<Label>(audioChannels[i].labelUxmlName);
+        audioChannels = AudioSliderBinder.Bind(
+            optionsUI, audioChannels,
+            buttonSelectSound, valueCallbacks, clickCallbacks);
 
-            if(audioChannels[i].slider != null)
-            {
-                audioChannels[i].slider.lowValue = sliderLowValue;
-                audioChannels[i].slider.highValue = sliderHighValue;
-                int cachedIndex = i; 
-
-                float savedVolume = GetSavedVolumeFromManager(audioChannels[cachedIndex].sliderType);
-
-                audioChannels[i].slider.SetValueWithoutNotify(savedVolume);
-                audioChannels[i].slider.RegisterValueChangedCallback(evt => OnVolumeSliderChanged(cachedIndex, evt.newValue));
-            
-                UpdateVolumeLabel(audioChannels[cachedIndex], audioChannels[cachedIndex].slider.value);
-            }
-        }
     }
 
     public void OnDisable()
@@ -118,14 +82,7 @@ public class OptionsMenuVisualManager : MonoBehaviour
             openOptionsMenuBtn.clicked -= ShowOptionsMenu;
         }
 
-        for (int i = 0; i < audioChannels.Length; i++)
-        {
-            if (audioChannels[i].slider != null)
-            {
-                int cachedIndex = i;
-                audioChannels[i].slider.UnregisterValueChangedCallback(evt => OnVolumeSliderChanged(cachedIndex, evt.newValue));
-            }
-        }
+        AudioSliderBinder.Unbind(audioChannels, valueCallbacks, clickCallbacks);
     }
 
     public void ShowOptionsMenu()
@@ -138,8 +95,6 @@ public class OptionsMenuVisualManager : MonoBehaviour
             container.style.display = DisplayStyle.Flex;
             container.pickingMode = PickingMode.Position;
         }
-        
-
     }
 
     public void BackToStartMenu()
@@ -154,7 +109,6 @@ public class OptionsMenuVisualManager : MonoBehaviour
              container.pickingMode = PickingMode.Ignore;
         }
         SceneManager.LoadScene("Start", LoadSceneMode.Single);
-        
     }
 
     public void HideOptionsMenu()
@@ -172,44 +126,6 @@ public class OptionsMenuVisualManager : MonoBehaviour
     public void OnButtonHover(PointerEnterEvent evt)
     {
         AudioManager.Instance.PlaySound2D(buttonHoverSound);
-    }
-
-    private void OnVolumeSliderChanged(int channelIndex, float dbValue)
-    {
-        AudioChannelUI activeChannel = audioChannels[channelIndex];
-        UpdateVolumeLabel(activeChannel, dbValue);
-
-        AudioManager.Instance.UpdateAudioOptionsSlider(activeChannel.sliderType, dbValue);
-    }
-
-  
-
-    private void UpdateVolumeLabel(AudioChannelUI channel, float dbValue)
-    {
-        if(channel.label == null) return;
-
-        if(dbValue <= (sliderLowValue + 0.5f))
-        {
-            channel.label.text = "MUTED";
-        }
-        else
-        {
-            string sign = dbValue > 0 ? "+" : "";
-            channel.label.text = $"{sign}{dbValue:F1} dB";
-        }
-    }
-
-    private float GetSavedVolumeFromManager(AudioOptionSliders sliderType)
-    {
-        switch (sliderType)
-        {
-            case AudioOptionSliders.MainVolume:     return PlayerPrefs.GetFloat("MAIN_VOL_KEY", 0f); 
-            case AudioOptionSliders.MusicVolume:    return PlayerPrefs.GetFloat("MUSIC_VOL_KEY", 0f);
-            case AudioOptionSliders.SFXVolume:      return PlayerPrefs.GetFloat("SFX_VOL_KEY", 0f);
-            case AudioOptionSliders.DialogueVolume: return PlayerPrefs.GetFloat("DIALOGUE_VOL_KEY", 0f);
-            case AudioOptionSliders.AmbientVolume:  return PlayerPrefs.GetFloat("AMBIENT_VOL_KEY", 0f);
-            default:                                return 0f;
-        }
     }
 
 }

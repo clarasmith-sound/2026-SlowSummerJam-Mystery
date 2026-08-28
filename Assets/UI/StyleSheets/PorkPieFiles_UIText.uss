@@ -1,15 +1,14 @@
-:root {
-}
-
 .unity-button {
     font-size: 14px;
     -unity-font-definition: url("project://database/Assets/UI/Typeface/PlayfairDisplay-VariableFont_wght.ttf?fileID=12800000&guid=0fc5960e5c8e2414b85175b516dbf28b&type=3#PlayfairDisplay-VariableFont_wght");
     background-image: url("project://database/Assets/Art/UI.png?fileID=530779322&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_11");
-    border-left-color: rgba(0, 0, 0, 0);
-    border-right-color: rgba(0, 0, 0, 0);
-    border-top-color: rgba(0, 0, 0, 0);
-    border-bottom-color: rgba(0, 0, 0, 0);
+    border-width: 0;
     background-color: rgba(0, 0, 0, 0);
+}
+
+.unity-button:hover {
+    -unity-background-image-tint-color: rgb(203, 66, 155);
+    color: rgb(255, 255, 255);
 }
 
 .unity-text-element {
@@ -17,12 +16,10 @@
     -unity-font-style: normal;
 }
 
-.start-btn {
-    font-size: 40px;
+.start-btn, .case-btn {
     background-image: url("project://database/Assets/Art/UI.png?fileID=530779322&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_11");
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
-    border-color: rgba(0, 0, 0, 0);
     padding-left: 25px;
     padding-right: 25px;
     transition-property: -unity-background-image-tint-color;
@@ -30,51 +27,150 @@
     -unity-font-definition: url("project://database/Assets/UI/Typeface/PlayfairDisplay-VariableFont_wght.ttf?fileID=12800000&guid=0fc5960e5c8e2414b85175b516dbf28b&type=3#PlayfairDisplay-VariableFont_wght");
 }
 
-.start-btn .unity-text-element {
-    transition-property: color;
-    transition-duration: 0.15s;
-    -unity-font-definition: url("project://database/Assets/UI/Typeface/PlayfairDisplay-VariableFont_wght.ttf?fileID=12800000&guid=0fc5960e5c8e2414b85175b516dbf28b&type=3#PlayfairDisplay-VariableFont_wght");
-}
-
-.start-btn:hover {
-    -unity-background-image-tint-color: rgb(203, 66, 155);
-    color: rgb(255, 255, 255);
+.start-btn {
+    font-size: 40px;
 }
 
 .case-btn {
     font-size: 20px;
-    background-image: url("project://database/Assets/Art/UI.png?fileID=530779322&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_11");
-    background-color: rgba(0, 0, 0, 0);
-    border-width: 0;
-    border-color: rgba(0, 0, 0, 0);
-    padding-left: 25px;
-    padding-right: 25px;
-    transition-property: -unity-background-image-tint-color;
-    transition-duration: 0.15s;
-    -unity-font-definition: url("project://database/Assets/UI/Typeface/PlayfairDisplay-VariableFont_wght.ttf?fileID=12800000&guid=0fc5960e5c8e2414b85175b516dbf28b&type=3#PlayfairDisplay-VariableFont_wght");
 }
 
-.case-btn .unity-text-element {
+.start-btn .unity-text-element, .case-btn .unity-text-element {
     transition-property: color;
     transition-duration: 0.15s;
     -unity-font-definition: url("project://database/Assets/UI/Typeface/PlayfairDisplay-VariableFont_wght.ttf?fileID=12800000&guid=0fc5960e5c8e2414b85175b516dbf28b&type=3#PlayfairDisplay-VariableFont_wght");
 }
 
-.case-btn:hover {
-    -unity-background-image-tint-color: rgb(203, 66, 155);
-    color: rgb(255, 255, 255);
+#CreditsMenuContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.custom-slider #unity-tracker {
-    background-image: url("project://database/Assets/Art/UI.png?fileID=1422909059&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_0");
-    background-color: rgba(200, 200, 200, 0);
-    height: 12px;
+#CardBackground {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    width: 800px;
+    height: 800px;
+    border-width: 0;
+    overflow: hidden;
 }
 
-.custom-slider #unity-dragger {
-    background-image: url("project://database/Assets/Art/UI.png?fileID=-1876962846&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_1");
+.header-row {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-bottom: 16px;
+    margin-top: 15px;
+}
+
+#SchoolEmblem {
+    width: 128px;
+    height: 128px;
+    min-height: 128px;
+    max-height: 128px;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+#AcademyTitle {
+    font-size: 48px;
+    -unity-font-style: bold-and-italic;
+    color: rgb(60, 60, 60);
+    margin: 4px;
+    padding: 0;
+}
+
+#DocumentSubheader {
+    font-size: 42px;
+    -unity-font-style: italic;
+    color: rgb(60, 60, 60);
+    margin-top: 4px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.header-text-group {
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: auto;
+    padding: 0;
+    margin-right: 20px;
+}
+
+#CreditsList,
+#CreditsList:hover,
+#CreditsList:focus,
+#CreditsList:active {
+    width: 100%;
+    height: 600px;
+    max-height: 600px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: column;
+    padding-left: 32px; 
+    padding-right: 32px;
+    padding-top: 20px;
+    padding-bottom: 80px; 
+    margin-bottom: 0;
+    overflow: scroll;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+}
+
+#CreditsList .unity-scroll-view__viewport,
+#CreditsList .unity-scroll-view__viewport:hover {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+}
+
+#CreditsList .unity-scroll-view__content-container,
+#CreditsList .unity-scroll-view__content-container:hover {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+}
+
+#CreditsList .unity-scroller__vertical {
+    width: 24px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+}
+
+#CreditsList .unity-base-slider__tracker {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+}
+
+#CreditsList .unity-base-slider__dragger {
+    -unity-background-scale-mode: scale-to-fit;
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
     width: 20px;
     height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin-left: 2px;
+    background-image: url("project://database/Assets/Art/UI.png?fileID=-1876962846&guid=f2da59040992cc84a88abc4e996a4eda&type=3#UI_1");
+}
+
+#CreditsList .unity-scroller__low-button,
+#CreditsList .unity-scroller__high-button {
+    display: none;
 }

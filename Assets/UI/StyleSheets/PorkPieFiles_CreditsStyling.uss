@@ -9,28 +9,26 @@
 
 .credit-row {
     flex-direction: row;
-    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0; 
+    align-items: flex-start; 
     width: 100%;
     height: auto;
-    min-height: 48px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    margin-top: 0;
 }
 
 .credit-row #JobTitle {
     font-size: 24px;
     white-space: normal;
-    -unity-text-wrap: wrap; 
-    
-    max-width: 60%; 
-    min-width: 160px; 
-    
+    overflow: visible;
+    width: 40%;
+    max-width: 50%; 
+    min-width: 260px; 
     height: auto;
     flex-shrink: 0;
-    overflow: visible;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-right: 4px; 
-    margin-right: 0;
+    padding: 4px; 
+    margin: 0;
 }
 
 
@@ -41,12 +39,10 @@
     flex-shrink: 0;
     padding-top: 4px;
     padding-bottom: 4px;
-    
     padding-right: 2px;
     padding-left: 0;
     margin-left: 0;
-    
-    -unity-text-align: middle-right; 
+    -unity-text-align: upper-right; 
 }
 
 
@@ -54,13 +50,11 @@
     font-size: 12px;
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 0; 
-    
+    flex-basis: auto; 
     overflow: hidden;
     white-space: nowrap;
-    
     margin-left: 8px;
     margin-right: 8px;
-    margin-top: 6px; 
-    color: rgb(0, 0, 0);
+    margin-top: 10px; 
+    color: rgb(120, 120, 120);
 }
