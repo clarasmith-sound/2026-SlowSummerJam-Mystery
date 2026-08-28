@@ -12,6 +12,8 @@ public class InspectionVisualManager : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private EventReference buttonHoverSound;
 
+    private bool inInspection = false;
+
     public void OnEnable()
     {
         inspectionUI = inspectionUIDoc.rootVisualElement;
@@ -27,6 +29,7 @@ public class InspectionVisualManager : MonoBehaviour
 
     public void StartInspection(GameObject targetSuspect)
     {
+        inInspection = true;
         if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
 
         inspectionUI.Q<VisualElement>("Clues").Clear();
@@ -46,6 +49,7 @@ public class InspectionVisualManager : MonoBehaviour
 
     public void EndInspection()
     {
+        inInspection = false;
         if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
         inspectionUI.Q<VisualElement>("PermanentRecord").AddToClassList("hidden");
         inspectionUI.Q<Button>("ExitInspection").style.display = DisplayStyle.None;
@@ -63,5 +67,16 @@ public class InspectionVisualManager : MonoBehaviour
         // Note, the place I noted for the click of this button is actually in GameManager
         // in EndInspection (since it also causes a camera zoom and the permanent record to slide off right)
         AudioManager.Instance.PlaySound2D(buttonHoverSound);
+    }
+
+    public void HidePermanentRecord()
+    {
+        inspectionUI.Q<VisualElement>("PermanentRecord").AddToClassList("hidden");
+    }
+
+    public void ShowPermanentRecord()
+    {
+        if (!inInspection) return;
+        inspectionUI.Q<VisualElement>("PermanentRecord").RemoveFromClassList("hidden");
     }
 }

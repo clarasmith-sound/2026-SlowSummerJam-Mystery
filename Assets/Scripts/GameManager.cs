@@ -120,6 +120,8 @@ public class GameManager : MonoBehaviour
         monocleController.gameObject.SetActive(false);
         suspect.HideAllClues();
 
+        //Hide Permanent Record
+
         await dialogueRunner.StartDialogue(clue.yarnDialogueNode);
         await dialogueRunner.DialogueTask;
 
