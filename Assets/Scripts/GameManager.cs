@@ -1,6 +1,8 @@
 using UnityEngine;
 using Yarn.Unity;
 using FMODUnity;
+using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,12 +11,16 @@ public class GameManager : MonoBehaviour
     private GameObject[] allSuspects;
     [SerializeField] private InspectionVisualManager inspectionVisualManager;
     [SerializeField] private CaseStartVisualManager caseStartVisualManager;
+    [SerializeField] private RestartVisualManager restartVisualManager;
     public DialogueRunner dialogueRunner;
     public bool undiscoveredClues = true;
     public bool stampBeingHeld = false;
     [HideInInspector] public StampController stampController;
     [HideInInspector] public PhoneController phoneController;
     [HideInInspector] public MonocleController monocleController;
+    public GameObject porkpiePrefab;
+    public GameObject confettiObject;
+    public GameObject failstampPrefab;
 
     public CaseSO[] allCases;
     public int currentCaseIndex = 0;
@@ -46,12 +52,14 @@ public class GameManager : MonoBehaviour
     {
         StartCase(allCases[currentCaseIndex]);
         FindControllersInScene();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public async void StartCase(CaseSO caseToStart)
     {
         await caseStartVisualManager.DisplayStartCase(caseToStart);
-        foreach (SuspectSO suspect in caseToStart.suspects) {
+        foreach (SuspectSO suspect in caseToStart.suspects)
+        {
             GameObject suspectGO = Instantiate(suspect.prefabSuspect);
             suspectGO.name = suspect.name;
         }
@@ -69,7 +77,6 @@ public class GameManager : MonoBehaviour
 
     private void FindControllersInScene()
     {
-        // This is only necessary if GameManager persists from the title screen. If it only exists in this scene, we can just assign the GameObject
         stampController = FindAnyObjectByType<StampController>();
         phoneController = FindAnyObjectByType<PhoneController>();
         monocleController = FindAnyObjectByType<MonocleController>(FindObjectsInactive.Include);
@@ -165,17 +172,24 @@ public class GameManager : MonoBehaviour
         stampController.PutDownStamp();
     }
 
-    public void StampedGuilty(SuspectController accusedSuspect)
+    public async void StampedGuilty(SuspectController accusedSuspect)
     {
         // SOUND :  A suspect was stamped as the guilty one. 
         AudioManager.Instance.PlaySound2D(guiltyStampSound);
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().state = SuspectState.Judged;
         PutDownStamp();
-        if (allCases[currentCaseIndex].guiltySuspect == accusedSuspect.suspectOrigin) // Guilty party was accused
+        if (allCases[currentCaseIndex].guiltySuspect == accusedSuspect.suspectOrigin)
+        {// Guilty party was accused 
+            await accusedSuspect.WaitThenFade();
             _ = dialogueRunner.StartDialogue(allCases[currentCaseIndex].yarnSuccessNode);
+        }
         else
+        {
+            foreach (GameObject suspect in allSuspects)
+                _ = suspect.GetComponent<SuspectController>().WaitThenFade();
             phoneController.StartPhoneRinging();
+        }
     }
 
     public void PhonePickedUp()
@@ -201,6 +215,50 @@ public class GameManager : MonoBehaviour
         {
             // TODO: Game over
             Debug.Log("There are no more cases");
+        }
+    }
+
+    private async Task FadeOutAllSuspects()
+    {
+        foreach (GameObject suspect in allSuspects)
+            suspect.GetComponent<SuspectController>().FadeOut();
+        await Task.Delay(1000); // wait for fading to finish 
+        foreach (GameObject suspect in allSuspects)
+            Destroy(suspect);
+    }
+
+    [YarnCommand("game_end_success")]
+    public async void GameEndSuccess()
+    {
+        await FadeOutAllSuspects();
+        Instantiate(porkpiePrefab);
+        Instantiate(confettiObject);
+        await dialogueRunner.StartDialogue("PorkPieSuccess");
+        await dialogueRunner.DialogueTask;
+        restartVisualManager.ShowRestart();
+    }
+
+    [YarnCommand("game_end_failure")]
+    public async void GameEndFailure()
+    {
+        await FadeOutAllSuspects();
+        await dialogueRunner.StartDialogue("PrincipalJudgeFailure");
+        await dialogueRunner.DialogueTask;
+        Instantiate(failstampPrefab);
+        await Task.Delay(3000);
+        restartVisualManager.ShowRestart();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Start") // If we've gone back to the start menu, consider it a restart
+        {
+            currentCaseIndex = 0;
+        }
+        if (scene.name == "Office") // Restarting game after coming from start
+        {
+            FindControllersInScene();
+            StartCase(allCases[currentCaseIndex]);
         }
     }
 }
