@@ -27,8 +27,6 @@ public class InspectionVisualManager : MonoBehaviour
 
     public void StartInspection(GameObject targetSuspect)
     {
-        //Disable all other selectables using the options bool
-        //TODO: Talk with Reagan about this feature as disabling here actually disables the monacle
         if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
 
         inspectionUI.Q<VisualElement>("Clues").Clear();
@@ -48,7 +46,6 @@ public class InspectionVisualManager : MonoBehaviour
 
     public void EndInspection()
     {
-        //Disable all other selectables using the options bool
         if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
         inspectionUI.Q<VisualElement>("PermanentRecord").AddToClassList("hidden");
         inspectionUI.Q<Button>("ExitInspection").style.display = DisplayStyle.None;

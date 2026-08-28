@@ -1,3 +1,8 @@
+.unity-text-element {
+    -unity-font-definition: url("project://database/Assets/UI/Typeface/NotoSerif-VariableFont_wdth,wght.ttf?fileID=12800000&guid=625150be64b3a1549a64af9158f5273f&type=3#NotoSerif-VariableFont_wdth,wght");
+    font-size: 8px;
+}
+
 #PermanentRecord.hidden {
     translate: 100% 0;
 }
@@ -10,6 +15,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     margin-bottom: 16px;
+    align-self: center;
 }
 
 #SchoolEmblem {
@@ -18,7 +24,7 @@
     min-height: 128px;
     max-height: 128px;
     -unity-background-scale-mode: scale-to-fit;
-    margin-right: 16px;
+    margin-right: 0;
     flex-shrink: 0;
 }
 
@@ -46,6 +52,9 @@
     height: auto;
     margin: 0;
     padding: 0;
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 20px;
 }
 
 .title-block-row {
@@ -64,25 +73,23 @@
     -unity-slice-scale: 1px;
 }
 
-#StudentTitle{
+#StudentTitle {
     font-size: 24px;
     -unity-font-style: bold;
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
-#Name
-{
+#Name {
     font-size: 24px;
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
 }
 
-#Clues
-{
+#Clues {
     padding-left: 20px;
 }
 
 .options-btn {
-    -unity-background-image-tint-color: rgb(255, 255, 255); 
+    -unity-background-image-tint-color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
     transition-property: -unity-background-image-tint-color;
