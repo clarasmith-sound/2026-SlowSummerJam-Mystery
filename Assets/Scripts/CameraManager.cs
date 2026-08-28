@@ -14,6 +14,8 @@ public class CameraManager : MonoBehaviour
     private Vector3 phoneStartPos;
     [SerializeField] private Vector3 phoneMoveAmt = new Vector3(0, -0.6f, 0);
     [SerializeField] private SpriteRenderer backgroundBlur;
+    [SerializeField] private SpriteRenderer backgroundBlurFix1;
+    [SerializeField] private SpriteRenderer backgroundBlurFix2;
     private Color blurIn = new Color(1f, 1f, 1f, 1f);
     private Color blurOut = new Color(1f, 1f, 1f, 0f);
 
@@ -33,7 +35,10 @@ public class CameraManager : MonoBehaviour
             .Group(Tween.CameraOrthographicSize(mainCam, endValue: 4.15f, duration: moveDuration))
             .Group(Tween.Position(Desk, endValue: Desk.position + deskMoveAmt, duration: moveDuration, ease: Ease.InOutSine)) // move out desk
             .Group(Tween.Position(Phone, endValue: Phone.position + phoneMoveAmt, duration: moveDuration, ease: Ease.InOutSine)) // move out phone
-            .Group(Tween.Color(backgroundBlur, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)); // fade in background blur
+            .Group(Tween.Color(backgroundBlur, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)) // fade in background blur
+            .Group(Tween.Color(backgroundBlurFix1, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)) // fade in background blur fix 1
+            .Group(Tween.Color(backgroundBlurFix2, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)); // fade in background blur fix 2
+
     }
 
     public void MoveToDefault()
@@ -43,6 +48,8 @@ public class CameraManager : MonoBehaviour
             .Group(Tween.CameraOrthographicSize(Camera.main, endValue: 5f, duration: moveDuration))
             .Group(Tween.Position(Desk, endValue: deskStartPos, duration: moveDuration, ease: Ease.InOutSine)) // move in desk
             .Group(Tween.Position(Phone, endValue: phoneStartPos, duration: moveDuration, ease: Ease.InOutSine)) // move in phone
-            .Group(Tween.Color(backgroundBlur, endValue: blurOut, duration: moveDuration, ease: Ease.InOutSine)); // fade out background blur
+            .Group(Tween.Color(backgroundBlur, endValue: blurOut, duration: moveDuration, ease: Ease.InOutSine)) // fade out background blur
+            .Group(Tween.Color(backgroundBlurFix1, endValue: blurOut, duration: moveDuration, ease: Ease.InOutSine)) // fade out background blur fix 1
+            .Group(Tween.Color(backgroundBlurFix2, endValue: blurOut, duration: moveDuration, ease: Ease.InOutSine)); // fade out background blur fix 2
     }
 }
