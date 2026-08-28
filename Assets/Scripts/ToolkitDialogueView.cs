@@ -24,6 +24,10 @@ public class ToolkitDialogueView : DialoguePresenterBase
     [SerializeField] private EventReference dialogueCloseSound;
     [SerializeField] private EventReference typeWriterSound;
 
+    [Header("Inspection Visual Manager")]
+    [SerializeField] private InspectionVisualManager inspectionVisualManager;
+
+
     public void OnEnable()
     {
         dialogueRootEl = UIDocument.rootVisualElement.Q<VisualElement>("DialogueRoot");
@@ -66,8 +70,10 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
         //Disable all other selectables using the options bool
         if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
+        if(inspectionVisualManager != null) inspectionVisualManager.HidePermanentRecord();
 
         dialogueRootEl.style.display = DisplayStyle.Flex;
+
         Sequence.Create(cycles: 1)
            .Group(dialogueRootEl.VisualElementShakeScale(new ShakeSettings(strength: new Vector3(.1f, .1f, .1f), duration: 0.3f, frequency: 3)))
            .Group(dialogueRootEl.VisualElementPunchRotation(new ShakeSettings(strength: new Vector3(0f, 0f, -5f), duration: 0.25f, frequency: 5)));
@@ -78,12 +84,11 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
     public override YarnTask OnDialogueCompleteAsync()
     {
-        // SOUND :  Dialogue box goes away (might happen at the same time as the case ending, since StartNextCase 
-        // in GameManager is called at the end of success/failure dialogues)
         AudioManager.Instance.PlaySound2D(dialogueCloseSound);
         dialogueRootEl.style.display = DisplayStyle.None;
 
         if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
+        if(inspectionVisualManager != null) inspectionVisualManager.ShowPermanentRecord();
         return YarnTask.CompletedTask;
     }
 

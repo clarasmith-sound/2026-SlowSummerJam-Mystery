@@ -1642,6 +1642,7 @@ MonoBehaviour:
       Data3: -521315170
       Data4: -902480676
     Path: event:/UI/Dialogue_Text
+  inspectionVisualManager: {fileID: 1831108608}
 --- !u!114 &687576006
 MonoBehaviour:
   m_ObjectHideFlags: 0
