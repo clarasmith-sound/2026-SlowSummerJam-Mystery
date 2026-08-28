@@ -1,4 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using Yarn.Unity;
 using FMODUnity;
@@ -52,8 +51,10 @@ public class GameManager : MonoBehaviour
     public async void StartCase(CaseSO caseToStart)
     {
         await caseStartVisualManager.DisplayStartCase(caseToStart);
-        foreach (SuspectSO suspect in caseToStart.suspects)
-            Instantiate(suspect.prefabSuspect);
+        foreach (SuspectSO suspect in caseToStart.suspects) {
+            GameObject suspectGO = Instantiate(suspect.prefabSuspect);
+            suspectGO.name = suspect.name;
+        }
         // SOUND :  Instantiating a prefab suspect is the suspects "entering" the room. Currently they just
         // pop into existence, but they could fade in, or slide in, etc.
         AudioManager.Instance.PlaySound2D(suspectEnterRoomSound);
@@ -117,6 +118,7 @@ public class GameManager : MonoBehaviour
 
         // Resume
         suspect.ShowAllClues();
+        suspect.PlayAnimation(suspect.freezeAnimationName);
         monocleController.gameObject.SetActive(true);
     }
 
