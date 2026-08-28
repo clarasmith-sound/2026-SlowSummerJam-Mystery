@@ -107,6 +107,9 @@ InitTestScene*.unity*
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
+# macOS generated files
+.DS_Store
+
 
 # Never ignore DLLs in the FMOD subfolder.
 !/[Aa]ssets/Plugins/FMOD/**/lib/*
@@ -146,3 +149,9 @@ fmod_editor.log
 fmod.log
 fmod_editor.log
 *.wav
+.DS_Store
+.DS_Store
+**/.DS_Store
+
+!Assets/**/*.wav
+!FMODProject/**/*.wav
