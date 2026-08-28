@@ -5,7 +5,9 @@ Skyler: Theo punched me in the face!! He walked right up to me and punched me, i
 
 title: SkylerClue1
 ---
-Skyler: My mom is on the PTA! She helps out in the drama club too and does all our makeup. Isn’t that cool? You wouldn’t want to expel the kid of one of your most generous volunteers, would you? #line:skyler_drama_club_C01
+Skyler: My mom is on the PTA! She helps out in the drama club too and does all our makeup. Isn’t that cool? #line:skyler_drama_club_C01_01
+<<play_animation Skyler Skyler_Smirk>>
+Skyler: You wouldn’t want to expel the kid of one of your most generous volunteers, would you? #line:skyler_drama_club_C01_02
 ===
 
 title: SkylerClue2

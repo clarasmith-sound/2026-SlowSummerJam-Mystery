@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PrimeTween;
 using FMODUnity;
+using Yarn.Unity;
 
 public enum SuspectState { Ready, Hover, Inspection, Blurred, Judged };
 
@@ -14,6 +15,9 @@ public class SuspectController : MonoBehaviour
     [HideInInspector] public SuspectSO suspectData;
     private readonly List<GameObject> clueObjects = new();
     public GameObject expelledStamp;
+    public string idleAnimationName;
+    public string freezeAnimationName;
+    private Animator animator;
 
     [Header("Audio")]
     [SerializeField] private EventReference suspectHoverSound;
@@ -22,6 +26,7 @@ public class SuspectController : MonoBehaviour
     {
         suspectData = Instantiate(suspectOrigin);
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         expelledStamp.SetActive(false);
         int currClueIndex = 0; // This requires the order of the Clue game objects to be in the same order as they're defined
         foreach (Transform child in transform)
@@ -67,7 +72,6 @@ public class SuspectController : MonoBehaviour
         HighlightKid();
         if (!GameManager.Instance.stampBeingHeld)
             AudioManager.Instance.PlaySound2D(suspectHoverSound);
-
     }
 
 
@@ -84,6 +88,7 @@ public class SuspectController : MonoBehaviour
         if (!GameManager.Instance.stampBeingHeld)
         {
             state = SuspectState.Inspection;
+            PlayAnimation(freezeAnimationName);
             GameManager.Instance.StartInspection(gameObject);
             ShowAllClues();
         }
@@ -115,6 +120,7 @@ public class SuspectController : MonoBehaviour
             Tween.Alpha(spriteRenderer, endValue: 1.0f, duration: 1f);
             Tween.Alpha(detailSpriteRenderer, endValue: 1.0f, duration: 1f);
         }
+        PlayAnimation(idleAnimationName);
     }
 
     public void FadeOut()
@@ -125,5 +131,11 @@ public class SuspectController : MonoBehaviour
             Tween.Alpha(spriteRenderer, endValue: 0f, duration: 1f);
             Tween.Alpha(detailSpriteRenderer, endValue: 0f, duration: 1f);
         }
+    }
+
+    [YarnCommand("play_animation")]
+    public void PlayAnimation(string animationName)
+    {
+        animator.Play(animationName);
     }
 }

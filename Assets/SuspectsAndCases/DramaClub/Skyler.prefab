@@ -117,6 +117,8 @@ MonoBehaviour:
   suspectOrigin: {fileID: 11400000, guid: 3f2aa5019c248044fad469af919bb516, type: 2}
   suspectData: {fileID: 0}
   expelledStamp: {fileID: 5859340736072923174}
+  idleAnimationName: Skyler_Idle
+  freezeAnimationName: Skyler_Freeze
   suspectHoverSound:
     Guid:
       Data1: -36675197
