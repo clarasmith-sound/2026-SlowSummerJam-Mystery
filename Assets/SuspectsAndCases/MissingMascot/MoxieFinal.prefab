@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1036671277027571510}
   - component: {fileID: 3033274938998626059}
   - component: {fileID: 8365646451558353709}
+  - component: {fileID: 8831703774896690800}
   m_Layer: 0
   m_Name: MoxieFinal
   m_TagString: Suspect
@@ -115,6 +116,8 @@ MonoBehaviour:
   suspectOrigin: {fileID: 11400000, guid: e432ef6296071834b9d53cbbee438aa2, type: 2}
   suspectData: {fileID: 0}
   expelledStamp: {fileID: 6592562794191563670}
+  idleAnimationName: 
+  freezeAnimationName: 
   suspectHoverSound:
     Guid:
       Data1: -36675197
@@ -591,6 +594,28 @@ PolygonCollider2D:
       - {x: 2, y: 9.559999}
       - {x: 2.03, y: 9.5}
   m_UseDelaunayMesh: 1
+--- !u!95 &8831703774896690800
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32768878757251427}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: afdbc5c389653974bb5b23b32bbcdf63, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &941234035158258235
 GameObject:
   m_ObjectHideFlags: 0
