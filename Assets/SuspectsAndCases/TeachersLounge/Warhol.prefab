@@ -224,6 +224,8 @@ MonoBehaviour:
   suspectOrigin: {fileID: 11400000, guid: f6593bf8a4076f840b02ea42c3fb7ad4, type: 2}
   suspectData: {fileID: 0}
   expelledStamp: {fileID: 7817199977216497707}
+  idleAnimationName: Warhol_Idle
+  freezeAnimationName: Warhol_Freeze
   suspectHoverSound:
     Guid:
       Data1: -36675197

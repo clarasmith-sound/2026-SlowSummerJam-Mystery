@@ -1,10 +1,14 @@
 title: WarholClue0
 ---
-Teacher Warhol: I always bring my own. The coffee machine in the lounge makes absolute swill. In fact, maybe we should take the news that it’s broken as a blessing in disguise, and buy an espresso machine for the lounge instead! #line:warhol_teachers_lounge_C00
+<<play_animation Warhol Warhol_Coffee>>
+Teacher Warhol: I always bring my own. The coffee machine in the lounge makes absolute swill.
+<<play_animation Warhol Warhol_Glance>>
+Teacher Warhol: In fact, maybe we should take the news that it’s broken as a blessing in disguise, and buy an espresso machine for the lounge instead! #line:warhol_teachers_lounge_C00
 ===
 
 title: WarholClue1
 ---
+<<play_animation Warhol Warhol_Glance>>
 Teacher Warhol: It’s just so unfair. Teacher Williams was already here, messing with the machine when I walked in. They’re probably the one that broke it. I got here late today. #line:warhol_teachers_lounge_C01
 ===
 
@@ -16,24 +20,30 @@ Teacher Warhol: Oh, I arrived early to grade a bunch of the Advanced Art class h
 
 title: WilliamsClue0
 ---
+<<play_animation Williams Williams_Forward>>
 Teacher Williams: That’s kinda rude, but since you asked, yeah, I’m pretty tired. I would love some coffee, but the machine is broken. #line:williams_teachers_lounge_C00
 ===
 
 title: WilliamsClue1
 ---
+<<play_animation Williams Williams_Me>>
 Teacher Williams: I can explain that, I was trying to fix the darn thing. I’m telling you, someone broke it on purpose before I got in today. Teacher Warhol was here early, you should be questioning her. #line:williams_teachers_lounge_C01
 ===
 
 title: WilliamsClue2
 ---
+<<play_animation Williams Williams_Forward>>
 Teacher Williams: Look, I had a tough morning. By the time I got here, the regular lot was full and I had to park in the satellite lot and sprint over. #line:williams_teachers_lounge_C02
 ===
 
 
 title: TeachersLoungeSuccess
 ---
-Teacher Williams: Bet she was hoping you’d just pony up and buy a new machine for the lounge. Glad you saw through it. Hey, while I’m here, I wanted to tell you something weird about Pork Pie. Thought it might help with your investigation... #line:teachers_lounge_success_01
+Teacher Williams: Bet she was hoping you’d just pony up and buy a new machine for the lounge. Glad you saw through it. 
+<<play_animation Williams Williams_Forward>>
+Teacher Williams: Hey, while I’m here, I wanted to tell you something weird about Pork Pie. Thought it might help with your investigation... #line:teachers_lounge_success_01
 Teacher Williams: So, the day before it went missing, I saw Teacher Warhol heading into Pork Pie’s storage room, looking for something. Don’t know what for though. It’s not like we had a match coming up soon where it’d be needed. #line:teachers_lounge_success_02
+<<play_animation Williams Williams_Me>>
 Teacher Williams: I hate to say this, but do you think she might have taken good ol’ Porky? #line:teachers_lounge_success_03
 <<next_case GameManager>>
 ===

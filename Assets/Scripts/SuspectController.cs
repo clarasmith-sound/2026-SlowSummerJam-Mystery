@@ -15,8 +15,8 @@ public class SuspectController : MonoBehaviour
     [HideInInspector] public SuspectSO suspectData;
     private readonly List<GameObject> clueObjects = new();
     public GameObject expelledStamp;
-    public string idleAnimationName;
-    public string freezeAnimationName;
+    [HideInInspector] public string idleAnimationName;
+    [HideInInspector] public string freezeAnimationName;
     private Animator animator;
 
     [Header("Audio")]
@@ -28,6 +28,8 @@ public class SuspectController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         expelledStamp.SetActive(false);
+        freezeAnimationName = name + "_Freeze";
+        idleAnimationName = name + "_Idle";
         int currClueIndex = 0; // This requires the order of the Clue game objects to be in the same order as they're defined
         foreach (Transform child in transform)
         {
