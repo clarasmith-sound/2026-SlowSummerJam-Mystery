@@ -1,9 +1,9 @@
 title: SkylerClue0
 ---
 <<play_animation Skyler Skyler_Yell>>
-Skyler: Theo punched me in the face!! He walked right up to me and punched me, in! The! Face! 
+Skyler: Theo punched me in the face!! He walked right up to me and punched me, in! The! Face! #line:skyler_drama_club_C00_01
 <<play_animation Skyler Skyler_Freeze>>
-Skyler: I was only fighting back in self-defense. He shouldn’t be allowed to be the lead. I demand you remove him and recast at once. #line:skyler_drama_club_C00
+Skyler: I was only fighting back in self-defense. He shouldn’t be allowed to be the lead. I demand you remove him and recast at once. #line:skyler_drama_club_C00_02
 ===
 
 title: SkylerClue1
@@ -41,12 +41,12 @@ Theo: I got the lead in the the play! I know Skyler usually gets the lead, but t
 
 title: DramaClubSuccess
 ---
-Theo: I’m glad you didn’t fall for his acting, Principal Judge. 
+Theo: I’m glad you didn’t fall for his acting, Principal Judge. #line:drama_club_success_01
 <<play_animation Theo Theo_Script>>
-Theo: I better get back to the rehearsal. You’ll come see the show, right? Oh, by the way... #line:drama_club_success_01
+Theo: I better get back to the rehearsal. You’ll come see the show, right? Oh, by the way... #line:drama_club_success_02
 <<play_animation Theo Theo_Freeze>>
-Theo: I don’t mean to be a tattletale, but the day before Pork Pie went missing, I saw Skyler lurking around the corridor where Pork Pie’s storage room is. #line:drama_club_success_02
-Theo: He sure spent a lot of time pacing back and forth, and even tested out the doorknob of the room. Do you think he might have taken poor Pork Pie? #line:drama_club_success_03
+Theo: I don’t mean to be a tattletale, but the day before Pork Pie went missing, I saw Skyler lurking around the corridor where Pork Pie’s storage room is. #line:drama_club_success_03
+Theo: He sure spent a lot of time pacing back and forth, and even tested out the doorknob of the room. Do you think he might have taken poor Pork Pie? #line:drama_club_success_04
 <<next_case GameManager>>
 ===
 
