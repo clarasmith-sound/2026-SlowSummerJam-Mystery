@@ -7,6 +7,7 @@ using Yarn.Unity;
 using PrimeTween;
 using FMODUnity;
 
+
 public class ToolkitDialogueView : DialoguePresenterBase
 {
     // Reference - https://gist.github.com/hiptopjones/4c8fbe3a23520a5dabfe37f3672bc28d
@@ -95,11 +96,15 @@ public class ToolkitDialogueView : DialoguePresenterBase
     public override async YarnTask RunLineAsync(LocalizedLine line, LineCancellationToken token)
     {
         var speechSpeaker = dialogueRootEl.Q<Label>("speech-speaker");
+        if (speechSpeaker == null) Debug.LogError("speech-speaker Label not found!");
         speechSpeaker.text = line.CharacterName;
 
         var speechText = dialogueRootEl.Q<Label>("speech-text");
-        await RunTypewriterEffect(speechText, line.TextWithoutCharacterName.Text, token.HurryUpToken);
-
+        if (speechText == null) Debug.LogError("speech-text Label not found!");
+        Debug.Log($"Line text received: '{line.TextWithoutCharacterName.Text}' (length: {line.TextWithoutCharacterName.Text.Length})");
+        //await RunTypewriterEffect(speechText, line.TextWithoutCharacterName.Text, token.HurryUpToken);
+        speechText.text = line.TextWithoutCharacterName.Text;
+        
         _waitingForNextLine = true;
 
         await YarnTask.WaitUntilCanceled(token.NextContentToken).SuppressCancellationThrow();

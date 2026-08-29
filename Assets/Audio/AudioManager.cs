@@ -48,15 +48,21 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+
+        StartCoroutine(WaitForBanksThenSetup());
+    }
+
+    private System.Collections.IEnumerator WaitForBanksThenSetup()
+    {
+        while (!FMODUnity.RuntimeManager.HaveAllBanksLoaded)
+            yield return null;
+
         mainBus = RuntimeManager.GetBus("bus:/");
         musicBus = RuntimeManager.GetBus("bus:/Music");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
         dialogueBus = RuntimeManager.GetBus("bus:/Dialogue");
         ambientBus = RuntimeManager.GetBus("bus:/Ambience");
-    }
 
-private void Start()
-    {
         mainVolume = PlayerPrefs.GetFloat(MAIN_VOL_KEY, mainVolume);
         musicVolume = PlayerPrefs.GetFloat(MUSIC_VOL_KEY, musicVolume);
         sfxVolume = PlayerPrefs.GetFloat(SFX_VOL_KEY, sfxVolume);

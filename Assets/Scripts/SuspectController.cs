@@ -4,6 +4,7 @@ using PrimeTween;
 using FMODUnity;
 using Yarn.Unity;
 using System.Threading.Tasks;
+using UnityEngine.InputSystem;
 
 public enum SuspectState { Ready, Hover, Inspection, Blurred, Judged };
 
@@ -23,6 +24,8 @@ public class SuspectController : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private EventReference suspectHoverSound;
 
+    private InputAction pointAction;
+
     void Start()
     {
         suspectData = Instantiate(suspectOrigin);
@@ -32,6 +35,7 @@ public class SuspectController : MonoBehaviour
         freezeAnimationName = name + "_Freeze";
         idleAnimationName = name + "_Idle";
         int currClueIndex = 0; // This requires the order of the Clue game objects to be in the same order as they're defined
+        pointAction = InputSystem.actions.FindAction("Point");
         foreach (Transform child in transform)
         {
             if (child.CompareTag("Clue"))
@@ -41,6 +45,24 @@ public class SuspectController : MonoBehaviour
                 child.GetComponent<ClueController>().clueIndex = currClueIndex;
                 currClueIndex++;
             }
+        }
+    }
+
+
+    public void Update()
+    {
+        if (state != SuspectState.Ready && state != SuspectState.Hover) return;
+        if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
+
+        bool mouseOverThis = IsMouseOverCollider();
+
+        if (mouseOverThis && state == SuspectState.Ready)
+        {
+            OnMouseEnter();
+        }
+        else if (!mouseOverThis && state == SuspectState.Hover)
+        {
+            OnMouseExit();
         }
     }
 
@@ -147,5 +169,14 @@ public class SuspectController : MonoBehaviour
         await Task.Delay(1000);
         _ = Tween.Alpha(expelledStamp.GetComponent<SpriteRenderer>(), endValue: 0f, duration: 1f);
         FadeOut();
+    }
+
+    private bool IsMouseOverCollider()
+    {
+        if (Camera.main == null || pointAction == null) return false;
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(pointAction.ReadValue<Vector2>());
+        Collider2D col = GetComponent<Collider2D>();
+        if (col == null) return false;
+        return col.OverlapPoint(mouseWorldPos);
     }
 }

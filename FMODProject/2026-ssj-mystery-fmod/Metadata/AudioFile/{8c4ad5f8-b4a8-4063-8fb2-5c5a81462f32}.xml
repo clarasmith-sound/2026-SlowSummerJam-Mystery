@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{8c4ad5f8-b4a8-4063-8fb2-5c5a81462f32}">
+		<property name="assetPath">
+			<value>CRWDCheer_Crowd Teens Lrg Cheer Burst 2_PSE_BR-C_q93BY.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>8.2899895833333339</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c02e655b-99cd-4521-8ce3-fb6702b2c130}</destination>
+		</relationship>
+	</object>
+</objects>

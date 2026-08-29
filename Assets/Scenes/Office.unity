@@ -205,6 +205,20 @@ MonoBehaviour:
       Data3: -2036148585
       Data4: 1450571460
     Path: event:/Objects/SuspectStamp_Suspend
+  playerExpelledSound:
+    Guid:
+      Data1: -650654777
+      Data2: 1303611484
+      Data3: -1047769158
+      Data4: 451958329
+    Path: event:/UI/PlayerExpelled
+  playerWinSound:
+    Guid:
+      Data1: 145945215
+      Data2: 1139121229
+      Data3: 1682527386
+      Data4: 2123721812
+    Path: event:/UI/PlayerSuccess
 --- !u!4 &113694256
 Transform:
   m_ObjectHideFlags: 0
@@ -1662,6 +1676,22 @@ MonoBehaviour:
       Data3: -1547625056
       Data4: -1267470646
     Path: event:/VoiceOver/DialogueLines
+--- !u!114 &687576008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687576001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6798449caec4a32a5ad27badb06624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: YarnSpinner.Unity::Yarn.Unity.BuiltinLocalisedLineProvider
+  _textLocaleCode: en
+  _assetLocaleCode: en
+  _useFallback: 0
+  _fallbackLocaleCode: en
 --- !u!1 &730087440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,7 +2378,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.95, y: 2.95, z: 2.95}
+  m_LocalScale: {x: 3.15, y: 3.15, z: 3.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1359255015}
@@ -3444,6 +3474,7 @@ MonoBehaviour:
       Data3: -611468907
       Data4: 1997348918
     Path: event:/UI/GenericHover
+  clueRowTemplate: {fileID: 9197481963319205126, guid: f3263413286036849bbe66b559f689b2, type: 3}
 --- !u!1 &1868116294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,6 +3733,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7545569452688597077, guid: 900f8c7c5a8fd05459485ee9f6fe26b8, type: 3}
     - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
+      propertyPath: lineProvider
+      value: 
+      objectReference: {fileID: 687576008}
+    - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: dialoguePresenters.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -3745,6 +3780,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7262066351540048079, guid: 52571f68872914e24837210513edea1d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 687576006}
+    - targetCorrespondingSourceObject: {fileID: 7262066351540048079, guid: 52571f68872914e24837210513edea1d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 687576008}
     - targetCorrespondingSourceObject: {fileID: 3859336324316773512, guid: 52571f68872914e24837210513edea1d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1722869589}

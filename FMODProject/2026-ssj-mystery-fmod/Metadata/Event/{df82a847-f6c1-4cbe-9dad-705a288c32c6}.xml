@@ -5,7 +5,7 @@
 			<value>MainAmbience</value>
 		</property>
 		<property name="outputFormat">
-			<value>5</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{bf6c2c9b-24e0-4c2e-8ff9-0a14ab69d97a}</destination>
