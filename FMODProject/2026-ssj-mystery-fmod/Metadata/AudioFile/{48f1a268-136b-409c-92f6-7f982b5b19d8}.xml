@@ -4,9 +4,6 @@
 		<property name="assetPath">
 			<value>AMBForst-LR_Korea-Ambience, Forest, Morning, Calm, Birds Chirping, Hammering, Construction, Airplane Flyover, Soswaewon Garden, Gwangju_FTUS_WOSB.wav</value>
 		</property>
-		<property name="isStreaming">
-			<value>true</value>
-		</property>
 		<property name="frequencyInKHz">
 			<value>192</value>
 		</property>

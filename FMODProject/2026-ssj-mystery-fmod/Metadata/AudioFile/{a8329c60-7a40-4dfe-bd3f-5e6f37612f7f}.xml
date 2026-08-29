@@ -4,9 +4,6 @@
 		<property name="assetPath">
 			<value>AMBRoom-LR_USA-Ambience, Room Tone, Air System, Class Room, Distance Traffic, Denver East High School_FTUS_WOSB.wav</value>
 		</property>
-		<property name="isStreaming">
-			<value>true</value>
-		</property>
 		<property name="frequencyInKHz">
 			<value>192</value>
 		</property>

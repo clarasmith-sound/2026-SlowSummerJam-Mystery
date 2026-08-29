@@ -4,9 +4,6 @@
 		<property name="assetPath">
 			<value>CRWDChld_Kids, Crowd, School, Walla, Children, Playing, Laughing, Screaming, Schoolyard,  Classroom, Recess, Bird Chirping, Vietnamese, Vietnam.wav</value>
 		</property>
-		<property name="isStreaming">
-			<value>true</value>
-		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
 		</property>
