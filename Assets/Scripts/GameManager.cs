@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject porkpiePrefab;
     public GameObject confettiObject;
     public GameObject failstampPrefab;
+    public GameObject optionsMenuGO;
 
     public CaseSO[] allCases;
     public int currentCaseIndex = 0;
@@ -261,11 +262,13 @@ public class GameManager : MonoBehaviour
         if (scene.name == "Start") // If we've gone back to the start menu, consider it a restart
         {
             currentCaseIndex = 0;
+            optionsMenuGO.SetActive(false);
         }
         if (scene.name == "Office") // Restarting game after coming from start
         {
             FindControllersInScene();
             StartCase(allCases[currentCaseIndex]);
+            optionsMenuGO.SetActive(true);
         }
     }
 }
