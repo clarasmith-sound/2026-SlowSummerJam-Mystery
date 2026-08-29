@@ -155,3 +155,7 @@ fmod_editor.log
 
 !Assets/**/*.wav
 !FMODProject/**/*.wav
+Assets/Resources/PerformanceTestRunSettings.json.meta
+Assets/Resources/PerformanceTestRunSettings.json
+Assets/Resources/PerformanceTestRunInfo.json.meta
+Assets/Resources/PerformanceTestRunInfo.json
