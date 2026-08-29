@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{77aec7da-d34c-4824-8748-9f475e6a9134}">
+		<property name="assetPath">
+			<value>Dialogue/EN/drama_club_failure_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.253333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c02e655b-99cd-4521-8ce3-fb6702b2c130}</destination>
+		</relationship>
+	</object>
+</objects>

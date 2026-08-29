@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{c856b2f3-e873-40f6-b1fd-cb885fe5b78e}">
+		<property name="assetPath">
+			<value>Dialogue/EN/warhol_final_A_C00.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>9</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c02e655b-99cd-4521-8ce3-fb6702b2c130}</destination>
+		</relationship>
+	</object>
+</objects>

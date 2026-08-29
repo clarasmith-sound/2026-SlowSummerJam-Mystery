@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{e4cd259c-6574-49a0-b92e-e7fe5290050b}">
+		<property name="assetPath">
+			<value>Dialogue/EN/moxie_final_A_success_02.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>10.069333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c02e655b-99cd-4521-8ce3-fb6702b2c130}</destination>
+		</relationship>
+	</object>
+</objects>
