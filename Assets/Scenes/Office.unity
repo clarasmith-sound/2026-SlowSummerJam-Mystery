@@ -163,6 +163,7 @@ MonoBehaviour:
   porkpiePrefab: {fileID: 6506850622949901339, guid: 48294836bcbc21741ac57077ff02a6a2, type: 3}
   confettiObject: {fileID: 2273862690428477896, guid: e22c12517cbd6c74bb6dc658c1dd9749, type: 3}
   failstampPrefab: {fileID: 6562538959165787127, guid: 6fd9b571fb29a034a9dd644cd534eff4, type: 3}
+  optionsMenuGO: {fileID: 311103583}
   allCases:
   - {fileID: 11400000, guid: 75ba4045b12d5d64db5e721d5626c6f9, type: 2}
   - {fileID: 11400000, guid: 7ebef47bea1c0f747b025cb527c0fa1c, type: 2}
