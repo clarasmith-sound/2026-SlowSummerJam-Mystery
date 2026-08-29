@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Bank" id="{3febf8c4-ba0e-4f0c-b37c-b113cbc4c8de}">
 		<property name="name">
-			<value>Dialogue_EN</value>
+			<value>Dialogue</value>
 		</property>
 		<relationship name="folder">
 			<destination>{eed7a685-70af-4e28-8746-3e2caad3dad5}</destination>

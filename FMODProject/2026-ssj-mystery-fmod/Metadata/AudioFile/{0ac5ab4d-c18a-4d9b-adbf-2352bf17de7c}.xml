@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{ccffa5c5-dfea-4e07-95a3-214341c08242}">
+	<object class="AudioFile" id="{0ac5ab4d-c18a-4d9b-adbf-2352bf17de7c}">
 		<property name="assetPath">
-			<value>Dialogue/EN/theo_drama_club_00.wav</value>
+			<value>Dialogue/EN/theo_drama_club_C00.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
