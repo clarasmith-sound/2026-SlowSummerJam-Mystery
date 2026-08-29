@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using FMODUnity;
@@ -11,7 +10,9 @@ public class InspectionVisualManager : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private EventReference buttonHoverSound;
-
+    
+    [Header("Clue Row Template")]
+    [SerializeField] private VisualTreeAsset clueRowTemplate;
     private bool inInspection = false;
 
     public void OnEnable()
@@ -36,7 +37,7 @@ public class InspectionVisualManager : MonoBehaviour
         SuspectSO suspectData = targetSuspect.GetComponent<SuspectController>().suspectData;
         foreach (Clue clue in suspectData.clues)
         {
-            VisualTreeAsset clueAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/PermanentRecordClue.uxml");
+            VisualTreeAsset clueAsset = clueRowTemplate;
             VisualElement clueUI = clueAsset.Instantiate();
             clueUI.dataSource = clue;
             inspectionUI.Q<VisualElement>("Clues").Add(clueUI);

@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EventReference endInspectionSound;
     [SerializeField] private EventReference moreToDiscoverSound;
     [SerializeField] private EventReference guiltyStampSound;
+    [SerializeField] private EventReference playerExpelledSound;
+    [SerializeField] private EventReference playerWinSound;
 
     private void Awake()
     {
@@ -237,6 +239,7 @@ public class GameManager : MonoBehaviour
         Instantiate(confettiObject);
         await dialogueRunner.StartDialogue("PorkPieSuccess");
         await dialogueRunner.DialogueTask;
+        AudioManager.Instance.PlaySound2D(playerWinSound);
         restartVisualManager.ShowRestart();
     }
 
@@ -247,6 +250,8 @@ public class GameManager : MonoBehaviour
         await dialogueRunner.StartDialogue("PrincipalJudgeFailure");
         await dialogueRunner.DialogueTask;
         Instantiate(failstampPrefab);
+        AudioManager.Instance.PlaySound2D(playerExpelledSound);
+        AudioManager.Instance.StopMusic();
         await Task.Delay(3000);
         restartVisualManager.ShowRestart();
     }
