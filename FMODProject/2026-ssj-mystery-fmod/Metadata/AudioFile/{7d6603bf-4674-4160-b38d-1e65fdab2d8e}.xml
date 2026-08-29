@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{ffcadc9f-af71-486d-b3de-b5ae025a3c79}">
+	<object class="AudioFile" id="{7d6603bf-4674-4160-b38d-1e65fdab2d8e}">
 		<property name="assetPath">
-			<value>Cymatics - 808 Highend (C).wav</value>
+			<value>stamp_grab.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>2.1454875283446713</value>
+			<value>0.22133333333333333</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{c02e655b-99cd-4521-8ce3-fb6702b2c130}</destination>

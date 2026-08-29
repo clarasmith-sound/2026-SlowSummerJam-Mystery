@@ -57,6 +57,7 @@ public class AudioManager : MonoBehaviour
         while (!FMODUnity.RuntimeManager.HaveAllBanksLoaded)
             yield return null;
 
+
         mainBus = RuntimeManager.GetBus("bus:/");
         musicBus = RuntimeManager.GetBus("bus:/Music");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
@@ -124,7 +125,7 @@ public class AudioManager : MonoBehaviour
     {
         if (musicEventInstance.isValid())
         {
-            musicEventInstance.setParameterByNameWithLabel("Music", "Expelled");
+            RuntimeManager.StudioSystem.setParameterByNameWithLabel("Music", "Expelled");
         }
     }
 

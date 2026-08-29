@@ -101,7 +101,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
         var speechText = dialogueRootEl.Q<Label>("speech-text");
         if (speechText == null) Debug.LogError("speech-text Label not found!");
-        Debug.Log($"Line text received: '{line.TextWithoutCharacterName.Text}' (length: {line.TextWithoutCharacterName.Text.Length})");
+        //Debug.Log($"Line text received: '{line.TextWithoutCharacterName.Text}' (length: {line.TextWithoutCharacterName.Text.Length})");
         await RunTypewriterEffect(speechText, line.TextWithoutCharacterName.Text, token.HurryUpToken);
         //speechText.text = line.TextWithoutCharacterName.Text;
 
@@ -126,7 +126,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
                 AudioManager.Instance.PlaySound2D(typeWriterSound);
             }
 
-            float delay = char.IsPunctuation(text[i]) ? 0.1f : 0.01f;
+            float delay = char.IsPunctuation(text[i]) ? 0.5f : 0.05f;
             await Task.Delay(TimeSpan.FromSeconds(delay));
 
             if (token.IsCancellationRequested)
