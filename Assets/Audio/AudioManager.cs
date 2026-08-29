@@ -120,6 +120,14 @@ public class AudioManager : MonoBehaviour
         currentMusicReference = eventReference;
     }
 
+    public void PlayExpelledMusic()
+    {
+        if (musicEventInstance.isValid())
+        {
+            musicEventInstance.setParameterByNameWithLabel("Music", "Expelled");
+        }
+    }
+
     public void StopMusic()
     {
         if (musicEventInstance.isValid())

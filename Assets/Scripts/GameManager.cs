@@ -251,7 +251,7 @@ public class GameManager : MonoBehaviour
         await dialogueRunner.DialogueTask;
         Instantiate(failstampPrefab);
         AudioManager.Instance.PlaySound2D(playerExpelledSound);
-        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.PlayExpelledMusic();
         await Task.Delay(3000);
         restartVisualManager.ShowRestart();
     }

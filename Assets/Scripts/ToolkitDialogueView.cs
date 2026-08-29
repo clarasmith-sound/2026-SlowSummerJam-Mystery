@@ -102,9 +102,9 @@ public class ToolkitDialogueView : DialoguePresenterBase
         var speechText = dialogueRootEl.Q<Label>("speech-text");
         if (speechText == null) Debug.LogError("speech-text Label not found!");
         Debug.Log($"Line text received: '{line.TextWithoutCharacterName.Text}' (length: {line.TextWithoutCharacterName.Text.Length})");
-        //await RunTypewriterEffect(speechText, line.TextWithoutCharacterName.Text, token.HurryUpToken);
-        speechText.text = line.TextWithoutCharacterName.Text;
-        
+        await RunTypewriterEffect(speechText, line.TextWithoutCharacterName.Text, token.HurryUpToken);
+        //speechText.text = line.TextWithoutCharacterName.Text;
+
         _waitingForNextLine = true;
 
         await YarnTask.WaitUntilCanceled(token.NextContentToken).SuppressCancellationThrow();
@@ -118,16 +118,9 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
         for (int i = 0; i < count; i++)
         {
-            var output = text;
+            speechText.text = text[..(i + 1)];
 
-            if (i < count - 1)
-            {
-                output = text[..i] + "<alpha=#00>" + text[i..];
-            }
-
-            speechText.text = output;
-
-            if(i < text.Length && !char.IsWhiteSpace(text[i]))
+            if (!char.IsWhiteSpace(text[i]))
             {
                 // SOUND :  A character in a dialogue line is displayed (not for whitespace)
                 AudioManager.Instance.PlaySound2D(typeWriterSound);
@@ -138,7 +131,6 @@ public class ToolkitDialogueView : DialoguePresenterBase
 
             if (token.IsCancellationRequested)
             {
-                // Requested to hurry up
                 speechText.text = text;
                 break;
             }
