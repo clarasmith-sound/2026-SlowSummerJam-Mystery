@@ -33,8 +33,8 @@ public class CameraManager : MonoBehaviour
         Sequence.Create(cycles: 1)
             .Group(Tween.Position(mainCam.transform, endValue: cameraTarget, duration: moveDuration, ease: Ease.InOutSine)) // move camera
             .Group(Tween.CameraOrthographicSize(mainCam, endValue: 4.15f, duration: moveDuration))
-            .Group(Tween.Position(Desk, endValue: Desk.position + deskMoveAmt, duration: moveDuration, ease: Ease.InOutSine)) // move out desk
-            .Group(Tween.Position(Phone, endValue: Phone.position + phoneMoveAmt, duration: moveDuration, ease: Ease.InOutSine)) // move out phone
+            .Group(Tween.Position(Desk, endValue: deskStartPos + deskMoveAmt, duration: moveDuration, ease: Ease.InOutSine)) // move out desk
+            .Group(Tween.Position(Phone, endValue: phoneStartPos + phoneMoveAmt, duration: moveDuration, ease: Ease.InOutSine)) // move out phone
             .Group(Tween.Color(backgroundBlur, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)) // fade in background blur
             .Group(Tween.Color(backgroundBlurFix1, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)) // fade in background blur fix 1
             .Group(Tween.Color(backgroundBlurFix2, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)); // fade in background blur fix 2

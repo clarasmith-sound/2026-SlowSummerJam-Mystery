@@ -70,8 +70,8 @@ public class ToolkitDialogueView : DialoguePresenterBase
         AudioManager.Instance.PlaySound2D(dialogueOpenSound);
 
         //Disable all other selectables using the options bool
-        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
-        if(inspectionVisualManager != null) inspectionVisualManager.HidePermanentRecord();
+        if (GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
+        if (inspectionVisualManager != null) inspectionVisualManager.HidePermanentRecord();
 
         dialogueRootEl.style.display = DisplayStyle.Flex;
 
@@ -88,7 +88,8 @@ public class ToolkitDialogueView : DialoguePresenterBase
         AudioManager.Instance.PlaySound2D(dialogueCloseSound);
         dialogueRootEl.style.display = DisplayStyle.None;
 
-        if(inspectionVisualManager != null) inspectionVisualManager.ShowPermanentRecord();
+        if (inspectionVisualManager != null) inspectionVisualManager.ShowPermanentRecord();
+        if (GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
         return YarnTask.CompletedTask;
     }
 
@@ -126,7 +127,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
             }
 
             float delay = (char.IsPunctuation(text[i]) && text[i] != '\'' && text[i] != '’' && text[i] != '‘' && text[i] != ',') ? 0.5f : 0.05f;
-            await Awaitable.WaitForSecondsAsync(delay); 
+            await Awaitable.WaitForSecondsAsync(delay);
 
             if (token.IsCancellationRequested)
             {

@@ -64,9 +64,10 @@ public class GameManager : MonoBehaviour
         _ = DelayAndRing();
     }
 
-    public async void StartCase(CaseSO caseToStart)
+    public async Task StartCase(CaseSO caseToStart)
     {
         caseFileVisualManager.CloseCaseFile();
+        await Awaitable.WaitForSecondsAsync(0.05f); // Hacky bug fix - let dialogue complete before opening the next UI so optionsMenuOpen doesn't break!
         await caseStartVisualManager.DisplayStartCase(caseToStart);
         foreach (SuspectSO suspect in caseToStart.suspects)
         {
@@ -227,7 +228,7 @@ public class GameManager : MonoBehaviour
         if (currentCaseIndex < (allCases.Length - 1))
         {
             currentCaseIndex++;
-            StartCase(allCases[currentCaseIndex]);
+            _ = StartCase(allCases[currentCaseIndex]);
         }
         else
         {
@@ -310,7 +311,6 @@ public class GameManager : MonoBehaviour
         folderController.gameObject.SetActive(true);
         await Tween.PositionY(folderGO.transform, endValue: targetPos.y, duration: 0.5f);
         AudioManager.Instance.PlaySound2D(folderSlideSound);
-        await Awaitable.WaitForSecondsAsync(1.0f);
         StartNextCase();
     }
 
