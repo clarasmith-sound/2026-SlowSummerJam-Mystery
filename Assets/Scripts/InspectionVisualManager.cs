@@ -10,7 +10,7 @@ public class InspectionVisualManager : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private EventReference buttonHoverSound;
-    
+
     [Header("Clue Row Template")]
     [SerializeField] private VisualTreeAsset clueRowTemplate;
     private bool inInspection = false;
@@ -31,7 +31,7 @@ public class InspectionVisualManager : MonoBehaviour
     public void StartInspection(GameObject targetSuspect)
     {
         inInspection = true;
-        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
+        if (GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
 
         inspectionUI.Q<VisualElement>("Clues").Clear();
         SuspectSO suspectData = targetSuspect.GetComponent<SuspectController>().suspectData;
@@ -41,7 +41,7 @@ public class InspectionVisualManager : MonoBehaviour
             VisualElement clueUI = clueAsset.Instantiate();
             clueUI.dataSource = clue;
             inspectionUI.Q<VisualElement>("Clues").Add(clueUI);
-            
+
         }
         inspectionUI.Q<VisualElement>("PermanentRecord").dataSource = suspectData;
         inspectionUI.Q<VisualElement>("PermanentRecord").RemoveFromClassList("hidden");
@@ -51,7 +51,7 @@ public class InspectionVisualManager : MonoBehaviour
     public void EndInspection()
     {
         inInspection = false;
-        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
+        if (GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
         inspectionUI.Q<VisualElement>("PermanentRecord").AddToClassList("hidden");
         inspectionUI.Q<Button>("ExitInspection").style.display = DisplayStyle.None;
     }
@@ -78,7 +78,7 @@ public class InspectionVisualManager : MonoBehaviour
     public void ShowPermanentRecord()
     {
         if (!inInspection) return;
-        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
+        if (GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
         inspectionUI.Q<VisualElement>("PermanentRecord").RemoveFromClassList("hidden");
     }
 }

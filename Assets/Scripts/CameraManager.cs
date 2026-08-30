@@ -27,6 +27,12 @@ public class CameraManager : MonoBehaviour
         phoneStartPos = Phone.position;
     }
 
+    public void FindNewMain()
+    {
+        mainCam = Camera.main;
+        startingPos = mainCam.transform.position;
+    }
+
     public void MoveToInspection(GameObject targetSuspect)
     {
         Vector3 cameraTarget = new Vector3(targetSuspect.transform.position.x + 0.75f, 0f, -10f);
@@ -38,7 +44,6 @@ public class CameraManager : MonoBehaviour
             .Group(Tween.Color(backgroundBlur, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)) // fade in background blur
             .Group(Tween.Color(backgroundBlurFix1, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)) // fade in background blur fix 1
             .Group(Tween.Color(backgroundBlurFix2, endValue: blurIn, duration: moveDuration, ease: Ease.InOutSine)); // fade in background blur fix 2
-
     }
 
     public void MoveToDefault()
