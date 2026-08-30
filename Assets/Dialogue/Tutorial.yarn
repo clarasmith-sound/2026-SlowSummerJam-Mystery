@@ -21,12 +21,12 @@ Superintendent: Very good, I see you know how to use your stamp. Kids will turn 
 
 title: TutorialCall
 ---
-Superintendent: Principal Judge! Terrible news! There's been a theft! The beloved school mascot, Pork Pie, has gone missing. 
-Superintendent: The whole school is riled up. Kids are getting into fights left and right.
-Superintendent: Any time there's a commotion, the suspects will be sent to your office. They'll try to explain, but it's your job to figure out the truth.
-Superintendent: Click on a suspect to inspect them and view them through your monocle. Click to ask them about what you see. Clues will be collected in their permanent record. 
-Superintendent: Once you've determined who's lying, use that stamp on your desk to expel the guilty party.
-Superintendent: I've left the case file on your desk.  If Pork Pie isn’t found soon, I will hold you personally responsible.
-Superintendent: I hope you're ready, Judge. The first kids are about to enter.
+Superintendent: Principal Judge! Terrible news! There's been a theft! The beloved school mascot, Pork Pie, has gone missing. #line:superintendent_tutorialcall_01
+Superintendent: The whole school is riled up. Kids are getting into fights left and right. #line:superintendent_tutorialcall_02
+Superintendent: Any time there's a commotion, the suspects will be sent to your office. They'll try to explain, but it's your job to figure out the truth. #line:superintendent_tutorialcall_03
+Superintendent: Click on a suspect to inspect them and view them through your monocle. Click to ask them about what you see. Clues will be collected in their permanent record. #line:superintendent_tutorialcall_04
+Superintendent: Once you've determined who's lying, use that stamp on your desk to expel the guilty party. #line:superintendent_tutorialcall_05
+Superintendent: I've left the case file on your desk.  If Pork Pie isn’t found soon, I will hold you personally responsible. #line:superintendent_tutorialcall_06
+Superintendent: I hope you're ready, Judge. The first kids are about to enter. #line:superintendent_tutorialcall_07
 <<unlock_casefile GameManager>>
 ===
