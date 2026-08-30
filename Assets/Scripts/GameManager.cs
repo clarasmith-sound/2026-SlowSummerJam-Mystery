@@ -239,7 +239,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().FadeOut();
-        await Task.Delay(1000); // wait for fading to finish 
+        await Awaitable.WaitForSecondsAsync(1.0f); // wait for fading to finish 
         foreach (GameObject suspect in allSuspects)
             Destroy(suspect);
     }
@@ -265,7 +265,7 @@ public class GameManager : MonoBehaviour
         Instantiate(failstampPrefab);
         AudioManager.Instance.PlaySound2D(playerExpelledSound);
         AudioManager.Instance.PlayExpelledMusic();
-        await Task.Delay(3000);
+        await Awaitable.WaitForSecondsAsync(3.0f);
         restartVisualManager.ShowRestart();
     }
 
@@ -287,7 +287,7 @@ public class GameManager : MonoBehaviour
 
     public async Task DelayAndRing()
     {
-        await Task.Delay(3000);
+        await Awaitable.WaitForSecondsAsync(3.0f);
         phoneController.StartPhoneRinging();
     }
 
@@ -310,7 +310,7 @@ public class GameManager : MonoBehaviour
         folderController.gameObject.SetActive(true);
         await Tween.PositionY(folderGO.transform, endValue: targetPos.y, duration: 0.5f);
         AudioManager.Instance.PlaySound2D(folderSlideSound);
-        await Task.Delay(1000);
+        await Awaitable.WaitForSecondsAsync(1.0f);
         StartNextCase();
     }
 

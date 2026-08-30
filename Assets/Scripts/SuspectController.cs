@@ -166,7 +166,7 @@ public class SuspectController : MonoBehaviour
 
     public async Task WaitThenFade()
     {
-        await Task.Delay(1000);
+        await Awaitable.WaitForSecondsAsync(1.0f);
         _ = Tween.Alpha(expelledStamp.GetComponent<SpriteRenderer>(), endValue: 0f, duration: 1f);
         FadeOut();
     }
