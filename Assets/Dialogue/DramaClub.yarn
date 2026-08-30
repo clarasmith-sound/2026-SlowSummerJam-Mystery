@@ -47,6 +47,7 @@ Theo: I better get back to the rehearsal. You’ll come see the show, right? Oh,
 <<play_animation Theo Theo_Freeze>>
 Theo: I don’t mean to be a tattletale, but the day before Pork Pie went missing, I saw Skyler lurking around the corridor where Pork Pie’s storage room is. #line:drama_club_success_03
 Theo: He sure spent a lot of time pacing back and forth, and even tested out the doorknob of the room. Do you think he might have taken poor Pork Pie? #line:drama_club_success_04
+<<discover_bonusclue GameManager 0>>
 <<next_case GameManager>>
 ===
 

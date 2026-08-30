@@ -88,7 +88,6 @@ public class ToolkitDialogueView : DialoguePresenterBase
         AudioManager.Instance.PlaySound2D(dialogueCloseSound);
         dialogueRootEl.style.display = DisplayStyle.None;
 
-        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = false;
         if(inspectionVisualManager != null) inspectionVisualManager.ShowPermanentRecord();
         return YarnTask.CompletedTask;
     }
@@ -126,7 +125,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
                 AudioManager.Instance.PlaySound2D(typeWriterSound);
             }
 
-            float delay = char.IsPunctuation(text[i]) ? 0.5f : 0.05f;
+            float delay = (char.IsPunctuation(text[i]) && text[i] != '\'' && text[i] != '’' && text[i] != '‘' && text[i] != ',') ? 0.5f : 0.05f;
             await Task.Delay(TimeSpan.FromSeconds(delay));
 
             if (token.IsCancellationRequested)

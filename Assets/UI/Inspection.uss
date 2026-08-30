@@ -4,7 +4,7 @@
 }
 
 #PermanentRecord.hidden {
-    translate: 100% 0;
+    translate: 658px 0;
 }
 
 .header-row {
