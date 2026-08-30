@@ -78,6 +78,7 @@ public class InspectionVisualManager : MonoBehaviour
     public void ShowPermanentRecord()
     {
         if (!inInspection) return;
+        if(GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
         inspectionUI.Q<VisualElement>("PermanentRecord").RemoveFromClassList("hidden");
     }
 }

@@ -46,6 +46,7 @@ Blink: Y-you know that day? I-I mean the day before Pork Pie went missing, I s-s
 Blink: I-It looked a-a-as if there were something stuffed in it. S-s-something huge, like a mascot! #line:candy_mafia_success_03
 <<play_animation Blink Blink_Idle>>
 Blink: Do y-you think she was the one who took little Porkie? #line:candy_mafia_success_04
+<<discover_bonusclue GameManager 2>>
 <<next_case GameManager>>
 ===
 

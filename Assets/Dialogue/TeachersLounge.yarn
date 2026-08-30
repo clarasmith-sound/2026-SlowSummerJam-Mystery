@@ -45,6 +45,7 @@ Teacher Williams: Hey, while I’m here, I wanted to tell you something weird ab
 Teacher Williams: So, the day before it went missing, I saw Teacher Warhol heading into Pork Pie’s storage room, looking for something. Don’t know what for though. It’s not like we had a match coming up soon where it’d be needed. #line:teachers_lounge_success_03
 <<play_animation Williams Williams_Me>>
 Teacher Williams: I hate to say this, but do you think she might have taken good ol’ Porky? #line:teachers_lounge_success_04
+<<discover_bonusclue GameManager 1>>
 <<next_case GameManager>>
 ===
 

@@ -154,22 +154,37 @@ MonoBehaviour:
   inspectionVisualManager: {fileID: 1831108608}
   caseStartVisualManager: {fileID: 580726462}
   restartVisualManager: {fileID: 1150259691}
+  caseFileVisualManager: {fileID: 1390084669}
   dialogueRunner: {fileID: 687576003}
   undiscoveredClues: 1
   stampBeingHeld: 0
   stampController: {fileID: 0}
   phoneController: {fileID: 0}
   monocleController: {fileID: 0}
+  folderController: {fileID: 0}
   porkpiePrefab: {fileID: 6506850622949901339, guid: 48294836bcbc21741ac57077ff02a6a2, type: 3}
   confettiObject: {fileID: 2273862690428477896, guid: e22c12517cbd6c74bb6dc658c1dd9749, type: 3}
   failstampPrefab: {fileID: 6562538959165787127, guid: 6fd9b571fb29a034a9dd644cd534eff4, type: 3}
   optionsMenuGO: {fileID: 311103583}
+  bonusClues:
+  - textDescription: "Skyler was noticed lurking outside of Pork Pie\u2019s storage
+      room and checking the doorknob."
+    yarnDialogueNode: 
+    discovered: 0
+  - textDescription: "Teacher Warhol was seen heading inside of Pork Pie\u2019s storage
+      room. What could she be looking for?"
+    yarnDialogueNode: 
+    discovered: 0
+  - textDescription: Moxie was spotted bolting down the hallway with duffel bag stuffed
+      with something huge!
+    yarnDialogueNode: 
+    discovered: 0
   allCases:
   - {fileID: 11400000, guid: 75ba4045b12d5d64db5e721d5626c6f9, type: 2}
   - {fileID: 11400000, guid: 7ebef47bea1c0f747b025cb527c0fa1c, type: 2}
   - {fileID: 11400000, guid: 2c2c42e7cfa8036468cfe204a6b3f26a, type: 2}
   - {fileID: 11400000, guid: ba4b47abe6e8e454da09059c1a5428e0, type: 2}
-  currentCaseIndex: 0
+  currentCaseIndex: -1
   optionsMenuOpen: 0
   suspectEnterRoomSound:
     Guid:
@@ -220,6 +235,13 @@ MonoBehaviour:
       Data3: 1682527386
       Data4: 2123721812
     Path: event:/UI/PlayerSuccess
+  folderSlideSound:
+    Guid:
+      Data1: -315020731
+      Data2: 1078314370
+      Data3: 933797260
+      Data4: -957251132
+    Path: event:/Objects/Dialogue_Open
 --- !u!4 &113694256
 Transform:
   m_ObjectHideFlags: 0
@@ -236,6 +258,7 @@ Transform:
   - {fileID: 1831108606}
   - {fileID: 580726459}
   - {fileID: 1150259690}
+  - {fileID: 1390084671}
   - {fileID: 311103584}
   - {fileID: 840538436}
   - {fileID: 687576002}
@@ -481,13 +504,15 @@ GameObject:
   m_Component:
   - component: {fileID: 146377716}
   - component: {fileID: 146377715}
+  - component: {fileID: 146377718}
+  - component: {fileID: 146377717}
   m_Layer: 0
   m_Name: Folderclosed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &146377715
 SpriteRenderer:
   serializedVersion: 3
@@ -563,6 +588,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 730087442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.91}
+--- !u!61 &146377717
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146377714}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.55, y: 2.28}
+    newSize: {x: 3.55, y: 2.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.55, y: 2.28}
+  m_EdgeRadius: 0
+--- !u!114 &146377718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146377714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c9ffa1dbb56a14d8e69105895cb453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FolderController
 --- !u!1 &150058391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2905,6 +2988,76 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1390084668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1390084671}
+  - component: {fileID: 1390084670}
+  - component: {fileID: 1390084669}
+  m_Layer: 0
+  m_Name: CaseFileUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1390084669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390084668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157f8b2e9cdbbbe48bfde7547c025987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CaseFileVisualManager
+  caseFileUIDoc: {fileID: 1390084670}
+  finalCase: {fileID: 11400000, guid: ba4b47abe6e8e454da09059c1a5428e0, type: 2}
+--- !u!114 &1390084670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390084668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 3a2b906927e862c4a8c9dfc22b639cc6, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 342371fdc35c99b409318cb85c2e3724, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &1390084671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390084668}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 113694256}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1592699655
 GameObject:
   m_ObjectHideFlags: 0

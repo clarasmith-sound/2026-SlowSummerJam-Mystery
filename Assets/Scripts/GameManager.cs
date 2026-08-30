@@ -3,6 +3,7 @@ using Yarn.Unity;
 using FMODUnity;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
+using PrimeTween;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,21 +13,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private InspectionVisualManager inspectionVisualManager;
     [SerializeField] private CaseStartVisualManager caseStartVisualManager;
     [SerializeField] private RestartVisualManager restartVisualManager;
+    [SerializeField] private CaseFileVisualManager caseFileVisualManager;
     public DialogueRunner dialogueRunner;
     public bool undiscoveredClues = true;
     public bool stampBeingHeld = false;
     [HideInInspector] public StampController stampController;
     [HideInInspector] public PhoneController phoneController;
     [HideInInspector] public MonocleController monocleController;
+    [HideInInspector] public FolderController folderController;
     public GameObject porkpiePrefab;
     public GameObject confettiObject;
     public GameObject failstampPrefab;
     public GameObject optionsMenuGO;
+    public Clue[] bonusClues;
 
     public CaseSO[] allCases;
-    public int currentCaseIndex = 0;
+    public int currentCaseIndex = -1;
 
-    public bool optionsMenuOpen = false;
+    public bool optionsMenuOpen = false; // Any menu open
 
     [Header("Audio")]
     [SerializeField] private EventReference suspectEnterRoomSound;
@@ -36,6 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EventReference guiltyStampSound;
     [SerializeField] private EventReference playerExpelledSound;
     [SerializeField] private EventReference playerWinSound;
+    [SerializeField] private EventReference folderSlideSound; // I'm reusing the dialogue open sound, replace if wanted! - Reagan
 
     private void Awake()
     {
@@ -53,13 +58,15 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        StartCase(allCases[currentCaseIndex]);
         FindControllersInScene();
+        FindAllSuspectsInScene();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        _ = DelayAndRing();
     }
 
     public async void StartCase(CaseSO caseToStart)
     {
+        caseFileVisualManager.CloseCaseFile();
         await caseStartVisualManager.DisplayStartCase(caseToStart);
         foreach (SuspectSO suspect in caseToStart.suspects)
         {
@@ -83,10 +90,12 @@ public class GameManager : MonoBehaviour
         stampController = FindAnyObjectByType<StampController>();
         phoneController = FindAnyObjectByType<PhoneController>();
         monocleController = FindAnyObjectByType<MonocleController>(FindObjectsInactive.Include);
+        folderController = FindAnyObjectByType<FolderController>(FindObjectsInactive.Include);
     }
 
     public void StartInspection(GameObject targetSuspect)
     {
+        caseFileVisualManager.CloseCaseFile();
         AudioManager.Instance.PlaySound2D(startInspectionSound);
         inspectionVisualManager.StartInspection(targetSuspect);
         cameraManager.MoveToInspection(targetSuspect);
@@ -110,8 +119,6 @@ public class GameManager : MonoBehaviour
 
     public void RunDialogue(string startNode)
     {
-        // TODO - GAME DESIGN: I would expect clicking where I clicked again progresses the dialogue, but it restarts
-        // Evaluate this UX, maybe once a node starts, you enter a state where clicks continue instead of restarting it
         _ = dialogueRunner.StartDialogue(startNode);
     }
 
@@ -155,6 +162,7 @@ public class GameManager : MonoBehaviour
     // Returns true if all clues have been discovered, and false otherwise 
     public bool PrepareToStamp()
     {
+        caseFileVisualManager.CloseCaseFile();
         if (undiscoveredClues)
         {
             _ = dialogueRunner.StartDialogue("UndiscoveredClues");
@@ -199,7 +207,11 @@ public class GameManager : MonoBehaviour
 
     public void PhonePickedUp()
     {
-        _ = dialogueRunner.StartDialogue(allCases[currentCaseIndex].yarnFailureNode);
+        caseFileVisualManager.CloseCaseFile();
+        if (currentCaseIndex >= 0)
+            _ = dialogueRunner.StartDialogue(allCases[currentCaseIndex].yarnFailureNode);
+        else
+            _ = dialogueRunner.StartDialogue("TutorialCall");
     }
 
     [YarnCommand("next_case")]
@@ -211,6 +223,7 @@ public class GameManager : MonoBehaviour
         // SOUND :  As the success or failure dialogue finishes, the current case gets cleared.
         // Currently, the suspects just disappear, but they could fade out/slide out/etc. 
         //AudioManager.Instance.PlaySound2D(guiltyStampSound);
+        optionsMenuOpen = true;
         if (currentCaseIndex < (allCases.Length - 1))
         {
             currentCaseIndex++;
@@ -218,8 +231,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // TODO: Game over
-            Debug.Log("There are no more cases");
+            Debug.Log("ERROR: There are no more cases to play.");
         }
     }
 
@@ -261,14 +273,50 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "Start") // If we've gone back to the start menu, consider it a restart
         {
-            currentCaseIndex = 0;
+            currentCaseIndex = -1;
             optionsMenuGO.SetActive(false);
         }
         if (scene.name == "Office") // Restarting game after coming from start
         {
-            FindControllersInScene();
-            StartCase(allCases[currentCaseIndex]);
             optionsMenuGO.SetActive(true);
+            FindControllersInScene();
+            FindAllSuspectsInScene();
+            _ = DelayAndRing();
         }
+    }
+
+    public async Task DelayAndRing()
+    {
+        await Task.Delay(3000);
+        phoneController.StartPhoneRinging();
+    }
+
+    public void OpenCaseFile()
+    {
+        caseFileVisualManager.OpenCaseFile(bonusClues);
+    }
+
+    [YarnCommand("unlock_casefile")]
+    public void UnlockCaseFile()
+    {
+        _ = UnlockCaseFileAsync();
+    }
+
+    private async Task UnlockCaseFileAsync()
+    {
+        Vector3 targetPos = folderController.gameObject.transform.position;
+        GameObject folderGO = folderController.gameObject;
+        folderGO.transform.position = new Vector3(targetPos.x, targetPos.y - 5f, targetPos.z);
+        folderController.gameObject.SetActive(true);
+        await Tween.PositionY(folderGO.transform, endValue: targetPos.y, duration: 0.5f);
+        AudioManager.Instance.PlaySound2D(folderSlideSound);
+        await Task.Delay(1000);
+        StartNextCase();
+    }
+
+    [YarnCommand("discover_bonusclue")]
+    public void DiscoverBonusClue(int clueIndex)
+    {
+        bonusClues[clueIndex].discovered = true;
     }
 }
