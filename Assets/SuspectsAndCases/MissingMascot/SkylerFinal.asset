@@ -19,6 +19,6 @@ MonoBehaviour:
       has he been up to?
     yarnDialogueNode: SkylerFinalAClue0
     discovered: 0
-  - textDescription: Two bobby pins twisted into what looks like a makeshift lockpick.
+  - textDescription: A lockpick set.
     yarnDialogueNode: SkylerFinalAClue1
     discovered: 0
