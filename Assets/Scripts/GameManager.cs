@@ -274,11 +274,17 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "Start") // If we've gone back to the start menu, consider it a restart
         {
+            _ = dialogueRunner.Stop();
             currentCaseIndex = -1;
             optionsMenuGO.SetActive(false);
+            foreach (Clue clue in bonusClues)
+            {
+                clue.discovered = false;
+            }
         }
         if (scene.name == "Office") // Restarting game after coming from start
         {
+            cameraManager.FindNewMain();
             optionsMenuGO.SetActive(true);
             FindControllersInScene();
             FindAllSuspectsInScene();
@@ -318,5 +324,11 @@ public class GameManager : MonoBehaviour
     public void DiscoverBonusClue(int clueIndex)
     {
         bonusClues[clueIndex].discovered = true;
+    }
+
+    public void PrepareForBackToStart()
+    {
+        inspectionVisualManager.CallEndInspection();
+        _ = dialogueRunner.Stop();
     }
 }
