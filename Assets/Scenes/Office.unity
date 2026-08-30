@@ -3019,7 +3019,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CaseFileVisualManager
   caseFileUIDoc: {fileID: 1390084670}
-  finalCase: {fileID: 11400000, guid: ba4b47abe6e8e454da09059c1a5428e0, type: 2}
+  buttonHoverSound:
+    Guid:
+      Data1: -128432000
+      Data2: 1210964638
+      Data3: -611468907
+      Data4: 1997348918
+    Path: event:/UI/GenericHover
+  folderOpenSound:
+    Guid:
+      Data1: -315020731
+      Data2: 1078314370
+      Data3: 933797260
+      Data4: -957251132
+    Path: event:/Objects/Dialogue_Open
+  folderCloseSound:
+    Guid:
+      Data1: -328727303
+      Data2: 1249359224
+      Data3: -1788999037
+      Data4: 121204714
+    Path: event:/Objects/Dialogue_Close
 --- !u!114 &1390084670
 MonoBehaviour:
   m_ObjectHideFlags: 0
