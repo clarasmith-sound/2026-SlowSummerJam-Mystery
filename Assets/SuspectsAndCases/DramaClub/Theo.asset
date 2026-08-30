@@ -21,7 +21,7 @@ MonoBehaviour:
   - textDescription: 'A thermos. Smells like tea with honey. '
     yarnDialogueNode: TheoClue1
     discovered: 0
-  - textDescription: The cast list for the show is in his backpack. Looks like he
-      got the lead!
+  - textDescription: "He\u2019s holding the script for the show. Looks like he got
+      the lead role!"
     yarnDialogueNode: TheoClue2
     discovered: 0
