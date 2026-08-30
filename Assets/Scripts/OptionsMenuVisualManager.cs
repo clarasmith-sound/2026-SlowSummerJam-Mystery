@@ -9,7 +9,7 @@ public class OptionsMenuVisualManager : MonoBehaviour
 {
     public UIDocument optionsMenuUIDoc;
     private VisualElement optionsUI;
-    
+
     [Header("Audio Properties")]
     [SerializeField] private EventReference buttonHoverSound;
     [SerializeField] private EventReference buttonSelectSound;
@@ -99,14 +99,16 @@ public class OptionsMenuVisualManager : MonoBehaviour
 
     public void BackToStartMenu()
     {
+        GameManager.Instance.PrepareForBackToStart();
         AudioManager.Instance.PlaySound2D(buttonBackSound);
         AudioManager.Instance.SaveVolumeSettingsToDisk();
         GameManager.Instance.optionsMenuOpen = false;
 
         VisualElement container = optionsUI.Q<VisualElement>("OptionsMenuContainer");
-        if (container != null){
-             container.style.display = DisplayStyle.None;
-             container.pickingMode = PickingMode.Ignore;
+        if (container != null)
+        {
+            container.style.display = DisplayStyle.None;
+            container.pickingMode = PickingMode.Ignore;
         }
         SceneManager.LoadScene("Start", LoadSceneMode.Single);
     }
@@ -117,9 +119,10 @@ public class OptionsMenuVisualManager : MonoBehaviour
         AudioManager.Instance.SaveVolumeSettingsToDisk();
         GameManager.Instance.optionsMenuOpen = false;
         VisualElement container = optionsUI.Q<VisualElement>("OptionsMenuContainer");
-        if (container != null){
-             container.style.display = DisplayStyle.None;
-             container.pickingMode = PickingMode.Ignore;
+        if (container != null)
+        {
+            container.style.display = DisplayStyle.None;
+            container.pickingMode = PickingMode.Ignore;
         }
     }
 
