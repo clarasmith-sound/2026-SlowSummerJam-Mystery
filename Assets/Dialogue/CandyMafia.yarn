@@ -52,7 +52,7 @@ Blink: Do y-you think she was the one who took little Porkie? #line:candy_mafia_
 
 title: CandyMafiaFailure
 ---
-Superintendent: Really?? You couldn’t tell that Moxie was on a sugar high? They were downing Fizzy Dizzles like no tomorrow to get rid of the evidence! What kind of Principal are you? #line:candy_mafia_failure_01
+Superintendent: Really?? You couldn’t tell that Moxie was on a sugar high? She was downing Fizzy Dizzles like no tomorrow to get rid of the evidence! What kind of Principal are you? #line:candy_mafia_failure_01
 Superintendent: If you keep this up, you can kiss your job goodbye. I don’t have to say this twice. #line:candy_mafia_failure_02
 <<next_case GameManager>>
 ===
