@@ -102,8 +102,8 @@ public class ToolkitDialogueView : DialoguePresenterBase
         var speechText = dialogueRootEl.Q<Label>("speech-text");
         if (speechText == null) Debug.LogError("speech-text Label not found!");
         //Debug.Log($"Line text received: '{line.TextWithoutCharacterName.Text}' (length: {line.TextWithoutCharacterName.Text.Length})");
-        await RunTypewriterEffect(speechText, line.TextWithoutCharacterName.Text, token.HurryUpToken);
-        //speechText.text = line.TextWithoutCharacterName.Text;
+        //await RunTypewriterEffect(speechText, line.TextWithoutCharacterName.Text, token.HurryUpToken);
+        speechText.text = line.TextWithoutCharacterName.Text;
 
         _waitingForNextLine = true;
 
