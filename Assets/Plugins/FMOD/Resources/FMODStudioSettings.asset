@@ -190,8 +190,8 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     VirtualChannelCount:
-      Value: 256
-      HasValue: 1
+      Value: 0
+      HasValue: 0
     RealChannelCount:
       Value: 0
       HasValue: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: FMODUnity::FMODUnity.PlatformWebGL
   identifier: 46fbfdf3fc43db0458918377fd40293e
   parentIdentifier: default
-  active: 1
+  active: 0
   Properties:
     LiveUpdate:
       Value: 0
@@ -439,7 +439,7 @@ MonoBehaviour:
     CallbackHandler:
       Value: {fileID: 0}
       HasValue: 0
-  OutputTypeName: AUTODETECT
+  OutputTypeName: 
   threadAffinities:
     Value: []
     HasValue: 0
@@ -607,20 +607,20 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: FMODUnity::FMODUnity.Settings
   switchSettingsMigration: 1
-  HasSourceProject: 0
+  HasSourceProject: 1
   HasPlatforms: 1
   sourceProjectPath: FMODProject/2026-ssj-mystery-fmod/2026-ssj-mystery-fmod.fspro
-  sourceBankPath: FMODProject/2026-ssj-mystery-fmod/Build/
+  sourceBankPath: FMODProject/2026-ssj-mystery-fmod/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
-  AutomaticEventLoading: 0
-  BankLoadType: 1
+  AutomaticEventLoading: 1
+  BankLoadType: 0
   AutomaticSampleLoading: 0
   EncryptionKey: 
   ImportType: 0
   TargetAssetPath: FMODBanks
-  TargetBankFolder: HTML5
+  TargetBankFolder: 
   EventLinkage: 0
   SerializeGUIDsOnly: 0
   LoggingLevel: 2
@@ -636,10 +636,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Dialogue_EN
-  BanksToLoad:
-  - Master
-  - Master.strings
-  - Dialogue_EN
+  BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
   AndroidUseOBB: 0

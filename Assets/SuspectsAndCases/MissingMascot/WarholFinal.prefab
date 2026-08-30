@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 1998905654426996011}
   - component: {fileID: 2428712550626192079}
   - component: {fileID: 2198267601714633490}
-  - component: {fileID: 1728133392480918779}
+  - component: {fileID: 946497551357412368}
   m_Layer: 0
   m_Name: WarholFinal
   m_TagString: Suspect
@@ -995,7 +995,7 @@ PolygonCollider2D:
       - {x: -1.87, y: 6.5899997}
       - {x: -1.91, y: 6.58}
   m_UseDelaunayMesh: 1
---- !u!95 &1728133392480918779
+--- !u!95 &946497551357412368
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -1005,7 +1005,7 @@ Animator:
   m_GameObject: {fileID: 8234159986567242207}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dfbb08213984f8e4ca93cf5fba1c6036, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4fce4714ea99e6d448b983bdfd052562, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
