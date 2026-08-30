@@ -16,7 +16,7 @@ MonoBehaviour:
   prefabSuspect: {fileID: 1000504796863619713, guid: da7288b0f1bed3849ab6f96e3a850f05, type: 3}
   clues:
   - textDescription: Blink keeps looking away or to the ground when talking to you.
-      Are they hiding something?
+      Is she hiding something?
     yarnDialogueNode: BlinkClue0
     discovered: 0
   - textDescription: An art sketchbook. Inside is an assortment of candy wrappers
