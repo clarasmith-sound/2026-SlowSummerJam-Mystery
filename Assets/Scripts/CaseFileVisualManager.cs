@@ -26,9 +26,10 @@ public class CaseFileVisualManager : MonoBehaviour
         caseFileUI.Q<Button>("ContinueButton").UnregisterCallback<PointerEnterEvent>(OnButtonHover);
     }
 
-    public void OpenCaseFile(Clue[] clues)
+    public void OpenCaseFile(CaseSO currentCase, Clue[] clues)
     {
         if (GameManager.Instance != null) GameManager.Instance.optionsMenuOpen = true;
+        caseFileUI.Q<VisualElement>("IncidentReport").dataSource = currentCase;
         caseFileUI.Q<VisualElement>("Clue0").dataSource = clues[0];
         caseFileUI.Q<VisualElement>("Clue1").dataSource = clues[1];
         caseFileUI.Q<VisualElement>("Clue2").dataSource = clues[2];

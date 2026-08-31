@@ -4,7 +4,7 @@
     <Style src="project://database/Assets/UI/StyleSheets/PorkPieFiles_CaseFileStyling.uss?fileID=7433441132597879392&amp;guid=bc1b0ed425d4d9c4da9cee906210dfbd&amp;type=3#PorkPieFiles_CaseFileStyling"/>
     <ui:VisualElement name="CaseFileMenu" style="flex-grow: 1; align-items: center; justify-content: center; display: none;">
         <ui:VisualElement name="Folder" style="background-image: url(&quot;project://database/Assets/Art/FolderTitle.png?fileID=-961851279&amp;guid=e99ce10d404df7d49ab430ec50b6e979&amp;type=3#FolderOpen&quot;); -unity-background-scale-mode: scale-to-fit; width: 1343px; height: 859px;">
-            <ui:VisualElement name="IncidentReport" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;); width: 615px; height: 771px; rotate: 2deg; padding-top: 18px; padding-right: 18px; padding-bottom: 18px; padding-left: 18px; position: absolute; top: 33px; left: 63px;">
+            <ui:VisualElement name="IncidentReport" data-source-type="CaseSO, Assembly-CSharp" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;); width: 615px; height: 771px; rotate: 2deg; padding-top: 18px; padding-right: 18px; padding-bottom: 18px; padding-left: 18px; position: absolute; top: 50px; left: 60px;">
                 <ui:VisualElement name="HeaderRow" class="header-row">
                     <ui:Image source="project://database/Assets/Art/UI.png?fileID=-421481591&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_17" name="SchoolEmblem"/>
                     <ui:VisualElement name="HeaderTextGroup" class="header-text-group">
@@ -13,18 +13,26 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="TitleBlockRow" class="title-block-row" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=-571982699&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_6&quot;); -unity-background-image-tint-color: rgb(137, 46, 16);">
-                    <ui:Label name="CaseName" text="The Missing Mascot" style="color: rgb(255, 255, 255); font-size: 36px;"/>
+                    <ui:Label name="CaseName" text="The Missing Mascot" style="color: rgb(255, 255, 255); font-size: 36px;">
+                        <Bindings>
+                            <ui:DataBinding property="text" data-source-path="caseName" binding-mode="ToTarget"/>
+                        </Bindings>
+                    </ui:Label>
                 </ui:VisualElement>
                 <ui:VisualElement name="BodyContentRow" class="body-content-row">
-                    <ui:Label text="The beloved school mascot, Pork Pie, has gone missing! There’s only a few days left before the homecoming game, and if you aren’t able to solve the case, the superintendent has warned you there will be consequences. &#10;&#10;As troublemakers come into your office, keep an eye on the guilty parties. They may know something about the missing pig…" name="CaseBodyText" style="flex-grow: 1; width: 100%; white-space: normal; font-size: 24px;">
+                    <ui:Label text="The beloved school mascot, Pork Pie, has gone missing! There’s only a few days left before the homecoming game, and if you aren’t able to solve the case, the superintendent has warned you there will be consequences. &#10;&#10;As troublemakers come into your office, keep an eye on the guilty parties. They may know something about the missing pig…" name="CaseBodyText" style="flex-grow: 1; width: 100%; white-space: normal; font-size: 22px;">
                         <Bindings>
                             <ui:DataBinding property="text" data-source-path="caseDescription" binding-mode="ToTarget"/>
                         </Bindings>
                     </ui:Label>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="PermanentRecord" class="hidden" style="position: absolute; height: 80%; width: 563px; padding-top: 28px; padding-right: 28px; padding-bottom: 28px; padding-left: 28px; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;); top: 66px; left: 49px; rotate: -1deg;">
-                <ui:Label text="Clues Collected" name="DocumentSubheader"/>
+            <ui:VisualElement name="MissingMascotSummary" class="hidden" style="position: absolute; height: 80%; width: 563px; padding-top: 28px; padding-right: 28px; padding-bottom: 28px; padding-left: 28px; background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=910428170&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_16&quot;); top: 66px; left: 714px; rotate: -1deg;">
+                <ui:VisualElement name="TitleBlockRow" class="title-block-row" style="background-image: url(&quot;project://database/Assets/Art/UI.png?fileID=-571982699&amp;guid=f2da59040992cc84a88abc4e996a4eda&amp;type=3#UI_6&quot;); -unity-background-image-tint-color: rgb(137, 46, 16);">
+                    <ui:Label name="CaseName" text="The Missing Mascot" style="color: rgb(255, 255, 255); font-size: 36px;"/>
+                </ui:VisualElement>
+                <ui:Label text="The beloved school mascot, Pork Pie, has gone missing! The superintendent has asked me to keep an eye on the suspects that come into my office. They may know something about the missing pig..." name="CaseBodyText" style="width: 100%; white-space: normal; font-size: 22px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"/>
+                <ui:Label text="Bonus Clues Collected" name="DocumentSubheader" style="font-size: 30px;"/>
                 <ui:VisualElement name="Clues" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
                     <ui:Instance template="PermanentRecordClue" name="Clue0"/>
                     <ui:Instance template="PermanentRecordClue" name="Clue1"/>

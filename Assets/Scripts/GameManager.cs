@@ -303,7 +303,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenCaseFile()
     {
-        caseFileVisualManager.OpenCaseFile(bonusClues);
+        caseFileVisualManager.OpenCaseFile(allCases[currentCaseIndex], bonusClues);
     }
 
     [YarnCommand("unlock_casefile")]
