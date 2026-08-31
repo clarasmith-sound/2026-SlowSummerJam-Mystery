@@ -104,9 +104,12 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void PlayLoopingSound(EventReference eventReference, out EventInstance eventInstance)
+    public void PlayLoopingSound(EventReference eventReference, GameObject emitterObject, out EventInstance eventInstance)
     {
         eventInstance = RuntimeManager.CreateInstance(eventReference);
+
+        eventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(emitterObject));
+        
         eventInstance.start();
     }
 

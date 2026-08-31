@@ -1,6 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using System.Collections;
 
 public class AudioSceneManager : MonoBehaviour
 {
@@ -13,15 +14,24 @@ public class AudioSceneManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (musicEvent.IsNull && ambienceSound.IsNull) return;
-        else if (!musicEvent.IsNull)
+        StartCoroutine(WaitForBanksThenPlay());
+    }
+
+    private IEnumerator WaitForBanksThenPlay()
+    {
+        while (!RuntimeManager.HaveAllBanksLoaded)
+        {
+            yield return null;
+        }
+
+        if(!musicEvent.IsNull)
         {
             PlayMusic();
         }
         else if (!ambienceSound.IsNull)
         {
             PlayAmbience();
-        }        
+        }
     }
 
     private void PlayAmbience()

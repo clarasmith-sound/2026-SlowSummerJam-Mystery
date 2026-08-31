@@ -65,7 +65,7 @@ public class PhoneController : MonoBehaviour
         if (IsRinging) return;
         IsRinging = true;
         phoneRingEventInstance.start();
-        AudioManager.Instance.PlayLoopingSound(phoneRingEvent, out phoneRingEventInstance);
+        AudioManager.Instance.PlayLoopingSound(phoneRingEvent, gameObject, out phoneRingEventInstance);
 
         ringingAnimation = Sequence.Create(cycles: -1, Sequence.SequenceCycleMode.Yoyo)
             .Group(Tween.ShakeScale(gameObject.transform, strength: new Vector3(.1f, .1f, .1f), duration: 0.3f));
