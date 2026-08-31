@@ -18,6 +18,10 @@ public class ToolkitDialogueView : DialoguePresenterBase
     private Button continueButton;
     private bool _waitingForNextLine;
 
+    [Header("Typewriter")]
+    [SerializeField] private float punctuationDelay = 0.2f;
+    [SerializeField] private float normalCharDelay = 0.02f;
+
     [Header("Audio")]
     [SerializeField] private EventReference buttonHoverSound;
     [SerializeField] private EventReference continueButtonSound;
@@ -126,7 +130,7 @@ public class ToolkitDialogueView : DialoguePresenterBase
                 AudioManager.Instance.PlaySound2D(typeWriterSound);
             }
 
-            float delay = (char.IsPunctuation(text[i]) && text[i] != '\'' && text[i] != '’' && text[i] != '‘' && text[i] != ',') ? 0.5f : 0.05f;
+            float delay = (char.IsPunctuation(text[i]) && text[i] != '\'' && text[i] != '’' && text[i] != '‘' && text[i] != ',') ? punctuationDelay : normalCharDelay;
             await Awaitable.WaitForSecondsAsync(delay);
 
             if (token.IsCancellationRequested)

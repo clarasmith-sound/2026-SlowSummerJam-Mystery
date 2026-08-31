@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{115d1979-25da-40c5-befc-eb1dd9cf9712}">
+	<object class="AudioFile" id="{8f464920-a4ca-40c0-8957-ddc5565c1bb5}">
 		<property name="assetPath">
-			<value>DOORWood_Door Wood Church Basement Rm1 O C Lite 2_PSE_BR-C_Q2B0S.wav</value>
+			<value>Dialogue/EN/skyler_drama_club_C02.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>96</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="length">
-			<value>8.2799791666666671</value>
+			<value>9.8133333333333326</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{c02e655b-99cd-4521-8ce3-fb6702b2c130}</destination>
