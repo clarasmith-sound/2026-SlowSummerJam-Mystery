@@ -1705,6 +1705,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToolkitDialogueVIew
   runner: {fileID: 687576003}
   UIDocument: {fileID: 840538435}
+  punctuationDelay: 0.3
+  normalCharDelay: 0.05
   buttonHoverSound:
     Guid:
       Data1: -128432000
