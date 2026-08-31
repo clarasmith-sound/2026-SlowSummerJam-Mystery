@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public int currentCaseIndex = -1;
 
     public bool optionsMenuOpen = false; // Any menu open
+    public bool inspectionInProgress = false;
 
     [Header("Audio")]
     [SerializeField] private EventReference suspectEnterRoomSound;
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
 
     public void StartInspection(GameObject targetSuspect)
     {
+        inspectionInProgress = true;
         caseFileVisualManager.CloseCaseFile();
         AudioManager.Instance.PlaySound2D(startInspectionSound);
         inspectionVisualManager.StartInspection(targetSuspect);
@@ -116,6 +118,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject suspect in allSuspects)
             suspect.GetComponent<SuspectController>().RestoreToReady();
         monocleController.gameObject.SetActive(false);
+        inspectionInProgress = false;
     }
 
     public void RunDialogue(string startNode)

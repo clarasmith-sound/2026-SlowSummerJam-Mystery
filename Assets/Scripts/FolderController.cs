@@ -11,7 +11,7 @@ public class FolderController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
+        if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true || GameManager.Instance.inspectionInProgress == true) return;
         spriteRenderer.material.SetFloat("_Toggle", 1.0f);
     }
 
@@ -22,8 +22,7 @@ public class FolderController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true) return;
+        if (GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true || GameManager.Instance.inspectionInProgress == true) return;
         GameManager.Instance.OpenCaseFile();
     }
-
 }
