@@ -16,7 +16,7 @@ public class StampController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true || GameManager.Instance.currentCaseIndex == -1) return;
+        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true || GameManager.Instance.inspectionInProgress == true || GameManager.Instance.currentCaseIndex == -1 ) return;
         // SOUND :  The mouse is hovering over the stamp. If (!stampPickedUp), the stamp is not currently being held,
         // so the whole thing is outlined to indicate pickup. If (stampPickedUp), the stamp is already being held, 
         // and the base is outlined to indicate putting the stamp back. 
@@ -46,7 +46,7 @@ public class StampController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true || GameManager.Instance.currentCaseIndex == -1) return;
+        if(GameManager.Instance != null && GameManager.Instance.optionsMenuOpen == true || GameManager.Instance.inspectionInProgress == true|| GameManager.Instance.currentCaseIndex == -1) return;
         if (!stampPickedUp)
         {
             if (!GameManager.Instance.PrepareToStamp()) return;
