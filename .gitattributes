@@ -148,8 +148,16 @@ Packages/packages-lock.json linguist-generated
 *.skel.bytes            lfs
 # Exceptions for .asset files such as lightning pre-baking
 LightingData.asset     binary
+
+# Clear tracking metadata for FMOD core plugin binaries
+Assets/Plugins/FMOD/**/*.png -lfs
+Assets/Plugins/FMOD/**/*.dll -lfs
+Assets/Plugins/FMOD/**/*.so -lfs
+Assets/Plugins/FMOD/**/*.a -lfs
 Assets/Plugins/FMOD/**/*.bundle text eol=lf
 Assets/Plugins/FMOD/**/Info.plist text eol=lf
+
+
 # =========================================================================
 # FMOD STUDIO ROOT PROJECT CONFIGURATION
 # Force FMOD xml metadata and project files to use consistent line endings

@@ -153,7 +153,6 @@ fmod_editor.log
 .DS_Store
 **/.DS_Store
 
-!Assets/**/*.wav
 !FMODProject/**/*.wav
 Assets/Resources/PerformanceTestRunSettings.json.meta
 Assets/Resources/PerformanceTestRunSettings.json
